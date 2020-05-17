@@ -68,6 +68,10 @@
     <Reference Include="Dapper.Contrib, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\Dapper.Contrib.2.0.35\lib\net461\Dapper.Contrib.dll</HintPath>
     </Reference>
+    <Reference Include="DAT, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\DAT\bin\Debug\DAT.dll</HintPath>
+    </Reference>
     <Reference Include="DevExpress.BonusSkins.v19.2, Version=19.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.Data.v19.2, Version=19.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="DevExpress.DataAccess.v19.2, Version=19.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
@@ -766,10 +770,6 @@
     <ProjectReference Include="..\BUS\BUS.csproj">
       <Project>{A6315343-D051-4F81-9BD3-8AF4189FD8B4}</Project>
       <Name>BUS</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\DAT\DAT.csproj">
-      <Project>{C3298379-E718-4116-950A-6A23974E9E4A}</Project>
-      <Name>DAT</Name>
     </ProjectReference>
     <ProjectReference Include="..\DTO\DTO.csproj">
       <Project>{C85AA3EB-46B9-42C3-BE89-08753E3A2A43}</Project>
