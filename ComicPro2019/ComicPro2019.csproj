@@ -68,10 +68,6 @@
     <Reference Include="Dapper.Contrib, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\Dapper.Contrib.2.0.35\lib\net461\Dapper.Contrib.dll</HintPath>
     </Reference>
-    <Reference Include="DAT, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\DAT\bin\Debug\DAT.dll</HintPath>
-    </Reference>
     <Reference Include="DevExpress.BonusSkins.v19.2, Version=19.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.Data.v19.2, Version=19.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="DevExpress.DataAccess.v19.2, Version=19.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
@@ -93,7 +89,6 @@
     <Reference Include="DevExpress.XtraCharts.v19.2.UI, Version=19.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.XtraCharts.v19.2.Wizard, Version=19.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="DevExpress.XtraDialogs.v19.2, Version=19.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
-    <Reference Include="DevExpress.XtraEditors.v19.2, Version=19.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.XtraEditors.v19.2, Version=19.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="DevExpress.XtraGauges.v19.2.Core, Version=19.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.XtraGrid.v19.2, Version=19.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
@@ -328,13 +323,6 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
-    <Compile Include="GraphicsEdit\GraphicsEdit.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="GraphicsEdit\GraphicsEditViewInfo.cs" />
-    <Compile Include="GraphicsEdit\RepositoryItemGraphicsEdit.CS">
-      <SubType>Component</SubType>
-    </Compile>
     <Compile Include="HelperMessage.cs" />
     <Compile Include="HeThong\FrmDoiMatKhau.cs">
       <SubType>Form</SubType>
@@ -371,6 +359,12 @@
     </Compile>
     <Compile Include="HeThong\FrmNguoidung.designer.cs">
       <DependentUpon>FrmNguoidung.cs</DependentUpon>
+    </Compile>
+    <Compile Include="HeThong\FrmThietLapHeThong.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="HeThong\FrmThietLapHeThong.Designer.cs">
+      <DependentUpon>FrmThietLapHeThong.cs</DependentUpon>
     </Compile>
     <Compile Include="HeThong\FrmViewExcel.cs">
       <SubType>Form</SubType>
@@ -645,6 +639,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="HeThong\FrmNguoidung.resx">
       <DependentUpon>FrmNguoidung.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="HeThong\FrmThietLapHeThong.resx">
+      <DependentUpon>FrmThietLapHeThong.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="HeThong\FrmViewExcel.resx">
       <DependentUpon>FrmViewExcel.cs</DependentUpon>

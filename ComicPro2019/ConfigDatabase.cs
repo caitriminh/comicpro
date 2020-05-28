@@ -1,13 +1,14 @@
-﻿using DAT;
+﻿using ComicPro2019.Properties;
+
 
 namespace ComicPro2019
 {
-    public class ConfigDatabase : DbConnect
+    public class ConfigDatabase
     {
-        public static string IP_SERVER_NAME = "125.212.221.113";
-        public static string USER_NAME_DB = "caitriminh";
-        public static string PASSWORD_DB = "Diemthuong@2809";
-        public static string DATABASE = "comicpro";
+        public static string IP_SERVER_NAME = Settings.Default.server;
+        public static string USER_NAME_DB = Settings.Default.user;
+        public static string PASSWORD_DB = Settings.Default.matkhau;
+        public static string DATABASE = Settings.Default.database;
         public static int TIME_OUT = 3; // default 3s
         public static bool IS_CONNECTED = true;
         public static string IP_SERVER_LOCAL = ".";

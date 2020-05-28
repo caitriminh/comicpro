@@ -33,7 +33,7 @@
             this.ribbonControl1 = new DevExpress.XtraBars.Ribbon.RibbonControl();
             this.skinPaletteRibbonGalleryBarItem1 = new DevExpress.XtraBars.SkinPaletteRibbonGalleryBarItem();
             this.btn_donvitinh = new DevExpress.XtraBars.BarButtonItem();
-            this.barButtonItem1 = new DevExpress.XtraBars.BarButtonItem();
+            this.btn_thietlap = new DevExpress.XtraBars.BarButtonItem();
             this.btn_nguoidung = new DevExpress.XtraBars.BarButtonItem();
             this.btn_thoat = new DevExpress.XtraBars.BarButtonItem();
             this.btn_quocgia = new DevExpress.XtraBars.BarButtonItem();
@@ -97,6 +97,7 @@
             this.flyoutPanel_internet = new DevExpress.Utils.FlyoutPanel();
             this.lbl_message_internet = new DevExpress.XtraEditors.LabelControl();
             this.imageCollectionSmall = new DevExpress.Utils.ImageCollection(this.components);
+            this.barButtonItem7 = new DevExpress.XtraBars.BarButtonItem();
             ((System.ComponentModel.ISupportInitialize)(this.ribbonControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemLineSpacing1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.imageCollection1)).BeginInit();
@@ -114,7 +115,7 @@
             this.ribbonControl1.SearchEditItem,
             this.skinPaletteRibbonGalleryBarItem1,
             this.btn_donvitinh,
-            this.barButtonItem1,
+            this.btn_thietlap,
             this.btn_nguoidung,
             this.btn_thoat,
             this.btn_quocgia,
@@ -156,10 +157,11 @@
             this.btn_convert,
             this.barButtonItem8,
             this.btn_connectgoogle,
-            this.skinRibbonGalleryBarItem1});
+            this.skinRibbonGalleryBarItem1,
+            this.barButtonItem7});
             this.ribbonControl1.LargeImages = this.imageCollection1;
             this.ribbonControl1.Location = new System.Drawing.Point(0, 0);
-            this.ribbonControl1.MaxItemId = 47;
+            this.ribbonControl1.MaxItemId = 48;
             this.ribbonControl1.MdiMergeStyle = DevExpress.XtraBars.Ribbon.RibbonMdiMergeStyle.Always;
             this.ribbonControl1.Name = "ribbonControl1";
             this.ribbonControl1.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
@@ -189,12 +191,13 @@
             this.btn_donvitinh.Name = "btn_donvitinh";
             this.btn_donvitinh.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btn_donvitinh_ItemClick);
             // 
-            // barButtonItem1
+            // btn_thietlap
             // 
-            this.barButtonItem1.Caption = "Thiết lập";
-            this.barButtonItem1.Id = 4;
-            this.barButtonItem1.ImageOptions.LargeImageIndex = 1;
-            this.barButtonItem1.Name = "barButtonItem1";
+            this.btn_thietlap.Caption = "Thiết lập";
+            this.btn_thietlap.Id = 4;
+            this.btn_thietlap.ImageOptions.LargeImageIndex = 1;
+            this.btn_thietlap.Name = "btn_thietlap";
+            this.btn_thietlap.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btn_thietlap_ItemClick);
             // 
             // btn_nguoidung
             // 
@@ -566,7 +569,7 @@
             // 
             // ribbonPageGroup3
             // 
-            this.ribbonPageGroup3.ItemLinks.Add(this.barButtonItem1);
+            this.ribbonPageGroup3.ItemLinks.Add(this.btn_thietlap);
             this.ribbonPageGroup3.ItemLinks.Add(this.btn_nguoidung);
             this.ribbonPageGroup3.ItemLinks.Add(this.btn_khoa);
             this.ribbonPageGroup3.ItemLinks.Add(this.btn_doimatkhau);
@@ -721,6 +724,12 @@
             this.imageCollectionSmall.Images.SetKeyName(1, "close_16x16.png");
             this.imageCollectionSmall.Images.SetKeyName(2, "cancel_16x16.png");
             // 
+            // barButtonItem7
+            // 
+            this.barButtonItem7.Caption = "barButtonItem7";
+            this.barButtonItem7.Id = 47;
+            this.barButtonItem7.Name = "barButtonItem7";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
@@ -760,7 +769,7 @@
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup3;
         private DevExpress.XtraBars.Ribbon.RibbonPage menu_danhmuc;
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup2;
-        private DevExpress.XtraBars.BarButtonItem barButtonItem1;
+        private DevExpress.XtraBars.BarButtonItem btn_thietlap;
         private DevExpress.XtraBars.BarButtonItem btn_nguoidung;
         private DevExpress.XtraBars.BarButtonItem btn_thoat;
         private DevExpress.Utils.ImageCollection imageCollection1;
@@ -818,5 +827,6 @@
         private DevExpress.XtraEditors.LabelControl lbl_message_internet;
         public DevExpress.Utils.ImageCollection imageCollectionSmall;
         public DevExpress.XtraBars.Ribbon.RibbonControl ribbonControl1;
+        private DevExpress.XtraBars.BarButtonItem barButtonItem7;
     }
 }

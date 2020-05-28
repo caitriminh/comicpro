@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Drawing;
 using System.Windows.Forms;
 using ComicPro2019.HeThong;
 using ComicPro2019.Properties;
@@ -47,7 +48,7 @@ namespace ComicPro2019.TroGiup
             {
                 if (string.IsNullOrEmpty(txt_key.Text))
                 {
-                    XtraMessageBox.Show("Vui lòng nhập key vào để đăng ký phần mềm.", "Cảnh Báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    Form1.Default.ShowMessageWarning("Vui lòng nhập key vào để đăng ký phần mềm.");
                     return;
                 }
                 //DataProvider provider = new DataProvider();
@@ -67,13 +68,12 @@ namespace ComicPro2019.TroGiup
                 }
                 else
                 {
-                    XtraMessageBox.Show("Key không hợp lệ!", "Thông báo!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    Form1.Default.ShowMessageWarning("Key không hợp lệ!");
                 }
             }
             else
             {
-                var dgr = XtraMessageBox.Show("Bạn có muốn hủy đăng ký không?", "Xác Nhận", MessageBoxButtons.YesNo,
-                    MessageBoxIcon.Question);
+                var dgr = HelperMessage.Instance.ShowMessageYesNo("Bạn có muốn hủy đăng ký không?", "Xác Nhận", SystemIcons.Question.ToBitmap());
                 if (dgr != DialogResult.Yes) { return; }
                 Settings.Default.key = "";
                 Settings.Default.Save();

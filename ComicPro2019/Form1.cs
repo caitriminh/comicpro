@@ -158,16 +158,24 @@ namespace ComicPro2019
             if (Config.Decrypt(Config.Encrypt(Config.CreateMd5(Config.GetSerialHdd().Trim()))).Equals(Settings.Default.key))
             {
                 Text = @"COMIC PRO " + DateTime.Now.Year + @" (LICENSED)";
-                using (FrmDangnhap frm = new FrmDangnhap())
+                if (Settings.Default.server.Length > 0) //Chưa cấu hình database
                 {
-                    if (MaskedDialog.ShowDialog(this, frm) == DialogResult.OK)
+                    using (FrmDangnhap frm = new FrmDangnhap())
                     {
-                        lbl_nguoidung.Caption = ComicPro.StrTenDangNhap.ToUpper();
-                        lbl_thoigian.Caption = DateTime.Now.Date.ToString("dd/MM/yyyy");
-                        bar_gio.Caption = DateTime.Now.Date.ToString("HH:mm");
-                        lbl_maychu.Caption = Dns.GetHostName();
-                        OpenForm(typeof(FrmBanLamViec));
+                        if (MaskedDialog.ShowDialog(this, frm) == DialogResult.OK)
+                        {
+                            lbl_nguoidung.Caption = ComicPro.StrTenDangNhap.ToUpper();
+                            lbl_thoigian.Caption = DateTime.Now.Date.ToString("dd/MM/yyyy");
+                            bar_gio.Caption = DateTime.Now.Date.ToString("HH:mm");
+                            lbl_maychu.Caption = Dns.GetHostName();
+                            OpenForm(typeof(FrmBanLamViec));
+                        }
                     }
+                }
+                else
+                {
+                    var frm1 = new FrmThietLapHeThong();
+                    MaskedDialog.ShowDialog(this, frm1);
                 }
             }
             else
@@ -366,5 +374,10 @@ namespace ComicPro2019
 
         }
 
+        private void btn_thietlap_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            var frm1 = new FrmThietLapHeThong();
+            MaskedDialog.ShowDialog(this, frm1);
+        }
     }
 }
