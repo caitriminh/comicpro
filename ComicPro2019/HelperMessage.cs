@@ -37,7 +37,7 @@ namespace ComicPro2019
                                 button.Text = "Đồng ý";
                                 // button.ForeColor = Color.Green;
                                 // button.Font = new Font(button.Font, FontStyle.Bold);
-                                button.AllowFocus = false;
+                                button.AllowFocus = true;
                                 button.Width = 90;
                                 break;
                             case ("No"):
@@ -79,7 +79,7 @@ namespace ComicPro2019
                                 button.Text = "Duyệt";
                                 // button.ForeColor = Color.Green;
                                 // button.Font = new Font(button.Font, FontStyle.Bold);
-                                button.AllowFocus = false;
+                                button.AllowFocus = true;
                                 button.Width = 90;
                                 break;
                             case ("No"):
@@ -124,6 +124,7 @@ namespace ComicPro2019
                             case ("OK"):
                                 button.ImageOptions.Image = Form1.Default.imageCollectionSmall.Images[1];
                                 button.Text = "Đóng";
+                                button.AllowFocus = true;
                                 break;
 
                         }

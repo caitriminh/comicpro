@@ -1,5 +1,4 @@
-﻿using BUS;
-using DevExpress.XtraEditors;
+﻿using DevExpress.XtraEditors;
 using SimpleBroker;
 using System;
 using System.ComponentModel;
@@ -19,7 +18,6 @@ namespace ComicPro2019.NghiepVu
             InitializeComponent();
         }
 
-        private BusTonKho _busTonKho = new BusTonKho();
         public async void GetTonKho()
         {
             var x = gridView1.FocusedRowHandle;
@@ -194,7 +192,7 @@ namespace ComicPro2019.NghiepVu
 
         public async void GetLayout(string matua)
         {
-            string strDuongDan = Application.StartupPath + "\\img\\";
+            string strDuongDan = Application.StartupPath + "\\img\\thumb\\";
             DataTable dt = await ExecSQL.ExecProcedureDataAsyncAsDataTable("pro_get_tonkho", new { option = 3, thang = Convert.ToDateTime(txt_tungay.EditValue).Month, nam = Convert.ToDateTime(txt_tungay.EditValue).Year, duongdanhinh = strDuongDan, matua });
             BindingList<PictureObject> list = new BindingList<PictureObject>();
             PictureObject item;
@@ -221,7 +219,7 @@ namespace ComicPro2019.NghiepVu
 
                  }
              });
-            gridControl1.DataSource = list;
+            dgv_Layout.DataSource = list;
         }
 
         public class PictureObject : INotifyPropertyChanged

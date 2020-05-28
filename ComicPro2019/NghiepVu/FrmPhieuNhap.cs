@@ -25,10 +25,10 @@ namespace ComicPro2019.NghiepVu
                 dgv_phieunhap.DataSource = dt;
                 lbl_maphieu.DataBindings.Clear();
                 lbl_maphieu.DataBindings.Add("text", dt, "maphieu");
+                gridView1.FocusedRowHandle = x;
+                gridView1.TopRowIndex = y;
             }));
 
-            gridView1.FocusedRowHandle = x;
-            gridView1.TopRowIndex = y;
         }
 
         public async void GetCtPhieuNhap(string maphieu)
@@ -136,7 +136,7 @@ namespace ComicPro2019.NghiepVu
             ComicPro.Edit = true;
             ComicPro.StrMaphieu = lbl_maphieu.Text;
             FrmThemPhieuNhap frm = new FrmThemPhieuNhap();
-            frm.Show();
+            frm.Show(this);
         }
         private void btn_tim_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {

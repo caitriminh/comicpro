@@ -20,7 +20,7 @@ namespace ComicPro2019.NghiepVu.BanLamViec
 
         public async void GetLayout()
         {
-            string strDuongDan = Application.StartupPath + "\\img\\";
+            string strDuongDan = Application.StartupPath + "\\img\\origin\\";
             DataTable dt = await ExecSQL.ExecProcedureDataAsyncAsDataTable("pro_get_tuatruyen_hinhanh", new { duongdanhinh = strDuongDan });
             BindingList<PictureObject> list = new BindingList<PictureObject>();
             PictureObject item;

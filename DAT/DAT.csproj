@@ -109,10 +109,6 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DAT_ThongTin.cs" />
-    <Compile Include="DAT_TonKho.cs" />
-    <Compile Include="DAT_User.cs" />
-    <Compile Include="DBConnect.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

@@ -47,6 +47,7 @@
             this.ribbonPageGroup1 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.cbo_loaiphieu = new DevExpress.XtraEditors.LookUpEdit();
             this.layoutControl1 = new DevExpress.XtraLayout.LayoutControl();
+            this.cbo_kho = new DevExpress.XtraEditors.LookUpEdit();
             this.dgv_ct_phieunhap = new DevExpress.XtraGrid.GridControl();
             this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.gridColumn1 = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -62,7 +63,6 @@
             this.gridColumn6 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn12 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn4 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.gridColumn5 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn7 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn8 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn9 = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -70,6 +70,7 @@
             this.gridColumn11 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.col_xoa = new DevExpress.XtraGrid.Columns.GridColumn();
             this.repositoryItemButtonEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
+            this.gridColumn5 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.splitterControl1 = new DevExpress.XtraEditors.SplitterControl();
             this.txt_diengiai = new DevExpress.XtraEditors.TextEdit();
             this.txt_ngaynhap = new DevExpress.XtraEditors.DateEdit();
@@ -90,13 +91,13 @@
             this.layoutControlItem9 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem1 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem2 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.cbo_kho = new DevExpress.XtraEditors.LookUpEdit();
             this.layoutControlItem3 = new DevExpress.XtraLayout.LayoutControlItem();
             ((System.ComponentModel.ISupportInitialize)(this.ribbonControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.imageCollection1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cbo_loaiphieu.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).BeginInit();
             this.layoutControl1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.cbo_kho.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_ct_phieunhap)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cbo_tentruyen)).BeginInit();
@@ -120,7 +121,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem9)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cbo_kho.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem3)).BeginInit();
             this.SuspendLayout();
             // 
@@ -260,6 +260,20 @@
             this.layoutControl1.TabIndex = 4;
             this.layoutControl1.Text = "layoutControl1";
             // 
+            // cbo_kho
+            // 
+            this.cbo_kho.Location = new System.Drawing.Point(88, 83);
+            this.cbo_kho.MenuManager = this.ribbonControl1;
+            this.cbo_kho.Name = "cbo_kho";
+            this.cbo_kho.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.cbo_kho.Properties.Columns.AddRange(new DevExpress.XtraEditors.Controls.LookUpColumnInfo[] {
+            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("tenkho", "Kho")});
+            this.cbo_kho.Properties.NullText = "";
+            this.cbo_kho.Size = new System.Drawing.Size(557, 22);
+            this.cbo_kho.StyleController = this.layoutControl1;
+            this.cbo_kho.TabIndex = 16;
+            // 
             // dgv_ct_phieunhap
             // 
             this.dgv_ct_phieunhap.Location = new System.Drawing.Point(5, 135);
@@ -285,13 +299,13 @@
             this.gridColumn6,
             this.gridColumn12,
             this.gridColumn4,
-            this.gridColumn5,
             this.gridColumn7,
             this.gridColumn8,
             this.gridColumn9,
             this.gridColumn10,
             this.gridColumn11,
-            this.col_xoa});
+            this.col_xoa,
+            this.gridColumn5});
             this.gridView1.GridControl = this.dgv_ct_phieunhap;
             this.gridView1.Name = "gridView1";
             this.gridView1.OptionsSelection.CheckBoxSelectorColumnWidth = 35;
@@ -485,27 +499,6 @@
             this.gridColumn4.VisibleIndex = 7;
             this.gridColumn4.Width = 90;
             // 
-            // gridColumn5
-            // 
-            this.gridColumn5.AppearanceHeader.Options.UseTextOptions = true;
-            this.gridColumn5.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
-            this.gridColumn5.Caption = "Thành tiền";
-            this.gridColumn5.DisplayFormat.FormatString = "{0:#,##0}";
-            this.gridColumn5.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
-            this.gridColumn5.FieldName = "thanhtien";
-            this.gridColumn5.MinWidth = 25;
-            this.gridColumn5.Name = "gridColumn5";
-            this.gridColumn5.OptionsColumn.FixedWidth = true;
-            this.gridColumn5.OptionsColumn.ReadOnly = true;
-            this.gridColumn5.ShowUnboundExpressionMenu = true;
-            this.gridColumn5.Summary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
-            new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum, "thanhtien", "{0:#,##0}")});
-            this.gridColumn5.UnboundExpression = "[dongia] * [slnhap]";
-            this.gridColumn5.UnboundType = DevExpress.Data.UnboundColumnType.Decimal;
-            this.gridColumn5.Visible = true;
-            this.gridColumn5.VisibleIndex = 9;
-            this.gridColumn5.Width = 100;
-            // 
             // gridColumn7
             // 
             this.gridColumn7.Caption = "Ghi chú";
@@ -592,6 +585,24 @@
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, editorButtonImageOptions1, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject1, serializableAppearanceObject2, serializableAppearanceObject3, serializableAppearanceObject4, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
             this.repositoryItemButtonEdit1.Name = "repositoryItemButtonEdit1";
             this.repositoryItemButtonEdit1.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor;
+            // 
+            // gridColumn5
+            // 
+            this.gridColumn5.AppearanceHeader.Options.UseTextOptions = true;
+            this.gridColumn5.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
+            this.gridColumn5.Caption = "Thành tiền";
+            this.gridColumn5.DisplayFormat.FormatString = "{0:#,##0}";
+            this.gridColumn5.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+            this.gridColumn5.FieldName = "gridColumn5";
+            this.gridColumn5.MinWidth = 25;
+            this.gridColumn5.Name = "gridColumn5";
+            this.gridColumn5.Summary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
+            new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum, "gridColumn5", "{0:#,##0}")});
+            this.gridColumn5.UnboundExpression = "[dongia] * [slnhap]";
+            this.gridColumn5.UnboundType = DevExpress.Data.UnboundColumnType.Decimal;
+            this.gridColumn5.Visible = true;
+            this.gridColumn5.VisibleIndex = 9;
+            this.gridColumn5.Width = 94;
             // 
             // splitterControl1
             // 
@@ -810,20 +821,6 @@
             this.layoutControlItem2.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem2.TextVisible = false;
             // 
-            // cbo_kho
-            // 
-            this.cbo_kho.Location = new System.Drawing.Point(88, 83);
-            this.cbo_kho.MenuManager = this.ribbonControl1;
-            this.cbo_kho.Name = "cbo_kho";
-            this.cbo_kho.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.cbo_kho.Properties.Columns.AddRange(new DevExpress.XtraEditors.Controls.LookUpColumnInfo[] {
-            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("tenkho", "Kho")});
-            this.cbo_kho.Properties.NullText = "";
-            this.cbo_kho.Size = new System.Drawing.Size(557, 22);
-            this.cbo_kho.StyleController = this.layoutControl1;
-            this.cbo_kho.TabIndex = 16;
-            // 
             // layoutControlItem3
             // 
             this.layoutControlItem3.Control = this.cbo_kho;
@@ -852,6 +849,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.cbo_loaiphieu.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).EndInit();
             this.layoutControl1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.cbo_kho.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_ct_phieunhap)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cbo_tentruyen)).EndInit();
@@ -875,7 +873,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem9)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cbo_kho.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem3)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -929,7 +926,6 @@
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn6;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn12;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn4;
-        private DevExpress.XtraGrid.Columns.GridColumn gridColumn5;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn7;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn8;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn9;
@@ -941,5 +937,6 @@
         private DevExpress.XtraBars.BarButtonItem btn_them_tu_danhsach;
         private DevExpress.XtraEditors.LookUpEdit cbo_kho;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem3;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn5;
     }
 }

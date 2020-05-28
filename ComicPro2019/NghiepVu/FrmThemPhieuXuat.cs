@@ -16,17 +16,17 @@ namespace ComicPro2019.NghiepVu
             InitializeComponent();
         }
 
-        public async void GetDonVi()
+        public void GetDonVi()
         {
-            var dt = await ExecSQL.ExecProcedureDataAsync<DonVi>("pro_get_donvi", new { option = 2 });
+            var dt = ExecSQL.ExecProcedureData<DonVi>("pro_get_donvi", new { option = 2 });
             cbo_donvi.Properties.DataSource = dt;
             cbo_donvi.Properties.DisplayMember = "madonvi";
             cbo_donvi.Properties.ValueMember = "madonvi";
         }
 
-        public async void GetKho()
+        public void GetKho()
         {
-            var listKho = await ExecSQL.ExecQueryDataAsync<Kho>("SELECT makho, tenkho FROM dbo.tbl_kho ORDER BY tenkho");
+            var listKho = ExecSQL.ExecQueryData<Kho>("SELECT makho, tenkho FROM dbo.tbl_kho ORDER BY tenkho");
             cbo_kho.Properties.DataSource = listKho;
             cbo_kho.Properties.DisplayMember = "tenkho";
             cbo_kho.Properties.ValueMember = "makho";
@@ -40,9 +40,9 @@ namespace ComicPro2019.NghiepVu
             cbo_tentruyen.ValueMember = "matruyen";
         }
 
-        public async void GetLoaiPhieu()
+        public void GetLoaiPhieu()
         {
-            var listLoaiPhieu = await ExecSQL.ExecQueryDataAsync<LoaiPhieu>("SELECT id, loaiphieu FROM dbo.tbl_loaiphieunhapxuat");
+            var listLoaiPhieu = ExecSQL.ExecQueryData<LoaiPhieu>("SELECT id, loaiphieu FROM dbo.tbl_loaiphieunhapxuat");
             cbo_loaiphieu.Properties.DataSource = listLoaiPhieu;
             cbo_loaiphieu.Properties.DisplayMember = "loaiphieu";
             cbo_loaiphieu.Properties.ValueMember = "id";
@@ -153,7 +153,7 @@ namespace ComicPro2019.NghiepVu
                         break;
                 }
             }
-            ExecSQL.ExecProcedureNonData("pro_update_phieunhapxuat", new { option = 2, madonvi = cbo_donvi.EditValue.ToString(), ngaynhap = Convert.ToDateTime(txt_ngaynhap.EditValue), diengiai = txt_diengiai.Text, maphieu = txt_maphieu.Text });
+            ExecSQL.ExecProcedureNonData("pro_update_phieunhapxuat", new { option = 2, makho = cbo_kho.EditValue.ToString(), madonvi = cbo_donvi.EditValue.ToString(), ngaynhap = Convert.ToDateTime(txt_ngaynhap.EditValue), diengiai = txt_diengiai.Text, maphieu = txt_maphieu.Text });
             GetCtPhieuXuat();
             //Gửi dữ liệu
             var message = new MessageBroker

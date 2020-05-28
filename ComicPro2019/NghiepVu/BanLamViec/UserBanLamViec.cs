@@ -1,5 +1,4 @@
-﻿using BUS;
-using DevExpress.Utils;
+﻿using DevExpress.Utils;
 using DevExpress.XtraCharts;
 using System;
 using System.Data;
@@ -87,28 +86,26 @@ namespace ComicPro2019.NghiepVu.BanLamViec
             }
         }
 
-        private void mnu_giatri_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        private async void mnu_giatri_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            BusTonKho busTonKho = new BusTonKho();
+            var tong = ExecSQL.ExecQuerySacalar("SELECT SUM(slnhap*dongia) AS tong FROM dbo.tbl_phieunhapxuat");
             if (_flag == 1)
             {
                 loaitruyen.Control.Controls[0].Controls.Clear();
-                loaitruyen.Caption = @"Giá trị : " + string.Format("{0:#,##}", busTonKho.GetTong().Rows[0]["tong"]) + @" VND";
+                loaitruyen.Caption = @"Giá trị : " + string.Format("{0:#,##}", tong) + @" VND";
             }
             else if (_flag == 2)
             {
                 giatri.Control.Controls[0].Controls.Clear();
-                giatri.Caption = @"Giá trị : " + string.Format("{0:#,##}", busTonKho.GetTong().Rows[0]["tong"]) + @" VND";
+                giatri.Caption = @"Giá trị : " + string.Format("{0:#,##}", tong) + @" VND";
             }
 
-            var dataTable = busTonKho.GetGiaTri();
+            var dataTable = ExecSQL.ExecProcedureDataAsDataTable("pro_get_thongke_theothang");
             var chartGiaTri = new ChartControl();
             chartGiaTri.Dock = DockStyle.Fill;
             chartGiaTri.DataSource = dataTable;
 
             Series seriesGiatri = new Series("Giá trị", ViewType.Line);
-            //series_tinhthanh.View.Color = Color.DarkGreen;
-            //series_tinhthanh.Label.LineVisibility = DefaultBoolean.True;
             seriesGiatri.LabelsVisibility = DefaultBoolean.True;
 
             // Add points to them, with their arguments different.

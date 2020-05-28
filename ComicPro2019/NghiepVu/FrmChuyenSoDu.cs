@@ -1,5 +1,4 @@
-﻿using BUS;
-using DevExpress.XtraEditors;
+﻿using DevExpress.XtraEditors;
 using SimpleBroker;
 using System;
 using System.Drawing;
@@ -20,7 +19,6 @@ namespace ComicPro2019.NghiepVu
             Close();
         }
 
-        private BusTonKho _busTonKho = new BusTonKho();
         private void btn_Luu_Click(object sender, EventArgs e)
         {
             var dgr = HelperMessage.Instance.ShowMessageYesNo($"Bạn có muốn chuyển số dư sang tháng {Convert.ToDateTime(txt_ngaychuyen.EditValue).ToString("MM/yyyy")} này không?", "Xác Nhận", SystemIcons.Question.ToBitmap());

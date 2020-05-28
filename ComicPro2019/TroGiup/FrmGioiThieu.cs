@@ -1,5 +1,4 @@
 ﻿using System;
-using BUS;
 
 namespace ComicPro2019.TroGiup
 {
@@ -17,16 +16,14 @@ namespace ComicPro2019.TroGiup
 
         private void FrmGioiThieu_Load(object sender, EventArgs e)
         {
-            BusThongTin busThongTin = new BusThongTin();
-            var dt = busThongTin.GetThongTin();
-            if (dt.Rows.Count == 0) { return; }
-
-            lbl_tencuahang.Text = dt.Rows[0]["tencuahang"].ToString();
-            lbl_diachi.Text = dt.Rows[0]["diachi"].ToString();
-            lbl_tinhthanh.Text = dt.Rows[0]["tinhthanh"].ToString();
-            lbl_quanhuyen.Text = dt.Rows[0]["quanhuyen"].ToString();
-            lbl_email.Text = dt.Rows[0]["email"].ToString();
-            lbl_web.Text = dt.Rows[0]["web"].ToString();
+            var dt = ExecSQL.ExecQueryDataFistOrDefault<ThongTin>("SELECT * FROM dbo.tbl_thongtin");
+            if (dt == null) { return; }
+            lbl_tencuahang.Text = dt.tencuahang;
+            lbl_diachi.Text = dt.diachi;
+            lbl_tinhthanh.Text = dt.tinhthanh;
+            lbl_quanhuyen.Text = dt.quanhuyen;
+            lbl_email.Text = dt.email;
+            lbl_web.Text = dt.web;
         }
     }
 }

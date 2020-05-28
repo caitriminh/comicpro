@@ -153,7 +153,7 @@
             this.col_tinhtrang2.OptionsColumn.ReadOnly = true;
             this.col_tinhtrang2.Visible = true;
             this.col_tinhtrang2.VisibleIndex = 1;
-            this.col_tinhtrang2.Width = 110;
+            this.col_tinhtrang2.Width = 158;
             // 
             // cbo_loaitruyen2
             // 
@@ -291,7 +291,6 @@
             this.label1a.Name = "label1a";
             this.label1a.Size = new System.Drawing.Size(75, 0);
             this.label1a.TabIndex = 5;
-           
             // 
             // xtraOpenFileDialog1
             // 
@@ -729,7 +728,9 @@
             gridFormatRule1.Rule = formatConditionRuleValue1;
             this.gridView5.FormatRules.Add(gridFormatRule1);
             this.gridView5.GridControl = this.dgv_tuatruyen2;
+            this.gridView5.GroupCount = 1;
             this.gridView5.Name = "gridView5";
+            this.gridView5.OptionsBehavior.AutoExpandAllGroups = true;
             this.gridView5.OptionsMenu.ShowConditionalFormattingItem = true;
             this.gridView5.OptionsSelection.CheckBoxSelectorColumnWidth = 35;
             this.gridView5.OptionsSelection.MultiSelect = true;
@@ -737,7 +738,10 @@
             this.gridView5.OptionsSelection.ShowCheckBoxSelectorInGroupRow = DevExpress.Utils.DefaultBoolean.True;
             this.gridView5.OptionsView.ColumnAutoWidth = false;
             this.gridView5.OptionsView.ShowAutoFilterRow = true;
+            this.gridView5.OptionsView.ShowGroupedColumns = true;
             this.gridView5.OptionsView.ShowGroupPanel = false;
+            this.gridView5.SortInfo.AddRange(new DevExpress.XtraGrid.Columns.GridColumnSortInfo[] {
+            new DevExpress.XtraGrid.Columns.GridColumnSortInfo(this.gridColumn23, DevExpress.Data.ColumnSortOrder.Ascending)});
             // 
             // gridColumn21
             // 
@@ -760,7 +764,7 @@
             this.gridColumn22.OptionsColumn.FixedWidth = true;
             this.gridColumn22.Visible = true;
             this.gridColumn22.VisibleIndex = 3;
-            this.gridColumn22.Width = 280;
+            this.gridColumn22.Width = 328;
             // 
             // gridColumn23
             // 

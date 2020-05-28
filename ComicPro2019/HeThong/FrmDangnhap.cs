@@ -1,5 +1,4 @@
-﻿using BUS;
-using DevExpress.XtraEditors;
+﻿using DevExpress.XtraEditors;
 using System;
 using System.Windows.Forms;
 
@@ -17,7 +16,6 @@ namespace ComicPro2019.HeThong
             Application.Exit();
         }
 
-        private BusUser _busUser = new BusUser();
         private void FrmDangnhap_KeyDown(object sender, KeyEventArgs e)
         {
             switch (e.KeyCode)
@@ -40,7 +38,7 @@ namespace ComicPro2019.HeThong
         public string IsLogin { set; get; }
         private void btn_dangnhap_Click(object sender, EventArgs e)
         {
-            if (_busUser.DangNhap(txt_tendangnhap.Text.ToUpper(), txt_matkhau.Text.ToLower()) > 0)
+            if (Convert.ToInt32(ExecSQL.ExecQuerySacalar($"SELECT COUNT(*) FROM dbo.tbl_user WHERE tendangnhap='{txt_tendangnhap.Text.ToUpper()}' AND matkhau=CONVERT(VARCHAR(32), HashBytes('MD5', '{txt_matkhau.Text}'), 2)")) > 0)
             {
                 IsLogin = "OK";
                 ComicPro.StrTenDangNhap = txt_tendangnhap.Text.ToUpper();

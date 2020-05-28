@@ -1,9 +1,6 @@
-﻿using System;
-using System.Globalization;
+﻿using DevExpress.XtraEditors;
+using System;
 using System.Windows.Forms;
-using BUS;
-using DevExpress.XtraEditors;
-using DTO;
 
 namespace ComicPro2019.HeThong
 {
@@ -18,7 +15,7 @@ namespace ComicPro2019.HeThong
         {
             Close();
         }
-        BusUser _busUser = new BusUser();
+
         private void btn_Luu_Click(object sender, EventArgs e)
         {
             if (txt_matkhau.Text.ToLower() != txt_matkhau2.Text.ToLower())
@@ -29,7 +26,7 @@ namespace ComicPro2019.HeThong
                 return;
             }
 
-            _busUser.DoiMatKhau(txt_tendanhnhap.Text, txt_matkhau.Text);
+            ExecSQL.ExecQueryNonData($"UPDATE dbo.tbl_user SET matkhau=CONVERT(VARCHAR(32), HashBytes('MD5', '{txt_matkhau.Text}'), 2) WHERE tendangnhap='{txt_tendanhnhap.Text}'");
             XtraMessageBox.Show("Đổi mật khẩu thành công.", "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
             Close();
         }

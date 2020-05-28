@@ -17,9 +17,9 @@ namespace ComicPro2019.NghiepVu
             InitializeComponent();
         }
 
-        public async void GetDonVi()
+        public void GetDonVi()
         {
-            var dt = await ExecSQL.ExecProcedureDataAsync<DonVi>("pro_get_donvi", new { option = 2 });
+            var dt = ExecSQL.ExecProcedureDataAsDataTable("pro_get_donvi", new { option = 2 });
             cbo_donvi.Properties.DataSource = dt;
             cbo_donvi.Properties.DisplayMember = "madonvi";
             cbo_donvi.Properties.ValueMember = "madonvi";
@@ -31,7 +31,6 @@ namespace ComicPro2019.NghiepVu
             cbo_kho.Properties.DataSource = listKho;
             cbo_kho.Properties.DisplayMember = "tenkho";
             cbo_kho.Properties.ValueMember = "makho";
-            cbo_kho.EditValue = "K01";
         }
 
         public async void GetTenTruyen()
@@ -73,18 +72,18 @@ namespace ComicPro2019.NghiepVu
             if (ComicPro.Edit == false) { return; }
             txt_maphieu.Text = ComicPro.StrMaphieu;
             GetThongTin();
-            cbo_kho.Properties.ReadOnly = true;
             txt_maphieu.Properties.ReadOnly = true;
         }
 
         public void GetThongTin()
         {
-            var dt = ExecSQL.ExecProcedureDataFistOrDefault<PhieuNhapXuat>("pro_ct_phieunhapxuat", new { option = 1, maphieu = txt_maphieu.Text });
-            cbo_donvi.EditValue = dt.madonvi;
-            cbo_kho.EditValue = dt.makho;
-            cbo_loaiphieu.EditValue = dt.idloaiphieunhapxuat;
-            txt_diengiai.Text = dt.diengiai;
-            txt_ngaynhap.EditValue = dt.ngaynhap;
+            var dt = ExecSQL.ExecProcedureDataAsDataTable("pro_ct_phieunhapxuat", new { option = 1, maphieu = txt_maphieu.Text });
+            if (dt == null) { return; }
+            cbo_donvi.Text = dt.Rows[0]["madonvi"].ToString();
+            cbo_kho.EditValue = dt.Rows[0]["makho"];
+            cbo_loaiphieu.EditValue = dt.Rows[0]["idloaiphieunhapxuat"];
+            txt_diengiai.Text = dt.Rows[0]["diengiai"].ToString();
+            txt_ngaynhap.EditValue = dt.Rows[0]["ngaynhap"];
         }
 
         private void cbo_donvi_EditValueChanged(object sender, EventArgs e)
@@ -190,7 +189,7 @@ namespace ComicPro2019.NghiepVu
                         break;
                 }
             }
-            ExecSQL.ExecProcedureNonData("pro_update_phieunhapxuat", new { option = 2, madonvi = cbo_donvi.EditValue.ToString(), ngaynhap = Convert.ToDateTime(txt_ngaynhap.EditValue), diengiai = txt_diengiai.Text, maphieu = txt_maphieu.Text });
+            ExecSQL.ExecProcedureNonData("pro_update_phieunhapxuat", new { option = 2, madonvi = cbo_donvi.EditValue.ToString(), ngaynhap = Convert.ToDateTime(txt_ngaynhap.EditValue), diengiai = txt_diengiai.Text, maphieu = txt_maphieu.Text, makho = cbo_kho.EditValue.ToString() });
             GetCtPhieuNhap();
             Form1.Default.ShowMessageSuccess($"Đã cập nhật thành công phiếu nhập ({txt_maphieu.Text})");
             //Gửi dữ liệu

@@ -1,5 +1,4 @@
-﻿using BUS;
-using DevExpress.Utils;
+﻿using DevExpress.Utils;
 using DevExpress.XtraCharts;
 using System;
 using System.Data;
@@ -15,10 +14,10 @@ namespace ComicPro2019.NghiepVu.BanLamViec
             InitializeComponent();
         }
 
-        private BusTonKho _busTonKho = new BusTonKho();
         private void UserGiaTri_Load(object sender, EventArgs e)
         {
-            Text = @"Giá trị: " + string.Format("{0:#,##}", _busTonKho.GetTong().Rows[0]["tong"]) + @" VND";
+            var tong = ExecSQL.ExecQuerySacalar("SELECT SUM(slnhap*dongia) AS tong FROM dbo.tbl_phieunhapxuat");
+            Text = @"Giá trị: " + string.Format("{0:#,##}", tong) + @" VND";
             var chartControl1 = new ChartControl();
             chartControl1.Dock = DockStyle.Fill;
             panelControl.Controls.Add(chartControl1);
@@ -32,16 +31,12 @@ namespace ComicPro2019.NghiepVu.BanLamViec
                     Series seriesGiatri = new Series("Giá trị", ViewType.Line);
                     seriesGiatri.LabelsVisibility = DefaultBoolean.True;
 
-                    // Add points to them, with their arguments different.
                     foreach (DataRow dr in dataTable.Rows)
                     {
                         seriesGiatri.Points.Add(new SeriesPoint(dr["thangnam"], dr["thanhtien"]));
                     }
 
                     seriesGiatri.Label.TextPattern = "{V:#,##0}";
-
-                    //XYDiagram diag = (XYDiagram)chartControl1.Diagram;
-                    //diag.AxisX.DateTimeScaleOptions.AutoGrid = false;
 
                     chartControl1.Series.AddRange(new[] { seriesGiatri });
                     chartControl1.Legend.Visibility = DefaultBoolean.True;

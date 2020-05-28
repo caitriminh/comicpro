@@ -125,7 +125,7 @@
             this.gridColumn42 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.splitterControl1 = new DevExpress.XtraEditors.SplitterControl();
             this.tab_layout = new DevExpress.XtraTab.XtraTabPage();
-            this.gridControl1 = new DevExpress.XtraGrid.GridControl();
+            this.dgv_Layout = new DevExpress.XtraGrid.GridControl();
             this.winExplorerView1 = new DevExpress.XtraGrid.Views.WinExplorer.WinExplorerView();
             this.col_hinhanh = new DevExpress.XtraGrid.Columns.GridColumn();
             this.col_tentruyen = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -158,7 +158,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgv_ct_phieuxuat)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView2)).BeginInit();
             this.tab_layout.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgv_Layout)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.winExplorerView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemGridLookUpEdit2View)).BeginInit();
             this.SuspendLayout();
@@ -251,7 +251,6 @@
             this.btn_them.Caption = "1 - Cập nhật số dư đầu kỳ";
             this.btn_them.Id = 0;
             this.btn_them.Name = "btn_them";
-            
             // 
             // btn_chuyensodu
             // 
@@ -703,7 +702,6 @@
             this.lbl_matruyen.Name = "lbl_matruyen";
             this.lbl_matruyen.Size = new System.Drawing.Size(75, 0);
             this.lbl_matruyen.TabIndex = 20;
-          
             // 
             // xtraSaveFileDialog1
             // 
@@ -1265,23 +1263,23 @@
             // 
             // tab_layout
             // 
-            this.tab_layout.Controls.Add(this.gridControl1);
+            this.tab_layout.Controls.Add(this.dgv_Layout);
             this.tab_layout.Name = "tab_layout";
             this.tab_layout.Size = new System.Drawing.Size(1614, 593);
             this.tab_layout.Text = "Layout";
             // 
-            // gridControl1
+            // dgv_Layout
             // 
-            this.gridControl1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.gridControl1.EmbeddedNavigator.Margin = new System.Windows.Forms.Padding(4);
-            this.gridControl1.Location = new System.Drawing.Point(0, 0);
-            this.gridControl1.MainView = this.winExplorerView1;
-            this.gridControl1.Margin = new System.Windows.Forms.Padding(4);
-            this.gridControl1.Name = "gridControl1";
-            this.gridControl1.Size = new System.Drawing.Size(1614, 593);
-            this.gridControl1.TabIndex = 2;
-            this.gridControl1.UseEmbeddedNavigator = true;
-            this.gridControl1.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
+            this.dgv_Layout.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dgv_Layout.EmbeddedNavigator.Margin = new System.Windows.Forms.Padding(4);
+            this.dgv_Layout.Location = new System.Drawing.Point(0, 0);
+            this.dgv_Layout.MainView = this.winExplorerView1;
+            this.dgv_Layout.Margin = new System.Windows.Forms.Padding(4);
+            this.dgv_Layout.Name = "dgv_Layout";
+            this.dgv_Layout.Size = new System.Drawing.Size(1614, 593);
+            this.dgv_Layout.TabIndex = 2;
+            this.dgv_Layout.UseEmbeddedNavigator = true;
+            this.dgv_Layout.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.winExplorerView1});
             // 
             // winExplorerView1
@@ -1298,7 +1296,7 @@
             this.winExplorerView1.ColumnSet.TextColumn = this.col_tentruyen;
             this.winExplorerView1.ContextButtonOptions.AnimationTime = 300;
             this.winExplorerView1.ContextButtonOptions.AnimationType = DevExpress.Utils.ContextAnimationType.OpacityAnimation;
-            this.winExplorerView1.GridControl = this.gridControl1;
+            this.winExplorerView1.GridControl = this.dgv_Layout;
             this.winExplorerView1.GroupCount = 1;
             this.winExplorerView1.Name = "winExplorerView1";
             this.winExplorerView1.OptionsImageLoad.AnimationType = DevExpress.Utils.ImageContentAnimationType.Slide;
@@ -1407,7 +1405,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgv_ct_phieuxuat)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView2)).EndInit();
             this.tab_layout.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgv_Layout)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.winExplorerView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemGridLookUpEdit2View)).EndInit();
             this.ResumeLayout(false);
@@ -1503,7 +1501,7 @@
         private DevExpress.XtraEditors.SplitterControl splitterControl1;
         private DevExpress.XtraTab.XtraTabPage tab_layout;
         private DevExpress.XtraEditors.LabelControl lbl_matua;
-        private DevExpress.XtraGrid.GridControl gridControl1;
+        private DevExpress.XtraGrid.GridControl dgv_Layout;
         private DevExpress.XtraGrid.Views.WinExplorer.WinExplorerView winExplorerView1;
         private DevExpress.XtraGrid.Columns.GridColumn col_hinhanh;
         private DevExpress.XtraGrid.Columns.GridColumn col_tentruyen;
