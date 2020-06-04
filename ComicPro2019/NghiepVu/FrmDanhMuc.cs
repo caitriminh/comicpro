@@ -231,10 +231,8 @@ namespace ComicPro2019.NghiepVu
                     {
                         Directory.CreateDirectory(strNewDirPathOrigin);
                     }
-                    //try
-                    //{
+
                     File.Copy(xtraOpenFileDialog1.FileName, strNewDirPathOrigin + "\\" + gridView1.GetRowCellValue(i, "matruyen") + ".jpg", true);
-                    //   pictureEdit1.Image = Image.FromFile(strNewDirPathOrigin + "\\" + gridView1.GetRowCellValue(i, "matruyen") + ".jpg");
                     pictureEdit1.Image = ReadImageToStream(strNewDirPathOrigin + "\\" + gridView1.GetRowCellValue(i, "matruyen") + ".jpg");
                     string strNewDirPathThumb = Application.StartupPath + "\\img\\thumb\\" + gridView1.GetRowCellValue(i, "matua");
                     if (!Directory.Exists(strNewDirPathThumb))
@@ -250,11 +248,6 @@ namespace ComicPro2019.NghiepVu
                     myEncoderParameters.Param[0] = myEncoderParameter;
                     img.Save(strNewDirPathThumb + "\\" + gridView1.GetRowCellValue(i, "matruyen") + ".jpg", jpgEncoder, myEncoderParameters);
                     ExecSQL.ExecQueryNonData($"UPDATE dbo.tbl_tentruyen SET filehinh='{xtraOpenFileDialog1.FileName}' WHERE matruyen='{gridView1.GetRowCellValue(i, "matua")}'");
-                    //}
-                    //catch (Exception exception)
-                    //{
-                    //    XtraMessageBox.Show(exception.Message, "Cảnh Báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    //}
                 }
             }
             else if (e.Column == col_pdf)
@@ -486,10 +479,8 @@ namespace ComicPro2019.NghiepVu
             string strNewDirPath = Application.StartupPath + "\\img\\origin\\" + lbl_matua.Text + "\\" + lbl_matruyen.Text + ".jpg";
             if (File.Exists(strNewDirPath))
             {
-                //   pictureEdit1.Image = Image.FromFile(strNewDirPath);
                 pictureEdit1.Image = ReadImageToStream(strNewDirPath);
             }
-            //catch (Exception)
             else
             {
                 pictureEdit1.Image = Image.FromFile(Application.StartupPath + "\\img\\origin\\default.jpg");
