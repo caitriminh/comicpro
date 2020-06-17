@@ -67,7 +67,7 @@
             this.pictureEdit1.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Simple;
             this.pictureEdit1.Properties.ShowCameraMenuItem = DevExpress.XtraEditors.Controls.CameraMenuItemVisibility.Auto;
             this.pictureEdit1.Properties.SizeMode = DevExpress.XtraEditors.Controls.PictureSizeMode.Stretch;
-            this.pictureEdit1.Size = new System.Drawing.Size(504, 130);
+            this.pictureEdit1.Size = new System.Drawing.Size(520, 130);
             this.pictureEdit1.TabIndex = 0;
             // 
             // layoutControl1
@@ -81,7 +81,7 @@
             this.layoutControl1.Location = new System.Drawing.Point(0, 130);
             this.layoutControl1.Name = "layoutControl1";
             this.layoutControl1.Root = this.layoutControlGroup1;
-            this.layoutControl1.Size = new System.Drawing.Size(504, 118);
+            this.layoutControl1.Size = new System.Drawing.Size(520, 134);
             this.layoutControl1.TabIndex = 8;
             this.layoutControl1.Text = "layoutControl1";
             // 
@@ -89,9 +89,9 @@
             // 
             this.btn_thoat.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btn_thoat.ImageOptions.SvgImage")));
             this.btn_thoat.ImageOptions.SvgImageSize = new System.Drawing.Size(16, 16);
-            this.btn_thoat.Location = new System.Drawing.Point(406, 64);
+            this.btn_thoat.Location = new System.Drawing.Point(419, 64);
             this.btn_thoat.Name = "btn_thoat";
-            this.btn_thoat.Size = new System.Drawing.Size(86, 27);
+            this.btn_thoat.Size = new System.Drawing.Size(89, 27);
             this.btn_thoat.StyleController = this.layoutControl1;
             this.btn_thoat.TabIndex = 6;
             this.btn_thoat.Text = "&Thoát";
@@ -102,9 +102,9 @@
             this.btn_dangnhap.DialogResult = System.Windows.Forms.DialogResult.OK;
             this.btn_dangnhap.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btn_dangnhap.ImageOptions.SvgImage")));
             this.btn_dangnhap.ImageOptions.SvgImageSize = new System.Drawing.Size(16, 16);
-            this.btn_dangnhap.Location = new System.Drawing.Point(301, 64);
+            this.btn_dangnhap.Location = new System.Drawing.Point(311, 64);
             this.btn_dangnhap.Name = "btn_dangnhap";
-            this.btn_dangnhap.Size = new System.Drawing.Size(101, 27);
+            this.btn_dangnhap.Size = new System.Drawing.Size(104, 27);
             this.btn_dangnhap.StyleController = this.layoutControl1;
             this.btn_dangnhap.TabIndex = 5;
             this.btn_dangnhap.Text = "Đăng nhập";
@@ -115,7 +115,7 @@
             this.txt_matkhau.Location = new System.Drawing.Point(113, 38);
             this.txt_matkhau.Name = "txt_matkhau";
             this.txt_matkhau.Properties.PasswordChar = '●';
-            this.txt_matkhau.Size = new System.Drawing.Size(379, 22);
+            this.txt_matkhau.Size = new System.Drawing.Size(395, 22);
             this.txt_matkhau.StyleController = this.layoutControl1;
             this.txt_matkhau.TabIndex = 4;
             // 
@@ -125,7 +125,7 @@
             this.txt_tendangnhap.Name = "txt_tendangnhap";
             this.txt_tendangnhap.Properties.Mask.EditMask = "\\p{Ll}+";
             this.txt_tendangnhap.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.RegEx;
-            this.txt_tendangnhap.Size = new System.Drawing.Size(379, 22);
+            this.txt_tendangnhap.Size = new System.Drawing.Size(395, 22);
             this.txt_tendangnhap.StyleController = this.layoutControl1;
             this.txt_tendangnhap.TabIndex = 2;
             // 
@@ -141,7 +141,7 @@
             this.layoutControlItem4,
             this.layoutControlItem3});
             this.layoutControlGroup1.Name = "layoutControlGroup1";
-            this.layoutControlGroup1.Size = new System.Drawing.Size(504, 118);
+            this.layoutControlGroup1.Size = new System.Drawing.Size(520, 134);
             this.layoutControlGroup1.TextVisible = false;
             // 
             // layoutControlItem1
@@ -149,7 +149,7 @@
             this.layoutControlItem1.Control = this.txt_tendangnhap;
             this.layoutControlItem1.Location = new System.Drawing.Point(0, 0);
             this.layoutControlItem1.Name = "layoutControlItem1";
-            this.layoutControlItem1.Size = new System.Drawing.Size(484, 26);
+            this.layoutControlItem1.Size = new System.Drawing.Size(500, 26);
             this.layoutControlItem1.Text = "Tên đăng nhập:";
             this.layoutControlItem1.TextSize = new System.Drawing.Size(98, 17);
             // 
@@ -158,7 +158,7 @@
             this.emptySpaceItem1.AllowHotTrack = false;
             this.emptySpaceItem1.Location = new System.Drawing.Point(0, 83);
             this.emptySpaceItem1.Name = "emptySpaceItem1";
-            this.emptySpaceItem1.Size = new System.Drawing.Size(484, 15);
+            this.emptySpaceItem1.Size = new System.Drawing.Size(500, 31);
             this.emptySpaceItem1.TextSize = new System.Drawing.Size(0, 0);
             // 
             // layoutControlItem2
@@ -166,7 +166,7 @@
             this.layoutControlItem2.Control = this.txt_matkhau;
             this.layoutControlItem2.Location = new System.Drawing.Point(0, 26);
             this.layoutControlItem2.Name = "layoutControlItem2";
-            this.layoutControlItem2.Size = new System.Drawing.Size(484, 26);
+            this.layoutControlItem2.Size = new System.Drawing.Size(500, 26);
             this.layoutControlItem2.Text = "Mật khẩu:";
             this.layoutControlItem2.TextSize = new System.Drawing.Size(98, 17);
             // 
@@ -175,24 +175,24 @@
             this.emptySpaceItem2.AllowHotTrack = false;
             this.emptySpaceItem2.Location = new System.Drawing.Point(0, 52);
             this.emptySpaceItem2.Name = "emptySpaceItem2";
-            this.emptySpaceItem2.Size = new System.Drawing.Size(289, 31);
+            this.emptySpaceItem2.Size = new System.Drawing.Size(299, 31);
             this.emptySpaceItem2.TextSize = new System.Drawing.Size(0, 0);
             // 
             // layoutControlItem4
             // 
             this.layoutControlItem4.Control = this.btn_thoat;
-            this.layoutControlItem4.Location = new System.Drawing.Point(394, 52);
+            this.layoutControlItem4.Location = new System.Drawing.Point(407, 52);
             this.layoutControlItem4.Name = "layoutControlItem4";
-            this.layoutControlItem4.Size = new System.Drawing.Size(90, 31);
+            this.layoutControlItem4.Size = new System.Drawing.Size(93, 31);
             this.layoutControlItem4.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem4.TextVisible = false;
             // 
             // layoutControlItem3
             // 
             this.layoutControlItem3.Control = this.btn_dangnhap;
-            this.layoutControlItem3.Location = new System.Drawing.Point(289, 52);
+            this.layoutControlItem3.Location = new System.Drawing.Point(299, 52);
             this.layoutControlItem3.Name = "layoutControlItem3";
-            this.layoutControlItem3.Size = new System.Drawing.Size(105, 31);
+            this.layoutControlItem3.Size = new System.Drawing.Size(108, 31);
             this.layoutControlItem3.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem3.TextVisible = false;
             // 
@@ -200,7 +200,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(504, 248);
+            this.ClientSize = new System.Drawing.Size(520, 264);
             this.ControlBox = false;
             this.Controls.Add(this.layoutControl1);
             this.Controls.Add(this.pictureEdit1);
@@ -211,6 +211,7 @@
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Đăng Nhập";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FrmDangnhap_FormClosing);
             this.Load += new System.EventHandler(this.FrmDangnhap_Load);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.FrmDangnhap_KeyDown);
             ((System.ComponentModel.ISupportInitialize)(this.pictureEdit1.Properties)).EndInit();

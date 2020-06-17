@@ -13,6 +13,7 @@ namespace ComicPro2019.HeThong
 
         private void btn_thoat_Click(object sender, EventArgs e)
         {
+            IsLogin = "OK";
             Application.Exit();
         }
 
@@ -48,12 +49,16 @@ namespace ComicPro2019.HeThong
             }
             else
             {
-                Form1.Default.ShowMessageError("Đăng nhập không thành công.");
+                XtraMessageBox.Show("Đăng nhập không thành công.", "Cảnh Báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 txt_tendangnhap.Text = "";
                 txt_matkhau.Text = "";
                 txt_tendangnhap.Focus();
             }
         }
 
+        private void FrmDangnhap_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (IsLogin != "OK") { e.Cancel = false; }
+        }
     }
 }
