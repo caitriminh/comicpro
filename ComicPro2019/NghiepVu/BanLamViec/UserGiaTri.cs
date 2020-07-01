@@ -16,7 +16,7 @@ namespace ComicPro2019.NghiepVu.BanLamViec
 
         private void UserGiaTri_Load(object sender, EventArgs e)
         {
-            var tong = ExecSQL.ExecQuerySacalar("SELECT SUM(slnhap*dongia) AS tong FROM dbo.tbl_phieunhapxuat");
+            var tong = ExecSQL.ExecQuerySacalar("SELECT SUM(slnhap*dongia) AS tong FROM dbo.tbl_ct_phieunhapxuat");
             Text = @"Giá trị: " + string.Format("{0:#,##}", tong) + @" VND";
             var chartControl1 = new ChartControl();
             chartControl1.Dock = DockStyle.Fill;

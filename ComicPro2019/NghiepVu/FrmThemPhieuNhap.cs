@@ -172,6 +172,15 @@ namespace ComicPro2019.NghiepVu
                 cbo_kho.Focus();
                 return;
             }
+            if (Convert.ToInt32(ExecSQL.ExecQuerySacalar($"SELECT COUNT(*) FROM dbo.tbl_phieunhapxuat WHERE maphieu='{txt_maphieu.Text}'")) == 0)
+            {
+                ExecSQL.ExecProcedureNonData("pro_insert_phieunhapxuat", new { option = 1, maphieu = txt_maphieu.Text, madonvi = cbo_donvi.EditValue.ToString(), loaiphieu = "PN", idloaiphieunhapxuat = Convert.ToInt32(cbo_loaiphieu.EditValue), ngaynhap = Convert.ToDateTime(txt_ngaynhap.EditValue), makho = cbo_kho.EditValue.ToString(), diengiai = txt_diengiai.Text, nguoitd = ComicPro.StrTenDangNhap.ToUpper() });
+            }
+            else
+            {
+                ExecSQL.ExecProcedureNonData("pro_insert_phieunhapxuat", new { option = 2, maphieu = txt_maphieu.Text, madonvi = cbo_donvi.EditValue.ToString(), ngaynhap = Convert.ToDateTime(txt_ngaynhap.EditValue), makho = cbo_kho.EditValue.ToString(), diengiai = txt_diengiai.Text, nguoitd2 = ComicPro.StrTenDangNhap.ToUpper() });
+            }
+
             for (var i = 0; i <= gridView1.RowCount; i++)
             {
                 var dr = gridView1.GetDataRow(Convert.ToInt32(i));
@@ -182,14 +191,14 @@ namespace ComicPro2019.NghiepVu
                 switch (dr.RowState)
                 {
                     case DataRowState.Added:
-                        ExecSQL.ExecProcedureNonData("pro_insert_phieunhapxuat", new { option = 1, maphieu = txt_maphieu.Text, madonvi = cbo_donvi.EditValue.ToString(), loaiphieu = "PN", idloaiphieunhapxuat = Convert.ToInt32(cbo_loaiphieu.EditValue), ngaynhap = Convert.ToDateTime(txt_ngaynhap.EditValue), makho = cbo_kho.EditValue.ToString(), matruyen = dr["matruyen"].ToString(), slnhap = Convert.ToInt32(dr["slnhap"]), dongia = Convert.ToDecimal(dr["dongia"]), ghichu = dr["ghichu"].ToString(), nguoitd = ComicPro.StrTenDangNhap.ToUpper() });
+                        ExecSQL.ExecProcedureNonData("pro_insert_ct_phieunhapxuat", new { maphieu = txt_maphieu.Text, matruyen = dr["matruyen"].ToString(), slnhap = Convert.ToInt32(dr["slnhap"]), dongia = Convert.ToDecimal(dr["dongia"]), ghichu = dr["ghichu"].ToString(), nguoitd = ComicPro.StrTenDangNhap.ToUpper() });
                         break;
                     case DataRowState.Modified:
                         ExecSQL.ExecProcedureNonData("pro_update_phieunhapxuat", new { option = 1, slnhap = Convert.ToInt32(dr["slnhap"]), dongia = Convert.ToDecimal(dr["dongia"]), ghichu = dr["ghichu"].ToString(), nguoitd2 = ComicPro.StrTenDangNhap.ToUpper(), id = Convert.ToInt32(dr["id"]) });
                         break;
                 }
             }
-            ExecSQL.ExecProcedureNonData("pro_update_phieunhapxuat", new { option = 2, madonvi = cbo_donvi.EditValue.ToString(), ngaynhap = Convert.ToDateTime(txt_ngaynhap.EditValue), diengiai = txt_diengiai.Text, maphieu = txt_maphieu.Text, makho = cbo_kho.EditValue.ToString() });
+            //ExecSQL.ExecProcedureNonData("pro_update_phieunhapxuat", new { option = 2, madonvi = cbo_donvi.EditValue.ToString(), ngaynhap = Convert.ToDateTime(txt_ngaynhap.EditValue), diengiai = txt_diengiai.Text, maphieu = txt_maphieu.Text, makho = cbo_kho.EditValue.ToString() });
             GetCtPhieuNhap();
             Form1.Default.ShowMessageSuccess($"Đã cập nhật thành công phiếu nhập ({txt_maphieu.Text})");
             //Gửi dữ liệu
@@ -210,7 +219,7 @@ namespace ComicPro2019.NghiepVu
         {
             var dgr = HelperMessage.Instance.ShowMessageYesNo($"Bạn có muốn xóa phiếu nhập ({txt_maphieu.Text}) này không?", "Xác Nhận", SystemIcons.Question.ToBitmap());
             if (dgr != DialogResult.Yes) { return; }
-            ExecSQL.ExecQueryNonData($"DELETE FROM dbo.tbl_phieunhapxuat where maphieu='{txt_maphieu.Text}'");
+            ExecSQL.ExecProcedureNonData("pro_delete_phieunhapxuat", new { maphieu = txt_maphieu.Text });
             Form1.Default.ShowMessageSuccess($"Đã xóa phiếu nhập ({txt_maphieu.Text}) thành công.");
             GetCtPhieuNhap();
             //Gửi dữ liệu
@@ -229,7 +238,7 @@ namespace ComicPro2019.NghiepVu
             {
                 var dgr = HelperMessage.Instance.ShowMessageYesNo($"Bạn có muốn xóa tên truyện ({gridView1.GetRowCellValue(i, "tentruyen")}) trong mã phiếu ({txt_maphieu.Text}) này không?", "Xác Nhận", SystemIcons.Question.ToBitmap());
                 if (dgr != DialogResult.Yes) { return; }
-                ExecSQL.ExecQueryNonData($"DELETE FROM dbo.tbl_phieunhapxuat WHERE id='{gridView1.GetRowCellValue(i, "id")}'");
+                ExecSQL.ExecQueryNonData($"DELETE FROM dbo.tbl_ct_phieunhapxuat WHERE id='{gridView1.GetRowCellValue(i, "id")}'");
                 Form1.Default.ShowMessageSuccess($"Đã xóa tên truyện ({gridView1.GetRowCellValue(i, "tentruyen")}) trong mã phiếu ({txt_maphieu.Text}) thành công.");
                 gridView1.DeleteRow(i);
             }

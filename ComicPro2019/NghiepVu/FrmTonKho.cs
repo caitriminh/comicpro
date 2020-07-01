@@ -1,8 +1,10 @@
-﻿using DevExpress.XtraEditors;
+﻿using Chilkat;
+using DevExpress.XtraEditors;
 using SimpleBroker;
 using System;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.Drawing.Imaging;
 using System.IO;
@@ -197,7 +199,7 @@ namespace ComicPro2019.NghiepVu
             BindingList<PictureObject> list = new BindingList<PictureObject>();
             PictureObject item;
             object b = new object();
-            await Task.Factory.StartNew(() =>
+            await System.Threading.Tasks.Task.Factory.StartNew(() =>
              {
                  foreach (DataRow drow in dt.Rows)
                  {
@@ -288,6 +290,11 @@ namespace ComicPro2019.NghiepVu
         private void cbo_tuatruyen_EditValueChanged(object sender, EventArgs e)
         {
             GetLayout(cbo_tuatruyen.EditValue.ToString().Replace(" ", ""));
+        }
+
+        private void barButtonItem1_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+
         }
     }
 }

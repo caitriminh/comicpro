@@ -40,7 +40,7 @@ namespace ComicPro2019.NghiepVu.BanLamViec
 
         private async void mnu_loaitruyen_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            var tong = ExecSQL.ExecQuerySacalar("SELECT COUNT(DISTINCT matruyen) AS tong FROM dbo.tbl_phieunhapxuat WHERE slnhap>0");
+            var tong = ExecSQL.ExecQuerySacalar("SELECT COUNT(DISTINCT matruyen) AS tong FROM dbo.tbl_ct_phieunhapxuat WHERE slnhap>0");
             if (_flag == 1)
             {
                 loaitruyen.Control.Controls[0].Controls.Clear();
@@ -88,7 +88,7 @@ namespace ComicPro2019.NghiepVu.BanLamViec
 
         private async void mnu_giatri_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            var tong = ExecSQL.ExecQuerySacalar("SELECT SUM(slnhap*dongia) AS tong FROM dbo.tbl_phieunhapxuat");
+            var tong = ExecSQL.ExecQuerySacalar("SELECT SUM(slnhap*dongia) AS tong FROM dbo.tbl_ct_phieunhapxuat");
             if (_flag == 1)
             {
                 loaitruyen.Control.Controls[0].Controls.Clear();

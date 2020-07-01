@@ -531,6 +531,7 @@
             this.pictureEdit1.Size = new System.Drawing.Size(306, 430);
             this.pictureEdit1.StyleController = this.layoutControl1;
             this.pictureEdit1.TabIndex = 12;
+            this.pictureEdit1.Click += new System.EventHandler(this.pictureEdit1_Click);
             this.pictureEdit1.DoubleClick += new System.EventHandler(this.pictureEdit1_DoubleClick);
             // 
             // lbl_tuatruyen

@@ -17,7 +17,7 @@ namespace ComicPro2019.NghiepVu.BanLamViec
 
         private async void UserLoaiTruyen_Load(object sender, EventArgs e)
         {
-            var tong = ExecSQL.ExecQuerySacalar("SELECT COUNT(DISTINCT matruyen) AS tong FROM dbo.tbl_phieunhapxuat WHERE slnhap>0");
+            var tong = ExecSQL.ExecQuerySacalar("SELECT COUNT(DISTINCT matruyen) AS tong FROM dbo.tbl_ct_phieunhapxuat WHERE slnhap>0");
             Text = @"Loại truyện: " + tong + @" cuốn";
             var chartControl1 = new ChartControl();
             chartControl1.Dock = DockStyle.Fill;

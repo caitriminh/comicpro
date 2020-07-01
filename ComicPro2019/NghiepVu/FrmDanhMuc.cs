@@ -1,4 +1,5 @@
-﻿using DevExpress.XtraBars;
+﻿using Chilkat;
+using DevExpress.XtraBars;
 using DevExpress.XtraEditors;
 using DevExpress.XtraGrid.Views.Grid;
 using DevExpress.XtraGrid.Views.WinExplorer;
@@ -13,10 +14,12 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.Drawing.Imaging;
 using System.IO;
 using System.Linq;
+using System.Net;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -27,9 +30,12 @@ namespace ComicPro2019.NghiepVu
     {
         public FrmDanhMuc()
         {
+            //ftp.Credentials = new NetworkCredential("caitriminhcom", "H6MT9BSYRwJ4");
             InitializeComponent();
+            fTPHelper = new FTPHelper("ftp://caitriminh.xyz/", "caitriminhcom", "H6MT9BSYRwJ4");
         }
 
+        public FTPHelper fTPHelper;
         public async void GetDanhMuc()
         {
             var x = gridView1.FocusedRowHandle;
@@ -247,6 +253,14 @@ namespace ComicPro2019.NghiepVu
                     EncoderParameters myEncoderParameters = new EncoderParameters(1);
                     myEncoderParameters.Param[0] = myEncoderParameter;
                     img.Save(strNewDirPathThumb + "\\" + gridView1.GetRowCellValue(i, "matruyen") + ".jpg", jpgEncoder, myEncoderParameters);
+                    //Tao folder
+                    var folder = "httpdocs/img/thumb/" + lbl_matua.Text;
+                    fTPHelper.createDirectory(folder);
+                    //UploadFileToFTP(lbl_matua.Text, lbl_matruyen.Text, Application.StartupPath + "\\img\\thumb\\" + gridView1.GetRowCellValue(i, "matua") + "\\" + lbl_matruyen.Text + ".jpg");
+                    var remotefile = "httpdocs/img/thumb/" + lbl_matua.Text + "/" + lbl_matruyen.Text + ".jpg";
+                    var localfile = strNewDirPathThumb + "\\" + gridView1.GetRowCellValue(i, "matruyen") + ".jpg";
+                    fTPHelper.upload(remotefile, localfile);
+
                     ExecSQL.ExecQueryNonData($"UPDATE dbo.tbl_tentruyen SET filehinh='{xtraOpenFileDialog1.FileName}' WHERE matruyen='{gridView1.GetRowCellValue(i, "matua")}'");
                 }
             }
@@ -356,7 +370,7 @@ namespace ComicPro2019.NghiepVu
             await UploadImage(ComicPro.StrDuongDanPdf, service, folderid, rowHandle);
         }
 
-        private Task UploadImage(string path, DriveService service, string folderUpload, int rowHandle)
+        private System.Threading.Tasks.Task UploadImage(string path, DriveService service, string folderUpload, int rowHandle)
         {
             var fileMetadata = new Google.Apis.Drive.v3.Data.File();
             fileMetadata.Name = Path.GetFileName(path);
@@ -447,7 +461,7 @@ namespace ComicPro2019.NghiepVu
         private UserCredential GetCredentials()
         {
             UserCredential credential;
-            using (var stream = new FileStream("client_secret.json", FileMode.Open, FileAccess.Read))
+            using (var stream = new FileStream("client_secret.json", FileMode.Open, System.IO.FileAccess.Read))
             {
                 string credPath = Environment.GetFolderPath(Environment.SpecialFolder.Personal);
                 credPath = Path.Combine(credPath, "client_secreta.json");
@@ -540,7 +554,7 @@ namespace ComicPro2019.NghiepVu
             BindingList<PictureObject> list = new BindingList<PictureObject>();
             PictureObject item;
             object b = new object();
-            await Task.Factory.StartNew(() =>
+            await System.Threading.Tasks.Task.Factory.StartNew(() =>
              {
                  foreach (DataRow drow in dt.Rows)
                  {
@@ -695,6 +709,44 @@ namespace ComicPro2019.NghiepVu
         private void FrmDanhMuc_FormClosed(object sender, FormClosedEventArgs e)
         {
             this.Unsubscribe<MessageBroker>();
+        }
+
+        private void pictureEdit1_Click(object sender, EventArgs e)
+        {
+            if (xtraOpenFileDialog1.ShowDialog() == DialogResult.OK)
+            {
+                UploadFileToFTP(lbl_matua.Text, lbl_matruyen.Text, xtraOpenFileDialog1.FileName);
+            }
+
+        }
+
+        private void UploadFileToFTP(string matua, string matruyen, string source)
+        {
+
+            //try
+            //{
+            //string filename = Path.GetFileName(source);
+            //string ftpfullpath = "ftp://125.212.221.113/httpdocs/img/thumb/" + matua + "/" + matruyen + ".jpg";
+            //FtpWebRequest ftp = (FtpWebRequest)FtpWebRequest.Create(ftpfullpath);
+            //ftp.Credentials = new NetworkCredential("caitriminhcom", "H6MT9BSYRwJ4");
+
+            //ftp.KeepAlive = true;
+            //ftp.UseBinary = true;
+            //ftp.Method = WebRequestMethods.Ftp.UploadFile;
+
+            //FileStream fs = File.OpenRead(source);
+            //byte[] buffer = new byte[fs.Length];
+            //fs.Read(buffer, 0, buffer.Length);
+            //fs.Close();
+
+            //Stream ftpstream = ftp.GetRequestStream();
+            //ftpstream.Write(buffer, 0, buffer.Length);
+            //ftpstream.Close();
+            //}
+            //catch (Exception ex)
+            //{
+            //    throw ex;
+            //}
         }
     }
 }

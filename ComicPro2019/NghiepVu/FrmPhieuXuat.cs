@@ -59,7 +59,7 @@ namespace ComicPro2019.NghiepVu
             var i = gridView1.FocusedRowHandle;
             var dgr = HelperMessage.Instance.ShowMessageYesNo($"Bạn có muốn xóa phiếu xuất ({gridView1.GetRowCellValue(i, "maphieu")}) này không?", "Xác Nhận", SystemIcons.Question.ToBitmap());
             if (dgr != DialogResult.Yes) { return; }
-            ExecSQL.ExecQueryNonData($"DELETE FROM dbo.tbl_phieunhapxuat where maphieu='{gridView1.GetRowCellValue(i, "maphieu")}'");
+            ExecSQL.ExecProcedureNonData("pro_delete_phieunhapxuat", new { maphieu = gridView1.GetRowCellValue(i, "maphieu") });
             Form1.Default.ShowMessageSuccess($"Đã xóa phiếu xuất ({gridView1.GetRowCellValue(i, "maphieu")}) thành công.");
             gridView1.DeleteRow(i);
         }

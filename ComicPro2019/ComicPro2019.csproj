@@ -58,7 +58,28 @@
   <PropertyGroup>
     <ApplicationIcon>icons8-sailor-moon-48.ico</ApplicationIcon>
   </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x86\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x86'">
+    <OutputPath>bin\x86\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
   <ItemGroup>
+    <Reference Include="ChilkatDotNet4">
+      <HintPath>C:\Users\ASUS\Desktop\chilkat\chilkat\chilkat\bin\Debug\ChilkatDotNet4.dll</HintPath>
+    </Reference>
     <Reference Include="ClosedXML, Version=0.94.2.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\ClosedXML.0.94.2\lib\net46\ClosedXML.dll</HintPath>
     </Reference>
@@ -323,6 +344,7 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="FTPHelper.cs" />
     <Compile Include="HelperMessage.cs" />
     <Compile Include="HeThong\FrmDoiMatKhau.cs">
       <SubType>Form</SubType>
@@ -392,6 +414,7 @@
     <Compile Include="Models\DanhMuc\TacGia.cs" />
     <Compile Include="Models\HeThong\ThongTin.cs" />
     <Compile Include="Models\HeThong\User.cs" />
+    <Compile Include="Models\NghiepVu\CT_PhieuNhapXuat.cs" />
     <Compile Include="Models\NghiepVu\PhieuNhapXuat.cs" />
     <Compile Include="Models\NghiepVu\TenTruyen.cs" />
     <Compile Include="Models\NghiepVu\TuaTruyen.cs" />

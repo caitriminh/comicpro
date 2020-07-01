@@ -6,8 +6,7 @@ namespace ComicPro2019
     [Table("tbl_phieunhapxuat")]
     internal class PhieuNhapXuat
     {
-        [Key]
-        public int id { get; set; }
+        [ExplicitKey]
 
         public string maphieu { get; set; }
 
@@ -22,16 +21,6 @@ namespace ComicPro2019
         public string nguoilap { get; set; }
 
         public string makho { get; set; }
-
-        public string matruyen { get; set; }
-
-        public int? slnhap { get; set; }
-
-        public int? slxuat { get; set; }
-
-        public float? dongia { get; set; }
-
-        public string ghichu { get; set; }
 
         public string diengiai { get; set; }
 
