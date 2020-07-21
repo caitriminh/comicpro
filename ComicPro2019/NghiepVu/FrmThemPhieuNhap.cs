@@ -178,7 +178,7 @@ namespace ComicPro2019.NghiepVu
             }
             else
             {
-                ExecSQL.ExecProcedureNonData("pro_insert_phieunhapxuat", new { option = 2, maphieu = txt_maphieu.Text, madonvi = cbo_donvi.EditValue.ToString(), ngaynhap = Convert.ToDateTime(txt_ngaynhap.EditValue), makho = cbo_kho.EditValue.ToString(), diengiai = txt_diengiai.Text, nguoitd2 = ComicPro.StrTenDangNhap.ToUpper() });
+                ExecSQL.ExecProcedureNonData("pro_insert_phieunhapxuat", new { option = 3, maphieu = txt_maphieu.Text, madonvi = cbo_donvi.EditValue.ToString(), ngaynhap = Convert.ToDateTime(txt_ngaynhap.EditValue), makho = cbo_kho.EditValue.ToString(), diengiai = txt_diengiai.Text, nguoitd2 = ComicPro.StrTenDangNhap.ToUpper() });
             }
 
             for (var i = 0; i <= gridView1.RowCount; i++)

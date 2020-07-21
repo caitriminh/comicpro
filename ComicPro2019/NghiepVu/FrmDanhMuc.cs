@@ -84,7 +84,7 @@ namespace ComicPro2019.NghiepVu
                 var tentruyen = gridView1.GetRow(item) as TenTruyen;
                 if (tentruyen != null)
                 {
-                    ExecSQL.ExecProcedureNonData("pro_update_tentruyen", new { tentruyen.matruyen, tentruyen.tentruyen, tentruyen.matua, tentruyen.maloaibia, tentruyen.madvt, tentruyen.tap, tentruyen.giabia, tentruyen.ngayxuatban, tentruyen.ghichu, tentruyen.nguoitd2, tentruyen.sotrang });
+                    ExecSQL.ExecProcedureNonData("pro_update_tentruyen", new { tentruyen.matruyen, tentruyen.tentruyen, tentruyen.maloaibia, tentruyen.madvt, tentruyen.tap, tentruyen.giabia, tentruyen.ngayxuatban, tentruyen.ghichu, tentruyen.nguoitd2, tentruyen.sotrang });
                     dem += 1;
                 }
             }
@@ -96,7 +96,7 @@ namespace ComicPro2019.NghiepVu
         private void btn_xoa_ItemClick(object sender, ItemClickEventArgs e)
         {
             var i = gridView1.FocusedRowHandle;
-            var x = Convert.ToInt32(ExecSQL.ExecQuerySacalar($"SELECT COUNT(*) FROM dbo.tbl_phieunhapxuat WHERE matruyen='{gridView1.GetRowCellValue(i, "matruyen")}'"));
+            var x = Convert.ToInt32(ExecSQL.ExecQuerySacalar($"SELECT COUNT(*) FROM dbo.tbl_ct_phieunhapxuat WHERE matruyen='{gridView1.GetRowCellValue(i, "matruyen")}'"));
             var y = Convert.ToInt32(ExecSQL.ExecQuerySacalar($"SELECT COUNT(*) FROM dbo.tbl_tonkho WHERE matruyen='{gridView1.GetRowCellValue(i, "matruyen")}'"));
             if (x > 0 || y > 0)
             {
