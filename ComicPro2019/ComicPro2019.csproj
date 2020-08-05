@@ -336,7 +336,7 @@
     <Compile Include="DanhMuc\FrmThemDonViTinh.designer.cs">
       <DependentUpon>FrmThemDonViTinh.cs</DependentUpon>
     </Compile>
-    <Compile Include="DateTimeExtensions.cs" />
+    <Compile Include="HeThong\DateTimeExtensions.cs" />
     <Compile Include="ExecSQL.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
@@ -344,8 +344,8 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
-    <Compile Include="FTPHelper.cs" />
-    <Compile Include="HelperMessage.cs" />
+    <Compile Include="HeThong\FTPHelper.cs" />
+    <Compile Include="HeThong\HelperMessage.cs" />
     <Compile Include="HeThong\FrmDoiMatKhau.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -394,13 +394,14 @@
     <Compile Include="HeThong\FrmViewExcel.Designer.cs">
       <DependentUpon>FrmViewExcel.cs</DependentUpon>
     </Compile>
+    <Compile Include="HeThong\GridviewHelper.cs" />
     <Compile Include="HeThong\MaskedDialog.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="HeThong\MaskedDialog.Designer.cs">
       <DependentUpon>MaskedDialog.cs</DependentUpon>
     </Compile>
-    <Compile Include="KeyHelper.cs" />
+    <Compile Include="HeThong\KeyHelper.cs" />
     <Compile Include="MessageBroker.cs" />
     <Compile Include="Models\DanhMuc\DonViTinh.cs" />
     <Compile Include="Models\DanhMuc\Kho.cs" />
@@ -818,6 +819,10 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="icons8-sailor-moon-48.ico" />
+    <None Include="Resources\background.png" />
+    <None Include="Resources\font-16.png" />
+    <None Include="Resources\forcolor.png" />
+    <None Include="Resources\save.png" />
     <None Include="Resources\deletelist2_16x16.png" />
     <None Include="Resources\reset_32x32.png" />
     <None Include="Resources\reset_16x16.png" />

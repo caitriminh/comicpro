@@ -30,9 +30,16 @@ namespace ComicPro2019.NghiepVu
     {
         public FrmDanhMuc()
         {
-            //ftp.Credentials = new NetworkCredential("caitriminhcom", "H6MT9BSYRwJ4");
             InitializeComponent();
             fTPHelper = new FTPHelper("ftp://caitriminh.xyz/", "caitriminhcom", "H6MT9BSYRwJ4");
+            // Đánh số thứ tự
+            gridView1.CustomDrawRowIndicator += (s, e) => { GridviewHelper.GridView_CustomDrawRowIndicator(s, e, dgv_danhmuc, gridView1); };
+            // thêm menu vào gridview
+            gridView1.PopupMenuShowing += (s, e) => { GridviewHelper.AddFontAndColortoPopupMenuShowing(s, e, dgv_danhmuc, this.Name); };
+            this.Shown += (s, e) =>
+            {
+                GridviewHelper.SaveAndRestoreLayout(dgv_danhmuc, this.Name);
+            };
         }
 
         public FTPHelper fTPHelper;
