@@ -219,7 +219,7 @@
             this.btn_excel.Id = 4;
             this.btn_excel.ImageOptions.ImageIndex = 4;
             this.btn_excel.Name = "btn_excel";
-            this.btn_excel.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btn_excel_ItemClick);
+        
             // 
             // btn_phanquyen
             // 

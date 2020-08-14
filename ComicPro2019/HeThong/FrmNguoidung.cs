@@ -14,11 +14,6 @@ namespace ComicPro2019.HeThong
             InitializeComponent();
         }
 
-        private void btn_excel_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
-        {
-
-        }
-
         public async void GetNguoiDung()
         {
             var x = gridView1.FocusedRowHandle;
@@ -90,7 +85,7 @@ namespace ComicPro2019.HeThong
             {
                 var dgr = HelperMessage.Instance.ShowMessageYesNo($"Bạn có muốn khôi phục lại mật khẩu mặc định của tài khoản ({gridView1.GetRowCellValue(i, "tendangnhap")}) không?", "Xác Nhận", SystemIcons.Question.ToBitmap());
                 if (dgr != DialogResult.Yes) { return; }
-                ExecSQL.ExecQueryNonData($"UPDATE dbo.tbl_user SET matkhau=CONVERT(VARCHAR(32), HashBytes('MD5', tendangnhap), 2) WHERE tendangnhap='{gridView1.GetRowCellValue(i, "tendangnhap").ToString()}'");
+                ExecSQL.ExecQueryNonData($"UPDATE dbo.tbl_user SET matkhau=CONVERT(VARCHAR(32), HashBytes('MD5', tendangnhap), 2) WHERE tendangnhap='{gridView1.GetRowCellValue(i, "tendangnhap")}'");
                 Form1.Default.ShowMessageSuccess("Đã khôi phục mật khẩu thành công.");
             }
         }

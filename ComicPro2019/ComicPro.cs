@@ -14,22 +14,22 @@ namespace ComicPro2019
     internal sealed class ComicPro
     {
         public static string StrTenDangNhap = "ADMIN";
-        public static string StrMaphieu, StrMaTacGia, StrThoiGianDangNhap, StrDuongDanPdf, StrCaption, StrMaTua, StrLoaiBia, StrMaTruyen;
+        public static string StrMaphieu, StrMaTacGia, StrThoiGianDangNhap, StrDuongDanPdf, StrCaption, StrMaTua, StrMaTruyen, StrLoaiBia;
         public static bool Edit;
-        public static int Report, Flag;
+        public static int Report;
         public static DataTable DtReport;
 
         public static void ExportExcelFromDataTable(DataTable table, string fullPathFileName, string sheetName = "Sheet 1", string writeBeginCell = "A2", string passwordFile = "", bool isPrintHeader = true, bool isOpenFileExcel = true)
         {
             if (table.Rows.Count <= 0)
             {
-                XtraMessageBox.Show("Không tìm thấy dữ liệu!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                Form1.Default.ShowMessageWarning($"Không tìm thấy dữ liệu.");
                 return;
             }
 
             if (File.Exists(fullPathFileName))
             {
-                XtraMessageBox.Show($"Tên file {Path.GetFileName(fullPathFileName)} đã tồn tại! Đặt lại tên khác!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                Form1.Default.ShowMessageWarning($"Tên file {Path.GetFileName(fullPathFileName)} đã tồn tại! Đặt lại tên khác!");
                 return;
             }
 
