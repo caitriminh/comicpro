@@ -75,17 +75,19 @@
             this.layoutControl1.Location = new System.Drawing.Point(0, 0);
             this.layoutControl1.Name = "layoutControl1";
             this.layoutControl1.Root = this.layoutControlGroup1;
-            this.layoutControl1.Size = new System.Drawing.Size(478, 156);
+            this.layoutControl1.Size = new System.Drawing.Size(478, 192);
             this.layoutControl1.TabIndex = 1;
             this.layoutControl1.Text = "layoutControl1";
             // 
             // btn_Thoat
             // 
             this.btn_Thoat.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btn_Thoat.ImageOptions.Image")));
-            this.btn_Thoat.Location = new System.Drawing.Point(391, 92);
+            this.btn_Thoat.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btn_Thoat.ImageOptions.SvgImage")));
+            this.btn_Thoat.ImageOptions.SvgImageSize = new System.Drawing.Size(16, 16);
+            this.btn_Thoat.Location = new System.Drawing.Point(381, 92);
             this.btn_Thoat.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btn_Thoat.Name = "btn_Thoat";
-            this.btn_Thoat.Size = new System.Drawing.Size(73, 27);
+            this.btn_Thoat.Size = new System.Drawing.Size(83, 27);
             this.btn_Thoat.StyleController = this.layoutControl1;
             this.btn_Thoat.TabIndex = 2;
             this.btn_Thoat.Text = "Thoát";
@@ -94,7 +96,9 @@
             // btn_Luu
             // 
             this.btn_Luu.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btn_Luu.ImageOptions.Image")));
-            this.btn_Luu.Location = new System.Drawing.Point(310, 92);
+            this.btn_Luu.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btn_Luu.ImageOptions.SvgImage")));
+            this.btn_Luu.ImageOptions.SvgImageSize = new System.Drawing.Size(16, 16);
+            this.btn_Luu.Location = new System.Drawing.Point(300, 92);
             this.btn_Luu.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btn_Luu.Name = "btn_Luu";
             this.btn_Luu.Size = new System.Drawing.Size(77, 27);
@@ -121,7 +125,7 @@
             this.layoutControlGroup2});
             this.layoutControlGroup1.Name = "layoutControlGroup1";
             this.layoutControlGroup1.Padding = new DevExpress.XtraLayout.Utils.Padding(0, 0, 0, 0);
-            this.layoutControlGroup1.Size = new System.Drawing.Size(478, 156);
+            this.layoutControlGroup1.Size = new System.Drawing.Size(478, 192);
             this.layoutControlGroup1.TextVisible = false;
             // 
             // emptySpaceItem1
@@ -129,7 +133,7 @@
             this.emptySpaceItem1.AllowHotTrack = false;
             this.emptySpaceItem1.Location = new System.Drawing.Point(0, 133);
             this.emptySpaceItem1.Name = "emptySpaceItem1";
-            this.emptySpaceItem1.Size = new System.Drawing.Size(478, 23);
+            this.emptySpaceItem1.Size = new System.Drawing.Size(478, 59);
             this.emptySpaceItem1.TextSize = new System.Drawing.Size(0, 0);
             // 
             // layoutControlGroup2
@@ -168,13 +172,13 @@
             this.emptySpaceItem2.AllowHotTrack = false;
             this.emptySpaceItem2.Location = new System.Drawing.Point(0, 52);
             this.emptySpaceItem2.Name = "emptySpaceItem2";
-            this.emptySpaceItem2.Size = new System.Drawing.Size(296, 31);
+            this.emptySpaceItem2.Size = new System.Drawing.Size(286, 31);
             this.emptySpaceItem2.TextSize = new System.Drawing.Size(0, 0);
             // 
             // layoutControlItem3
             // 
             this.layoutControlItem3.Control = this.btn_Luu;
-            this.layoutControlItem3.Location = new System.Drawing.Point(296, 52);
+            this.layoutControlItem3.Location = new System.Drawing.Point(286, 52);
             this.layoutControlItem3.Name = "layoutControlItem3";
             this.layoutControlItem3.Size = new System.Drawing.Size(81, 31);
             this.layoutControlItem3.TextSize = new System.Drawing.Size(0, 0);
@@ -183,9 +187,9 @@
             // layoutControlItem4
             // 
             this.layoutControlItem4.Control = this.btn_Thoat;
-            this.layoutControlItem4.Location = new System.Drawing.Point(377, 52);
+            this.layoutControlItem4.Location = new System.Drawing.Point(367, 52);
             this.layoutControlItem4.Name = "layoutControlItem4";
-            this.layoutControlItem4.Size = new System.Drawing.Size(77, 31);
+            this.layoutControlItem4.Size = new System.Drawing.Size(87, 31);
             this.layoutControlItem4.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem4.TextVisible = false;
             // 
@@ -193,7 +197,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(478, 156);
+            this.ClientSize = new System.Drawing.Size(478, 192);
             this.Controls.Add(this.layoutControl1);
             this.KeyPreview = true;
             this.MaximizeBox = false;

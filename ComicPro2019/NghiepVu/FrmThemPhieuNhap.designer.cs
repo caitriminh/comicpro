@@ -149,6 +149,7 @@
             this.btn_them.Caption = "Thêm mới\r\n(Ctrl+N)";
             this.btn_them.Id = 1;
             this.btn_them.ImageOptions.LargeImageIndex = 0;
+            this.btn_them.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btn_them.ImageOptions.SvgImage")));
             this.btn_them.Name = "btn_them";
             this.btn_them.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btn_them_ItemClick);
             // 
@@ -157,6 +158,7 @@
             this.btn_luu.Caption = "Lưu\r\n(Ctrl+S)";
             this.btn_luu.Id = 2;
             this.btn_luu.ImageOptions.LargeImageIndex = 3;
+            this.btn_luu.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btn_luu.ImageOptions.SvgImage")));
             this.btn_luu.Name = "btn_luu";
             this.btn_luu.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btn_luu_ItemClick);
             // 
@@ -165,6 +167,7 @@
             this.btn_xoa.Caption = "Xóa\r\n(Ctrl+Del)";
             this.btn_xoa.Id = 3;
             this.btn_xoa.ImageOptions.LargeImageIndex = 1;
+            this.btn_xoa.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btn_xoa.ImageOptions.SvgImage")));
             this.btn_xoa.Name = "btn_xoa";
             this.btn_xoa.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btn_xoa_ItemClick);
             // 
@@ -173,6 +176,7 @@
             this.btn_naplai.Caption = "Nạp lại (F5)";
             this.btn_naplai.Id = 4;
             this.btn_naplai.ImageOptions.LargeImageIndex = 2;
+            this.btn_naplai.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btn_naplai.ImageOptions.SvgImage")));
             this.btn_naplai.Name = "btn_naplai";
             this.btn_naplai.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btn_naplai_ItemClick);
             // 
@@ -181,6 +185,7 @@
             this.btn_in.Caption = "In phiếu\r\n(Ctrl+P)";
             this.btn_in.Id = 5;
             this.btn_in.ImageOptions.LargeImageIndex = 4;
+            this.btn_in.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btn_in.ImageOptions.SvgImage")));
             this.btn_in.Name = "btn_in";
             this.btn_in.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btn_in_ItemClick);
             // 
@@ -189,6 +194,7 @@
             this.btn_them_tu_danhsach.Caption = "Thêm danh sách\r\n(Ctrl+Shift+N)";
             this.btn_them_tu_danhsach.Id = 6;
             this.btn_them_tu_danhsach.ImageOptions.LargeImageIndex = 6;
+            this.btn_them_tu_danhsach.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btn_them_tu_danhsach.ImageOptions.SvgImage")));
             this.btn_them_tu_danhsach.ItemShortcut = new DevExpress.XtraBars.BarShortcut(((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Shift) 
                 | System.Windows.Forms.Keys.N));
             this.btn_them_tu_danhsach.Name = "btn_them_tu_danhsach";

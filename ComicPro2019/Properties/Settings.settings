@@ -26,16 +26,16 @@
       <Value Profile="(Default)" />
     </Setting>
     <Setting Name="server" Type="System.String" Scope="User">
-      <Value Profile="(Default)" />
+      <Value Profile="(Default)">triminh.xyz</Value>
     </Setting>
     <Setting Name="database" Type="System.String" Scope="User">
-      <Value Profile="(Default)" />
+      <Value Profile="(Default)">TriMinh</Value>
     </Setting>
     <Setting Name="matkhau" Type="System.String" Scope="User">
-      <Value Profile="(Default)" />
+      <Value Profile="(Default)">Diemthuong@2809</Value>
     </Setting>
     <Setting Name="user" Type="System.String" Scope="User">
-      <Value Profile="(Default)" />
+      <Value Profile="(Default)">TriMinh</Value>
     </Setting>
   </Settings>
 </SettingsFile>

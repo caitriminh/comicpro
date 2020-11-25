@@ -63,6 +63,7 @@
             this.barDockControlBottom = new DevExpress.XtraBars.BarDockControl();
             this.barDockControlLeft = new DevExpress.XtraBars.BarDockControl();
             this.barDockControlRight = new DevExpress.XtraBars.BarDockControl();
+            this.barButtonItem1 = new DevExpress.XtraBars.BarButtonItem();
             this.repositoryItemGridLookUpEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemGridLookUpEdit();
             this.gridView3 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.label1a = new DevExpress.XtraEditors.LabelControl();
@@ -132,7 +133,6 @@
             this.col_tuatruyen = new DevExpress.XtraGrid.Columns.GridColumn();
             this.repositoryItemGridLookUpEdit2View = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.gridColumn44 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.barButtonItem1 = new DevExpress.XtraBars.BarButtonItem();
             ((System.ComponentModel.ISupportInitialize)(this.imageCollection1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.barManager1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cbo_tuatuyen2)).BeginInit();
@@ -226,7 +226,7 @@
             new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, this.btn_naplai, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph),
             new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, this.btn_in, "", true, true, true, 0, null, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph),
             new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, this.btn_excel, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph),
-            new DevExpress.XtraBars.LinkPersistInfo(((DevExpress.XtraBars.BarLinkUserDefines)((DevExpress.XtraBars.BarLinkUserDefines.PaintStyle | DevExpress.XtraBars.BarLinkUserDefines.Width))), this.cbo_tuatruyen, "", false, true, true, 222, null, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph),
+            new DevExpress.XtraBars.LinkPersistInfo(((DevExpress.XtraBars.BarLinkUserDefines)((DevExpress.XtraBars.BarLinkUserDefines.PaintStyle | DevExpress.XtraBars.BarLinkUserDefines.Width))), this.cbo_tuatruyen, "", true, true, true, 222, null, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph),
             new DevExpress.XtraBars.LinkPersistInfo(((DevExpress.XtraBars.BarLinkUserDefines)((DevExpress.XtraBars.BarLinkUserDefines.PaintStyle | DevExpress.XtraBars.BarLinkUserDefines.Width))), this.cbo_Ky, "", false, true, true, 146, null, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph),
             new DevExpress.XtraBars.LinkPersistInfo(((DevExpress.XtraBars.BarLinkUserDefines)((DevExpress.XtraBars.BarLinkUserDefines.PaintStyle | DevExpress.XtraBars.BarLinkUserDefines.Width))), this.txt_tungay, "", false, true, true, 110, null, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph),
             new DevExpress.XtraBars.LinkPersistInfo(((DevExpress.XtraBars.BarLinkUserDefines)((DevExpress.XtraBars.BarLinkUserDefines.PaintStyle | DevExpress.XtraBars.BarLinkUserDefines.Width))), this.txt_denngay, "", false, true, true, 100, null, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph),
@@ -241,6 +241,7 @@
             this.barSubItem1.Caption = "Tùy chọn";
             this.barSubItem1.Id = 10;
             this.barSubItem1.ImageOptions.ImageIndex = 7;
+            this.barSubItem1.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("barSubItem1.ImageOptions.SvgImage")));
             this.barSubItem1.LinksPersistInfo.AddRange(new DevExpress.XtraBars.LinkPersistInfo[] {
             new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, this.btn_them, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph),
             new DevExpress.XtraBars.LinkPersistInfo(this.btn_chuyensodu),
@@ -279,6 +280,7 @@
             this.btn_xoa.Caption = "&Xóa";
             this.btn_xoa.Id = 2;
             this.btn_xoa.ImageOptions.ImageIndex = 1;
+            this.btn_xoa.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btn_xoa.ImageOptions.SvgImage")));
             this.btn_xoa.Name = "btn_xoa";
             this.btn_xoa.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btn_xoa_ItemClick);
             // 
@@ -287,6 +289,7 @@
             this.btn_naplai.Caption = "&Nạp lại";
             this.btn_naplai.Id = 3;
             this.btn_naplai.ImageOptions.ImageIndex = 2;
+            this.btn_naplai.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btn_naplai.ImageOptions.SvgImage")));
             this.btn_naplai.Name = "btn_naplai";
             this.btn_naplai.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btn_naplai_ItemClick);
             // 
@@ -295,6 +298,7 @@
             this.btn_in.Caption = "&In";
             this.btn_in.Id = 15;
             this.btn_in.ImageOptions.ImageIndex = 9;
+            this.btn_in.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btn_in.ImageOptions.SvgImage")));
             this.btn_in.Name = "btn_in";
             this.btn_in.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btn_in_ItemClick);
             // 
@@ -303,6 +307,7 @@
             this.btn_excel.Caption = "&Excel";
             this.btn_excel.Id = 4;
             this.btn_excel.ImageOptions.ImageIndex = 4;
+            this.btn_excel.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btn_excel.ImageOptions.SvgImage")));
             this.btn_excel.Name = "btn_excel";
             this.btn_excel.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btn_excel_ItemClick);
             // 
@@ -396,6 +401,7 @@
             this.btn_tim.Caption = "&Tìm";
             this.btn_tim.Id = 7;
             this.btn_tim.ImageOptions.ImageIndex = 5;
+            this.btn_tim.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btn_tim.ImageOptions.SvgImage")));
             this.btn_tim.Name = "btn_tim";
             this.btn_tim.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btn_tim_ItemClick);
             // 
@@ -439,6 +445,13 @@
             this.barDockControlRight.Location = new System.Drawing.Point(1616, 30);
             this.barDockControlRight.Manager = this.barManager1;
             this.barDockControlRight.Size = new System.Drawing.Size(0, 624);
+            // 
+            // barButtonItem1
+            // 
+            this.barButtonItem1.Caption = "barButtonItem1";
+            this.barButtonItem1.Id = 19;
+            this.barButtonItem1.Name = "barButtonItem1";
+            this.barButtonItem1.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItem1_ItemClick);
             // 
             // repositoryItemGridLookUpEdit1
             // 
@@ -1363,13 +1376,6 @@
             this.gridColumn44.OptionsColumn.ReadOnly = true;
             this.gridColumn44.Visible = true;
             this.gridColumn44.VisibleIndex = 0;
-            // 
-            // barButtonItem1
-            // 
-            this.barButtonItem1.Caption = "barButtonItem1";
-            this.barButtonItem1.Id = 19;
-            this.barButtonItem1.Name = "barButtonItem1";
-            this.barButtonItem1.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItem1_ItemClick);
             // 
             // FrmTonKho
             // 

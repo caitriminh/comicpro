@@ -51,7 +51,6 @@
             this.barDockControlBottom = new DevExpress.XtraBars.BarDockControl();
             this.barDockControlLeft = new DevExpress.XtraBars.BarDockControl();
             this.barDockControlRight = new DevExpress.XtraBars.BarDockControl();
-            this.imageCollection1 = new DevExpress.Utils.ImageCollection(this.components);
             this.dgv_phieunhap = new DevExpress.XtraGrid.GridControl();
             this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.gridColumn1 = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -126,7 +125,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemDateEdit1.CalendarTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemDateEdit2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemDateEdit2.CalendarTimeProperties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.imageCollection1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_phieunhap)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cbo_tuatruyen)).BeginInit();
@@ -156,7 +154,6 @@
             this.barManager1.DockControls.Add(this.barDockControlLeft);
             this.barManager1.DockControls.Add(this.barDockControlRight);
             this.barManager1.Form = this;
-            this.barManager1.Images = this.imageCollection1;
             this.barManager1.Items.AddRange(new DevExpress.XtraBars.BarItem[] {
             this.btn_them,
             this.btn_xoa,
@@ -200,7 +197,7 @@
             // 
             this.btn_them.Caption = "&Thêm";
             this.btn_them.Id = 0;
-            this.btn_them.ImageOptions.ImageIndex = 0;
+            this.btn_them.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btn_them.ImageOptions.SvgImage")));
             this.btn_them.Name = "btn_them";
             this.btn_them.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btn_them_ItemClick);
             // 
@@ -209,6 +206,7 @@
             this.btn_sua.Caption = "&Sửa";
             this.btn_sua.Id = 8;
             this.btn_sua.ImageOptions.ImageIndex = 6;
+            this.btn_sua.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btn_sua.ImageOptions.SvgImage")));
             this.btn_sua.Name = "btn_sua";
             this.btn_sua.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btn_sua_ItemClick);
             // 
@@ -217,6 +215,7 @@
             this.btn_xoa.Caption = "&Xóa";
             this.btn_xoa.Id = 2;
             this.btn_xoa.ImageOptions.ImageIndex = 1;
+            this.btn_xoa.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btn_xoa.ImageOptions.SvgImage")));
             this.btn_xoa.Name = "btn_xoa";
             this.btn_xoa.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btn_xoa_ItemClick);
             // 
@@ -225,6 +224,7 @@
             this.btn_naplai.Caption = "&Nạp lại";
             this.btn_naplai.Id = 3;
             this.btn_naplai.ImageOptions.ImageIndex = 2;
+            this.btn_naplai.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btn_naplai.ImageOptions.SvgImage")));
             this.btn_naplai.Name = "btn_naplai";
             this.btn_naplai.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btn_naplai_ItemClick);
             // 
@@ -233,6 +233,7 @@
             this.btn_in.Caption = "&In";
             this.btn_in.Id = 10;
             this.btn_in.ImageOptions.ImageIndex = 7;
+            this.btn_in.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btn_in.ImageOptions.SvgImage")));
             this.btn_in.Name = "btn_in";
             this.btn_in.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btn_in_ItemClick);
             // 
@@ -241,6 +242,7 @@
             this.btn_excel.Caption = "&Excel";
             this.btn_excel.Id = 4;
             this.btn_excel.ImageOptions.ImageIndex = 4;
+            this.btn_excel.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btn_excel.ImageOptions.SvgImage")));
             this.btn_excel.Name = "btn_excel";
             this.btn_excel.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btn_excel_ItemClick);
             // 
@@ -318,6 +320,7 @@
             this.btn_tim.Caption = "&Tìm";
             this.btn_tim.Id = 7;
             this.btn_tim.ImageOptions.ImageIndex = 5;
+            this.btn_tim.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btn_tim.ImageOptions.SvgImage")));
             this.btn_tim.Name = "btn_tim";
             this.btn_tim.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btn_tim_ItemClick);
             // 
@@ -352,18 +355,6 @@
             this.barDockControlRight.Location = new System.Drawing.Point(1385, 30);
             this.barDockControlRight.Manager = this.barManager1;
             this.barDockControlRight.Size = new System.Drawing.Size(0, 624);
-            // 
-            // imageCollection1
-            // 
-            this.imageCollection1.ImageStream = ((DevExpress.Utils.ImageCollectionStreamer)(resources.GetObject("imageCollection1.ImageStream")));
-            this.imageCollection1.Images.SetKeyName(0, "additem_16x16.png");
-            this.imageCollection1.Images.SetKeyName(1, "close_16x16.png");
-            this.imageCollection1.Images.SetKeyName(2, "refresh_16x16.png");
-            this.imageCollection1.Images.SetKeyName(3, "saveas_16x16.png");
-            this.imageCollection1.Images.SetKeyName(4, "exporttoxls_16x16.png");
-            this.imageCollection1.Images.SetKeyName(5, "zoom_16x16.png");
-            this.imageCollection1.Images.SetKeyName(6, "edittask_16x16.png");
-            this.imageCollection1.Images.SetKeyName(7, "print_16x16.png");
             // 
             // dgv_phieunhap
             // 
@@ -646,7 +637,6 @@
             this.lbl_maphieu.Name = "lbl_maphieu";
             this.lbl_maphieu.Size = new System.Drawing.Size(75, 0);
             this.lbl_maphieu.TabIndex = 20;
-
             // 
             // xtraSaveFileDialog1
             // 
@@ -1246,7 +1236,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemDateEdit1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemDateEdit2.CalendarTimeProperties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemDateEdit2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.imageCollection1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_phieunhap)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cbo_tuatruyen)).EndInit();
@@ -1283,7 +1272,6 @@
         private DevExpress.XtraBars.BarButtonItem btn_naplai;
         private DevExpress.XtraGrid.GridControl dgv_phieunhap;
         private DevExpress.XtraGrid.Views.Grid.GridView gridView1;
-        private DevExpress.Utils.ImageCollection imageCollection1;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn1;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn2;
         private DevExpress.XtraEditors.LabelControl label1a;

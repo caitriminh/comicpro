@@ -56,7 +56,6 @@
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject16 = new DevExpress.Utils.SerializableAppearanceObject();
             this.col_tinhtrang = new DevExpress.XtraGrid.Columns.GridColumn();
             this.col_doctruyen = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.imageCollection1 = new DevExpress.Utils.ImageCollection(this.components);
             this.barManager1 = new DevExpress.XtraBars.BarManager(this.components);
             this.bar2 = new DevExpress.XtraBars.Bar();
             this.btn_them = new DevExpress.XtraBars.BarButtonItem();
@@ -163,7 +162,6 @@
             this.col_tuatruyen = new DevExpress.XtraGrid.Columns.GridColumn();
             this.col_matruyen = new DevExpress.XtraGrid.Columns.GridColumn();
             this.col_matua = new DevExpress.XtraGrid.Columns.GridColumn();
-            ((System.ComponentModel.ISupportInitialize)(this.imageCollection1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.barManager1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cbo_tua2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemProgressBar1)).BeginInit();
@@ -242,17 +240,6 @@
             this.col_doctruyen.VisibleIndex = 24;
             this.col_doctruyen.Width = 110;
             // 
-            // imageCollection1
-            // 
-            this.imageCollection1.ImageStream = ((DevExpress.Utils.ImageCollectionStreamer)(resources.GetObject("imageCollection1.ImageStream")));
-            this.imageCollection1.Images.SetKeyName(0, "additem_16x16.png");
-            this.imageCollection1.Images.SetKeyName(1, "close_16x16.png");
-            this.imageCollection1.Images.SetKeyName(2, "refresh_16x16.png");
-            this.imageCollection1.Images.SetKeyName(3, "saveas_16x16.png");
-            this.imageCollection1.Images.SetKeyName(4, "exporttoxls_16x16.png");
-            this.imageCollection1.Images.SetKeyName(5, "insertimage_16x16.png");
-            this.imageCollection1.Images.SetKeyName(6, "print_16x16.png");
-            // 
             // barManager1
             // 
             this.barManager1.Bars.AddRange(new DevExpress.XtraBars.Bar[] {
@@ -262,7 +249,6 @@
             this.barManager1.DockControls.Add(this.barDockControlLeft);
             this.barManager1.DockControls.Add(this.barDockControlRight);
             this.barManager1.Form = this;
-            this.barManager1.Images = this.imageCollection1;
             this.barManager1.Items.AddRange(new DevExpress.XtraBars.BarItem[] {
             this.btn_them,
             this.btn_luu,
@@ -306,7 +292,7 @@
             // 
             this.btn_them.Caption = "&Thêm";
             this.btn_them.Id = 0;
-            this.btn_them.ImageOptions.ImageIndex = 0;
+            this.btn_them.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btn_them.ImageOptions.SvgImage")));
             this.btn_them.Name = "btn_them";
             this.btn_them.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btn_them_ItemClick);
             // 
@@ -315,6 +301,7 @@
             this.btn_luu.Caption = "&Lưu";
             this.btn_luu.Id = 1;
             this.btn_luu.ImageOptions.ImageIndex = 3;
+            this.btn_luu.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btn_luu.ImageOptions.SvgImage")));
             this.btn_luu.Name = "btn_luu";
             this.btn_luu.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btn_luu_ItemClick);
             // 
@@ -323,6 +310,7 @@
             this.btn_xoa.Caption = "&Xóa";
             this.btn_xoa.Id = 2;
             this.btn_xoa.ImageOptions.ImageIndex = 1;
+            this.btn_xoa.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btn_xoa.ImageOptions.SvgImage")));
             this.btn_xoa.Name = "btn_xoa";
             this.btn_xoa.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btn_xoa_ItemClick);
             // 
@@ -331,6 +319,7 @@
             this.btn_naplai.Caption = "&Nạp lại";
             this.btn_naplai.Id = 3;
             this.btn_naplai.ImageOptions.ImageIndex = 2;
+            this.btn_naplai.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btn_naplai.ImageOptions.SvgImage")));
             this.btn_naplai.Name = "btn_naplai";
             this.btn_naplai.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btn_naplai_ItemClick);
             // 
@@ -339,6 +328,7 @@
             this.barSubItem1.Caption = "&In";
             this.barSubItem1.Id = 7;
             this.barSubItem1.ImageOptions.ImageIndex = 6;
+            this.barSubItem1.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("barSubItem1.ImageOptions.SvgImage")));
             this.barSubItem1.LinksPersistInfo.AddRange(new DevExpress.XtraBars.LinkPersistInfo[] {
             new DevExpress.XtraBars.LinkPersistInfo(this.btn_danhsach),
             new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, this.btn_in, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph)});
@@ -363,6 +353,7 @@
             this.btn_excel.Caption = "&Excel";
             this.btn_excel.Id = 4;
             this.btn_excel.ImageOptions.ImageIndex = 4;
+            this.btn_excel.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btn_excel.ImageOptions.SvgImage")));
             this.btn_excel.Name = "btn_excel";
             this.btn_excel.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btn_excel_ItemClick);
             // 
@@ -906,7 +897,8 @@
             // repositoryItemButtonEdit4
             // 
             this.repositoryItemButtonEdit4.AutoHeight = false;
-            editorButtonImageOptions1.Image = ((System.Drawing.Image)(resources.GetObject("editorButtonImageOptions1.Image")));
+            editorButtonImageOptions1.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("editorButtonImageOptions1.SvgImage")));
+            editorButtonImageOptions1.SvgImageSize = new System.Drawing.Size(16, 16);
             this.repositoryItemButtonEdit4.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, editorButtonImageOptions1, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject1, serializableAppearanceObject2, serializableAppearanceObject3, serializableAppearanceObject4, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
             this.repositoryItemButtonEdit4.Name = "repositoryItemButtonEdit4";
@@ -1230,8 +1222,8 @@
             // repositoryItemButtonEdit1
             // 
             this.repositoryItemButtonEdit1.AutoHeight = false;
-            editorButtonImageOptions2.ImageIndex = 5;
-            editorButtonImageOptions2.ImageList = this.imageCollection1;
+            editorButtonImageOptions2.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("editorButtonImageOptions2.SvgImage")));
+            editorButtonImageOptions2.SvgImageSize = new System.Drawing.Size(16, 16);
             this.repositoryItemButtonEdit1.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, editorButtonImageOptions2, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject5, serializableAppearanceObject6, serializableAppearanceObject7, serializableAppearanceObject8, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
             this.repositoryItemButtonEdit1.Name = "repositoryItemButtonEdit1";
@@ -1473,7 +1465,6 @@
             this.Text = "Danh Mục";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.FrmDanhMuc_FormClosed);
             this.Load += new System.EventHandler(this.FrmDanhMuc_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.imageCollection1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.barManager1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cbo_tua2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemProgressBar1)).EndInit();
@@ -1543,7 +1534,6 @@
         private DevExpress.XtraBars.BarDockControl barDockControlLeft;
         private DevExpress.XtraBars.BarDockControl barDockControlRight;
         private DevExpress.XtraBars.BarButtonItem btn_naplai;
-        private DevExpress.Utils.ImageCollection imageCollection1;
         private DevExpress.XtraEditors.LabelControl label1a;
         private DevExpress.XtraBars.BarButtonItem btn_excel;
         private DevExpress.XtraEditors.XtraSaveFileDialog xtraSaveFileDialog1;

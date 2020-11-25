@@ -60,5 +60,11 @@ namespace ComicPro2019.HeThong
         {
             if (IsLogin != "OK") { e.Cancel = false; }
         }
+
+        private void simpleButton1_Click(object sender, EventArgs e)
+        {
+            FrmThietLapHeThong frm = new FrmThietLapHeThong();
+            frm.Show();
+        }
     }
 }

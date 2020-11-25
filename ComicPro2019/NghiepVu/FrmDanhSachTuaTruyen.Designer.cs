@@ -85,6 +85,7 @@
             this.btn_xacnhan.Id = 0;
             this.btn_xacnhan.ImageOptions.Image = global::ComicPro2019.Properties.Resources.apply_16x16;
             this.btn_xacnhan.ImageOptions.LargeImage = global::ComicPro2019.Properties.Resources.apply_32x32;
+            this.btn_xacnhan.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btn_xacnhan.ImageOptions.SvgImage")));
             this.btn_xacnhan.Name = "btn_xacnhan";
             this.btn_xacnhan.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btn_xacnhan_ItemClick);
             // 
@@ -94,6 +95,7 @@
             this.btn_naplai.Id = 1;
             this.btn_naplai.ImageOptions.Image = global::ComicPro2019.Properties.Resources.reset_16x16;
             this.btn_naplai.ImageOptions.LargeImage = global::ComicPro2019.Properties.Resources.reset_32x32;
+            this.btn_naplai.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btn_naplai.ImageOptions.SvgImage")));
             this.btn_naplai.Name = "btn_naplai";
             this.btn_naplai.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btn_naplai_ItemClick);
             // 

@@ -77,10 +77,12 @@
             // btn_Thoat
             // 
             this.btn_Thoat.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btn_Thoat.ImageOptions.Image")));
-            this.btn_Thoat.Location = new System.Drawing.Point(341, 66);
+            this.btn_Thoat.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btn_Thoat.ImageOptions.SvgImage")));
+            this.btn_Thoat.ImageOptions.SvgImageSize = new System.Drawing.Size(16, 16);
+            this.btn_Thoat.Location = new System.Drawing.Point(334, 66);
             this.btn_Thoat.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btn_Thoat.Name = "btn_Thoat";
-            this.btn_Thoat.Size = new System.Drawing.Size(66, 27);
+            this.btn_Thoat.Size = new System.Drawing.Size(73, 27);
             this.btn_Thoat.StyleController = this.layoutControl1;
             this.btn_Thoat.TabIndex = 2;
             this.btn_Thoat.Text = "Thoát";
@@ -89,10 +91,12 @@
             // btn_Luu
             // 
             this.btn_Luu.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btn_Luu.ImageOptions.Image")));
-            this.btn_Luu.Location = new System.Drawing.Point(263, 66);
+            this.btn_Luu.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btn_Luu.ImageOptions.SvgImage")));
+            this.btn_Luu.ImageOptions.SvgImageSize = new System.Drawing.Size(16, 16);
+            this.btn_Luu.Location = new System.Drawing.Point(254, 66);
             this.btn_Luu.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btn_Luu.Name = "btn_Luu";
-            this.btn_Luu.Size = new System.Drawing.Size(74, 27);
+            this.btn_Luu.Size = new System.Drawing.Size(76, 27);
             this.btn_Luu.StyleController = this.layoutControl1;
             this.btn_Luu.TabIndex = 1;
             this.btn_Luu.Text = "&Lưu";
@@ -144,24 +148,24 @@
             this.emptySpaceItem2.AllowHotTrack = false;
             this.emptySpaceItem2.Location = new System.Drawing.Point(0, 26);
             this.emptySpaceItem2.Name = "emptySpaceItem2";
-            this.emptySpaceItem2.Size = new System.Drawing.Size(249, 31);
+            this.emptySpaceItem2.Size = new System.Drawing.Size(240, 31);
             this.emptySpaceItem2.TextSize = new System.Drawing.Size(0, 0);
             // 
             // layoutControlItem2
             // 
             this.layoutControlItem2.Control = this.btn_Luu;
-            this.layoutControlItem2.Location = new System.Drawing.Point(249, 26);
+            this.layoutControlItem2.Location = new System.Drawing.Point(240, 26);
             this.layoutControlItem2.Name = "layoutControlItem2";
-            this.layoutControlItem2.Size = new System.Drawing.Size(78, 31);
+            this.layoutControlItem2.Size = new System.Drawing.Size(80, 31);
             this.layoutControlItem2.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem2.TextVisible = false;
             // 
             // layoutControlItem3
             // 
             this.layoutControlItem3.Control = this.btn_Thoat;
-            this.layoutControlItem3.Location = new System.Drawing.Point(327, 26);
+            this.layoutControlItem3.Location = new System.Drawing.Point(320, 26);
             this.layoutControlItem3.Name = "layoutControlItem3";
-            this.layoutControlItem3.Size = new System.Drawing.Size(70, 31);
+            this.layoutControlItem3.Size = new System.Drawing.Size(77, 31);
             this.layoutControlItem3.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem3.TextVisible = false;
             // 

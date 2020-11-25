@@ -77,6 +77,7 @@
             this.barButtonItem8 = new DevExpress.XtraBars.BarButtonItem();
             this.btn_connectgoogle = new DevExpress.XtraBars.BarButtonItem();
             this.skinRibbonGalleryBarItem1 = new DevExpress.XtraBars.SkinRibbonGalleryBarItem();
+            this.barButtonItem7 = new DevExpress.XtraBars.BarButtonItem();
             this.imageCollection1 = new DevExpress.Utils.ImageCollection(this.components);
             this.menu_hethong = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPageGroup3 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
@@ -97,7 +98,6 @@
             this.flyoutPanel_internet = new DevExpress.Utils.FlyoutPanel();
             this.lbl_message_internet = new DevExpress.XtraEditors.LabelControl();
             this.imageCollectionSmall = new DevExpress.Utils.ImageCollection(this.components);
-            this.barButtonItem7 = new DevExpress.XtraBars.BarButtonItem();
             ((System.ComponentModel.ISupportInitialize)(this.ribbonControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemLineSpacing1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.imageCollection1)).BeginInit();
@@ -366,8 +366,7 @@
             // 
             this.lbl_maychu.Caption = "TRIMINH";
             this.lbl_maychu.Id = 26;
-            this.lbl_maychu.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("lbl_maychu.ImageOptions.Image")));
-            this.lbl_maychu.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("lbl_maychu.ImageOptions.LargeImage")));
+            this.lbl_maychu.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("lbl_maychu.ImageOptions.SvgImage")));
             this.lbl_maychu.Name = "lbl_maychu";
             // 
             // barButtonItem2
@@ -375,8 +374,7 @@
             this.barButtonItem2.Alignment = DevExpress.XtraBars.BarItemLinkAlignment.Left;
             this.barButtonItem2.Caption = "COMICPRO2019";
             this.barButtonItem2.Id = 27;
-            this.barButtonItem2.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("barButtonItem2.ImageOptions.Image")));
-            this.barButtonItem2.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("barButtonItem2.ImageOptions.LargeImage")));
+            this.barButtonItem2.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("barButtonItem2.ImageOptions.SvgImage")));
             this.barButtonItem2.Name = "barButtonItem2";
             // 
             // btn_backupdata
@@ -399,8 +397,7 @@
             // 
             this.lbl_thoigian.Alignment = DevExpress.XtraBars.BarItemLinkAlignment.Right;
             this.lbl_thoigian.Id = 30;
-            this.lbl_thoigian.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("lbl_thoigian.ImageOptions.Image")));
-            this.lbl_thoigian.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("lbl_thoigian.ImageOptions.LargeImage")));
+            this.lbl_thoigian.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("lbl_thoigian.ImageOptions.SvgImage")));
             this.lbl_thoigian.Name = "lbl_thoigian";
             this.lbl_thoigian.PaintStyle = DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph;
             // 
@@ -438,16 +435,14 @@
             // 
             this.bar_gio.Alignment = DevExpress.XtraBars.BarItemLinkAlignment.Right;
             this.bar_gio.Id = 34;
-            this.bar_gio.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("bar_gio.ImageOptions.Image")));
-            this.bar_gio.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("bar_gio.ImageOptions.LargeImage")));
+            this.bar_gio.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("bar_gio.ImageOptions.SvgImage")));
             this.bar_gio.Name = "bar_gio";
             // 
             // lbl_nguoidung
             // 
             this.lbl_nguoidung.Caption = "User";
             this.lbl_nguoidung.Id = 35;
-            this.lbl_nguoidung.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("lbl_nguoidung.ImageOptions.Image")));
-            this.lbl_nguoidung.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("lbl_nguoidung.ImageOptions.LargeImage")));
+            this.lbl_nguoidung.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("lbl_nguoidung.ImageOptions.SvgImage")));
             this.lbl_nguoidung.Name = "lbl_nguoidung";
             // 
             // bar_numLock
@@ -520,6 +515,12 @@
             this.skinRibbonGalleryBarItem1.Caption = "skinRibbonGalleryBarItem1";
             this.skinRibbonGalleryBarItem1.Id = 46;
             this.skinRibbonGalleryBarItem1.Name = "skinRibbonGalleryBarItem1";
+            // 
+            // barButtonItem7
+            // 
+            this.barButtonItem7.Caption = "barButtonItem7";
+            this.barButtonItem7.Id = 47;
+            this.barButtonItem7.Name = "barButtonItem7";
             // 
             // imageCollection1
             // 
@@ -723,12 +724,6 @@
             this.imageCollectionSmall.Images.SetKeyName(0, "apply_16x16.png");
             this.imageCollectionSmall.Images.SetKeyName(1, "close_16x16.png");
             this.imageCollectionSmall.Images.SetKeyName(2, "cancel_16x16.png");
-            // 
-            // barButtonItem7
-            // 
-            this.barButtonItem7.Caption = "barButtonItem7";
-            this.barButtonItem7.Id = 47;
-            this.barButtonItem7.Name = "barButtonItem7";
             // 
             // Form1
             // 

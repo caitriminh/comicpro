@@ -94,6 +94,7 @@
             this.btn_them.Caption = "&Thêm";
             this.btn_them.Id = 0;
             this.btn_them.ImageOptions.ImageIndex = 0;
+            this.btn_them.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btn_them.ImageOptions.SvgImage")));
             this.btn_them.Name = "btn_them";
             this.btn_them.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btn_them_ItemClick);
             // 
@@ -102,6 +103,7 @@
             this.btn_luu.Caption = "&Lưu";
             this.btn_luu.Id = 1;
             this.btn_luu.ImageOptions.ImageIndex = 3;
+            this.btn_luu.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btn_luu.ImageOptions.SvgImage")));
             this.btn_luu.Name = "btn_luu";
             this.btn_luu.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btn_luu_ItemClick);
             // 
@@ -110,6 +112,7 @@
             this.btn_xoa.Caption = "&Xóa";
             this.btn_xoa.Id = 2;
             this.btn_xoa.ImageOptions.ImageIndex = 1;
+            this.btn_xoa.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btn_xoa.ImageOptions.SvgImage")));
             this.btn_xoa.Name = "btn_xoa";
             this.btn_xoa.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btn_xoa_ItemClick);
             // 
@@ -118,6 +121,7 @@
             this.btn_naplai.Caption = "&Nạp lại";
             this.btn_naplai.Id = 3;
             this.btn_naplai.ImageOptions.ImageIndex = 2;
+            this.btn_naplai.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btn_naplai.ImageOptions.SvgImage")));
             this.btn_naplai.Name = "btn_naplai";
             this.btn_naplai.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btn_naplai_ItemClick);
             // 
@@ -273,7 +277,6 @@
             this.label1a.Name = "label1a";
             this.label1a.Size = new System.Drawing.Size(75, 0);
             this.label1a.TabIndex = 5;
-           
             // 
             // FrmLoaiBia
             // 

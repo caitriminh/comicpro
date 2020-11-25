@@ -54,7 +54,7 @@ namespace ComicPro2019.NghiepVu
         {
             if (value.task == "phieunhapdanhsach")
             {
-                ExecSQL.ExecProcedureNonData("pro_insert_phieunhapxuat", new { option = 2, maphieu = txt_maphieu.Text, madonvi = cbo_donvi.EditValue.ToString(), loaiphieu = "PN", idloaiphieunhapxuat = Convert.ToInt32(cbo_loaiphieu.EditValue), ngaynhap = Convert.ToDateTime(txt_ngaynhap.EditValue), makho = cbo_kho.EditValue.ToString(), matruyen = ComicPro.StrMaTruyen, ghichu = "Nhập từ danh sách.", nguoitd = ComicPro.StrTenDangNhap.ToUpper() });
+                ExecSQL.ExecProcedureNonData("pro_insert_phieunhapxuat", new { option = 2, maphieu = txt_maphieu.Text, madonvi = cbo_donvi.EditValue.ToString(), loaiphieu = "PN", idloaiphieunhapxuat = Convert.ToInt32(cbo_loaiphieu.EditValue), ngaynhap = Convert.ToDateTime(txt_ngaynhap.EditValue), makho = cbo_kho.EditValue.ToString(), matruyen = ComicPro.StrMaTruyen, diengiai = "Nhập từ danh sách.", nguoitd = ComicPro.StrTenDangNhap.ToUpper() });
                 GetCtPhieuNhap();
                 Form1.Default.ShowMessageSuccess($"Đã cập nhật thành công phiếu nhập kho ({txt_maphieu.Text}) từ danh sách.");
             }
@@ -75,10 +75,14 @@ namespace ComicPro2019.NghiepVu
             txt_maphieu.Properties.ReadOnly = true;
         }
 
+        /// <summary>
+        /// Create by Tri Minh, Date: 04/09/2020
+        /// Function: Get phiếu nhập kho theo mã phiếu
+        /// </summary>
         public void GetThongTin()
         {
-            var dt = ExecSQL.ExecProcedureDataAsDataTable("pro_ct_phieunhapxuat", new { option = 1, maphieu = txt_maphieu.Text });
-            if (dt == null) { return; }
+            var dt = ExecSQL.ExecProcedureDataAsDataTable("pro_get_phieunhapxuat", new { option = 3, maphieu = txt_maphieu.Text });
+            if (dt.Rows.Count == 0) { return; }
             cbo_donvi.Text = dt.Rows[0]["madonvi"].ToString();
             cbo_kho.EditValue = dt.Rows[0]["makho"];
             cbo_loaiphieu.EditValue = dt.Rows[0]["idloaiphieunhapxuat"];
@@ -94,6 +98,10 @@ namespace ComicPro2019.NghiepVu
             txt_diachi.Text = dt.diachi;
         }
 
+        /// <summary>
+        /// Create by Tri Minh, Date: 04/09/2020
+        /// Function: Get chi tiết phiếu nhập kho theo mã phiếu
+        /// </summary>
         public async void GetCtPhieuNhap()
         {
             var x = gridView1.FocusedRowHandle;

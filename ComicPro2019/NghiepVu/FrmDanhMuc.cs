@@ -31,7 +31,7 @@ namespace ComicPro2019.NghiepVu
         public FrmDanhMuc()
         {
             InitializeComponent();
-            fTPHelper = new FTPHelper("ftp://caitriminh.xyz/", "caitriminhcom", "H6MT9BSYRwJ4");
+            fTPHelper = new FTPHelper("ftp://triminh.xyz/", "gv1mpaj216", "Ue77uPjhH3");
             // Đánh số thứ tự
             gridView1.CustomDrawRowIndicator += (s, e) => { GridviewHelper.GridView_CustomDrawRowIndicator(s, e, dgv_danhmuc, gridView1); };
             // thêm menu vào gridview
@@ -48,8 +48,7 @@ namespace ComicPro2019.NghiepVu
             var x = gridView1.FocusedRowHandle;
             var y = gridView1.TopRowIndex;
             var listTentruyen = await ExecSQL.ExecProcedureDataAsync<TenTruyen>("pro_get_tentruyen", new { option = 1 });
-            dgv_danhmuc.BeginInvoke(new Action(() =>
-            {
+           
                 dgv_danhmuc.DataSource = listTentruyen;
                 lbl_matua.DataBindings.Clear();
                 lbl_matruyen.DataBindings.Clear();
@@ -60,7 +59,7 @@ namespace ComicPro2019.NghiepVu
                 cbo_tua.DataBindings.Add("editvalue", listTentruyen, "matua");
                 gridView1.FocusedRowHandle = x;
                 gridView1.TopRowIndex = y;
-            }));
+          
         }
 
         private void btn_them_ItemClick(object sender, ItemClickEventArgs e)
@@ -246,7 +245,7 @@ namespace ComicPro2019.NghiepVu
                     }
 
                     File.Copy(xtraOpenFileDialog1.FileName, strNewDirPathOrigin + "\\" + gridView1.GetRowCellValue(i, "matruyen") + ".jpg", true);
-                    pictureEdit1.Image = ReadImageToStream(strNewDirPathOrigin + "\\" + gridView1.GetRowCellValue(i, "matruyen") + ".jpg");
+
                     string strNewDirPathThumb = Application.StartupPath + "\\img\\thumb\\" + gridView1.GetRowCellValue(i, "matua");
                     if (!Directory.Exists(strNewDirPathThumb))
                     {
@@ -267,7 +266,7 @@ namespace ComicPro2019.NghiepVu
                     var remotefile = "httpdocs/img/thumb/" + lbl_matua.Text + "/" + lbl_matruyen.Text + ".jpg";
                     var localfile = strNewDirPathThumb + "\\" + gridView1.GetRowCellValue(i, "matruyen") + ".jpg";
                     fTPHelper.upload(remotefile, localfile);
-
+                    pictureEdit1.Image = ReadImageToStream(strNewDirPathOrigin + "\\" + gridView1.GetRowCellValue(i, "matruyen") + ".jpg");
                     ExecSQL.ExecQueryNonData($"UPDATE dbo.tbl_tentruyen SET filehinh='{xtraOpenFileDialog1.FileName}' WHERE matruyen='{gridView1.GetRowCellValue(i, "matua")}'");
                 }
             }
