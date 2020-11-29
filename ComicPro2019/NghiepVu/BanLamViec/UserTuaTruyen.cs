@@ -20,33 +20,34 @@ namespace ComicPro2019.NghiepVu.BanLamViec
 
         public async void GetLayout()
         {
-            string strDuongDan = Application.StartupPath + "\\img\\origin\\";
+            string strDuongDan = ComicPro.URL_HinhAnh;
             DataTable dt = await ExecSQL.ExecProcedureDataAsyncAsDataTable("pro_get_tuatruyen_hinhanh", new { duongdanhinh = strDuongDan });
             BindingList<PictureObject> list = new BindingList<PictureObject>();
             PictureObject item;
             object b = new object();
-            await Task.Factory.StartNew(() =>
-             {
-                 foreach (DataRow drow in dt.Rows)
-                 {
-                     lock (b)
-                     {
-                         BeginInvoke(new Action(() =>
-                         {
-                             if (File.Exists(drow["hinhanh"].ToString()))
-                             {
-                                 item = new PictureObject(Image.FromFile(drow["hinhanh"].ToString()), drow["tentruyen"].ToString(), drow["tuatruyen"].ToString());
-                             }
-                             else
-                             {
-                                 item = new PictureObject(Image.FromFile(strDuongDan + "no-image.png"), drow["tentruyen"].ToString(), drow["tuatruyen"].ToString());
-                             }
-                             list.Add(item);
-                         }));
-                     }
+            //await Task.Factory.StartNew(() =>
+            // {
+            foreach (DataRow drow in dt.Rows)
+            {
+                lock (b)
+                {
+                    BeginInvoke(new Action(() =>
+                    {
+                        if (File.Exists(drow["hinhanh"].ToString()))
+                        {
+                            item = new PictureObject(Image.FromFile(drow["hinhanh"].ToString()), drow["tentruyen"].ToString(), drow["tuatruyen"].ToString());
+                            //  item = new PictureObject(drow["hinhanh"].ToString(), drow["tentruyen"].ToString(), drow["tuatruyen"].ToString());
+                        }
+                        else
+                        {
+                            item = new PictureObject(Image.FromFile(strDuongDan + "no-image.png"), drow["tentruyen"].ToString(), drow["tuatruyen"].ToString());
+                        }
+                        list.Add(item);
+                    }));
+                }
 
-                 }
-             });
+            }
+            //});
             gridControl1.DataSource = list;
         }
 

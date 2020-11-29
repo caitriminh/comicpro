@@ -18,7 +18,7 @@ namespace ComicPro2019
         public static bool Edit;
         public static int Report;
         public static DataTable DtReport;
-
+        public static string URL_HinhAnh = "http://triminh.xyz/img/thumb/";
         public static void ExportExcelFromDataTable(DataTable table, string fullPathFileName, string sheetName = "Sheet 1", string writeBeginCell = "A2", string passwordFile = "", bool isPrintHeader = true, bool isOpenFileExcel = true)
         {
             if (table.Rows.Count <= 0)

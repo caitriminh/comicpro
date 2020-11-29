@@ -1,5 +1,4 @@
-﻿using Chilkat;
-using DevExpress.XtraBars;
+﻿using DevExpress.XtraBars;
 using DevExpress.XtraEditors;
 using DevExpress.XtraGrid.Views.Grid;
 using DevExpress.XtraGrid.Views.WinExplorer;
@@ -48,18 +47,18 @@ namespace ComicPro2019.NghiepVu
             var x = gridView1.FocusedRowHandle;
             var y = gridView1.TopRowIndex;
             var listTentruyen = await ExecSQL.ExecProcedureDataAsync<TenTruyen>("pro_get_tentruyen", new { option = 1 });
-           
-                dgv_danhmuc.DataSource = listTentruyen;
-                lbl_matua.DataBindings.Clear();
-                lbl_matruyen.DataBindings.Clear();
-                cbo_tua.DataBindings.Clear();
 
-                lbl_matua.DataBindings.Add("text", listTentruyen, "matua");
-                lbl_matruyen.DataBindings.Add("text", listTentruyen, "matruyen");
-                cbo_tua.DataBindings.Add("editvalue", listTentruyen, "matua");
-                gridView1.FocusedRowHandle = x;
-                gridView1.TopRowIndex = y;
-          
+            dgv_danhmuc.DataSource = listTentruyen;
+            lbl_matua.DataBindings.Clear();
+            lbl_matruyen.DataBindings.Clear();
+            cbo_tua.DataBindings.Clear();
+
+            lbl_matua.DataBindings.Add("text", listTentruyen, "matua");
+            lbl_matruyen.DataBindings.Add("text", listTentruyen, "matruyen");
+            cbo_tua.DataBindings.Add("editvalue", listTentruyen, "matua");
+            gridView1.FocusedRowHandle = x;
+            gridView1.TopRowIndex = y;
+
         }
 
         private void btn_them_ItemClick(object sender, ItemClickEventArgs e)

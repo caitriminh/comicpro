@@ -9,7 +9,6 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using DevExpress.XtraEditors;
 using ComicPro2019.Properties;
-using Chilkat;
 using System.Diagnostics;
 using System.IO;
 
