@@ -191,7 +191,7 @@ namespace ComicPro2019.NghiepVu
 
         public async void GetLayout(string matua)
         {
-            string strDuongDan = Application.StartupPath + "\\img\\thumb\\";
+            string strDuongDan = Application.StartupPath + "\\img\\origin\\";
             DataTable dt = await ExecSQL.ExecProcedureDataAsyncAsDataTable("pro_get_tonkho", new { option = 3, thang = Convert.ToDateTime(txt_tungay.EditValue).Month, nam = Convert.ToDateTime(txt_tungay.EditValue).Year, duongdanhinh = strDuongDan, matua });
             BindingList<PictureObject> list = new BindingList<PictureObject>();
             PictureObject item;

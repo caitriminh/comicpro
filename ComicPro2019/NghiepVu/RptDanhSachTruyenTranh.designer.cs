@@ -83,7 +83,7 @@ namespace ComicPro2019.NghiepVu
             this.XrPictureBox1.Borders = ((DevExpress.XtraPrinting.BorderSide)((DevExpress.XtraPrinting.BorderSide.Right | DevExpress.XtraPrinting.BorderSide.Bottom)));
             this.XrPictureBox1.LocationFloat = new DevExpress.Utils.PointFloat(631.8334F, 0F);
             this.XrPictureBox1.Name = "XrPictureBox1";
-            this.XrPictureBox1.SizeF = new System.Drawing.SizeF(139.1667F, 167.9167F);
+            this.XrPictureBox1.SizeF = new System.Drawing.SizeF(139.1668F, 167.9167F);
             this.XrPictureBox1.Sizing = DevExpress.XtraPrinting.ImageSizeMode.StretchImage;
             this.XrPictureBox1.StylePriority.UseBorders = false;
             // 
@@ -450,7 +450,7 @@ namespace ComicPro2019.NghiepVu
             this.PageInfo,
             this.DataField});
             this.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleLeft;
-            this.Version = "18.1";
+            this.Version = "20.1";
             ((System.ComponentModel.ISupportInitialize)(this.XrTable1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.XrTable2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this)).EndInit();

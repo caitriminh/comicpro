@@ -14,8 +14,7 @@ namespace ComicPro2019.NghiepVu.BanLamViec
             InitializeComponent();
         }
 
-        private void widgetView1_QueryControl(object sender,
-            DevExpress.XtraBars.Docking2010.Views.QueryControlEventArgs e)
+        private void widgetView1_QueryControl(object sender, DevExpress.XtraBars.Docking2010.Views.QueryControlEventArgs e)
         {
             if (!string.IsNullOrEmpty(e.Document.ControlTypeName))
             {

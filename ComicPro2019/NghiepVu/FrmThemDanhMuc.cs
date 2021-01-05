@@ -49,7 +49,7 @@ namespace ComicPro2019.NghiepVu
 
             var tentruyen = new TenTruyen { matruyen = txt_matruyen.Text, tentruyen = txt_tentruyen.Text, matua = cbo_tuatruyen.EditValue.ToString(), tap = Convert.ToInt32(txt_tap.Text), maloaibia = Convert.ToInt32(cbo_loaibia.EditValue), madvt = Convert.ToInt32(cbo_donvitinh.EditValue), ngayxuatban = DateTimeExtensions.TryParseNullable(txt_ngayxuatban.Text), giabia = Convert.ToDecimal(txt_giabia.Text), sotrang = Convert.ToInt32(txt_sotrang.Text), ghichu = txt_ghichu.Text, filetruyen = false, nguoitd = ComicPro.StrTenDangNhap.ToUpper() };
             ExecSQL.Insert(tentruyen);
-            Form1.Default.ShowMessageSuccess($"Đã thêm tên truyện ({txt_tentruyen.Text}) của tựa truyện ({cbo_tuatruyen.Text}) thành công.");
+           // Form1.Default.ShowMessageSuccess($"Đã thêm tên truyện ({txt_tentruyen.Text}) của tựa truyện ({cbo_tuatruyen.Text}) thành công.");
             XoaText();
             //Gửi dữ liệu
             var message = new MessageBroker

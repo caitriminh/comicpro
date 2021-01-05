@@ -16,7 +16,7 @@ namespace ComicPro2019.NghiepVu
             lbl_tuatruyen.DataBindings.Add("Text", null, "tuatruyen", "{0}");
 
             lbl_matruyen.DataBindings.Add("Text", DataSource, "matruyen");
-            lbl_tentruyen.DataBindings.Add("Text", DataSource, "tentruyen");lbl_tacgia.DataBindings.Add("Text", DataSource, "tacgia");
+            lbl_tentruyen.DataBindings.Add("Text", DataSource, "tentruyen"); lbl_tacgia.DataBindings.Add("Text", DataSource, "tacgia");
             lbl_giabia.DataBindings.Add("Text", DataSource, "giabia", "{0:#,##0}");
             lbl_tap.DataBindings.Add("Text", DataSource, "tap");
             XrPictureBox1.DataBindings.Add(new XRBinding("ImageUrl", DataSource, "hinhanh"));

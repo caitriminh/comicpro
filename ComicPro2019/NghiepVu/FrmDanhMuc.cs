@@ -554,7 +554,7 @@ namespace ComicPro2019.NghiepVu
 
         public async void GetLayout(string matua)
         {
-            string strDuongDan = Application.StartupPath + "\\img\\thumb\\";
+            string strDuongDan = Application.StartupPath + "\\img\\origin\\";
             var dt = await ExecSQL.ExecProcedureDataAsyncAsDataTable("pro_get_tentruyen", new { option = 4, duongdanfilehinh = strDuongDan, matua });
             BindingList<PictureObject> list = new BindingList<PictureObject>();
             PictureObject item;
