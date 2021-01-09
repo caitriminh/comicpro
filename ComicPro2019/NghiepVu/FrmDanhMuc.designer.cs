@@ -162,6 +162,8 @@
             this.col_tuatruyen = new DevExpress.XtraGrid.Columns.GridColumn();
             this.col_matruyen = new DevExpress.XtraGrid.Columns.GridColumn();
             this.col_matua = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn13 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.cboQuaTang = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
             ((System.ComponentModel.ISupportInitialize)(this.barManager1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cbo_tua2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemProgressBar1)).BeginInit();
@@ -213,6 +215,7 @@
             this.tab_layout.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_Layout)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.winExplorerView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cboQuaTang)).BeginInit();
             this.SuspendLayout();
             // 
             // col_tinhtrang
@@ -237,7 +240,7 @@
             this.col_doctruyen.OptionsColumn.FixedWidth = true;
             this.col_doctruyen.OptionsColumn.ReadOnly = true;
             this.col_doctruyen.Visible = true;
-            this.col_doctruyen.VisibleIndex = 24;
+            this.col_doctruyen.VisibleIndex = 25;
             this.col_doctruyen.Width = 110;
             // 
             // barManager1
@@ -810,7 +813,8 @@
             this.repositoryItemButtonEdit3,
             this.ProgressBar1,
             this.proBar3,
-            this.repositoryItemButtonEdit4});
+            this.repositoryItemButtonEdit4,
+            this.cboQuaTang});
             this.dgv_danhmuc.Size = new System.Drawing.Size(997, 688);
             this.dgv_danhmuc.TabIndex = 18;
             this.dgv_danhmuc.UseEmbeddedNavigator = true;
@@ -836,6 +840,7 @@
             this.gridColumn21,
             this.gridColumn11,
             this.gridColumn23,
+            this.gridColumn13,
             this.gridColumn12,
             this.gridColumn3,
             this.gridColumn4,
@@ -1106,7 +1111,7 @@
             this.gridColumn12.Name = "gridColumn12";
             this.gridColumn12.OptionsColumn.FixedWidth = true;
             this.gridColumn12.Visible = true;
-            this.gridColumn12.VisibleIndex = 19;
+            this.gridColumn12.VisibleIndex = 20;
             this.gridColumn12.Width = 250;
             // 
             // gridColumn3
@@ -1120,7 +1125,7 @@
             this.gridColumn3.OptionsColumn.FixedWidth = true;
             this.gridColumn3.OptionsColumn.ReadOnly = true;
             this.gridColumn3.Visible = true;
-            this.gridColumn3.VisibleIndex = 20;
+            this.gridColumn3.VisibleIndex = 21;
             this.gridColumn3.Width = 150;
             // 
             // gridColumn4
@@ -1132,7 +1137,7 @@
             this.gridColumn4.OptionsColumn.FixedWidth = true;
             this.gridColumn4.OptionsColumn.ReadOnly = true;
             this.gridColumn4.Visible = true;
-            this.gridColumn4.VisibleIndex = 21;
+            this.gridColumn4.VisibleIndex = 22;
             this.gridColumn4.Width = 130;
             // 
             // gridColumn5
@@ -1146,7 +1151,7 @@
             this.gridColumn5.OptionsColumn.FixedWidth = true;
             this.gridColumn5.OptionsColumn.ReadOnly = true;
             this.gridColumn5.Visible = true;
-            this.gridColumn5.VisibleIndex = 22;
+            this.gridColumn5.VisibleIndex = 23;
             this.gridColumn5.Width = 150;
             // 
             // gridColumn6
@@ -1158,7 +1163,7 @@
             this.gridColumn6.OptionsColumn.FixedWidth = true;
             this.gridColumn6.OptionsColumn.ReadOnly = true;
             this.gridColumn6.Visible = true;
-            this.gridColumn6.VisibleIndex = 23;
+            this.gridColumn6.VisibleIndex = 24;
             this.gridColumn6.Width = 130;
             // 
             // gridColumn22
@@ -1241,7 +1246,7 @@
             this.col_pdf.OptionsColumn.AllowEdit = false;
             this.col_pdf.OptionsColumn.FixedWidth = true;
             this.col_pdf.Visible = true;
-            this.col_pdf.VisibleIndex = 27;
+            this.col_pdf.VisibleIndex = 28;
             this.col_pdf.Width = 35;
             // 
             // repositoryItemButtonEdit2
@@ -1285,7 +1290,7 @@
             this.col_googledrive.MinWidth = 25;
             this.col_googledrive.Name = "col_googledrive";
             this.col_googledrive.Visible = true;
-            this.col_googledrive.VisibleIndex = 25;
+            this.col_googledrive.VisibleIndex = 26;
             this.col_googledrive.Width = 94;
             // 
             // col_upload
@@ -1301,7 +1306,7 @@
             this.col_upload.OptionsColumn.FixedWidth = true;
             this.col_upload.OptionsColumn.ReadOnly = true;
             this.col_upload.Visible = true;
-            this.col_upload.VisibleIndex = 26;
+            this.col_upload.VisibleIndex = 27;
             this.col_upload.Width = 50;
             // 
             // repositoryItemButtonEdit3
@@ -1444,6 +1449,28 @@
             this.col_matua.Name = "col_matua";
             this.col_matua.Width = 94;
             // 
+            // gridColumn13
+            // 
+            this.gridColumn13.Caption = "Quà tặng";
+            this.gridColumn13.ColumnEdit = this.cboQuaTang;
+            this.gridColumn13.FieldName = "maquatang";
+            this.gridColumn13.MinWidth = 25;
+            this.gridColumn13.Name = "gridColumn13";
+            this.gridColumn13.OptionsColumn.FixedWidth = true;
+            this.gridColumn13.Visible = true;
+            this.gridColumn13.VisibleIndex = 19;
+            this.gridColumn13.Width = 132;
+            // 
+            // cboQuaTang
+            // 
+            this.cboQuaTang.AutoHeight = false;
+            this.cboQuaTang.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.cboQuaTang.Columns.AddRange(new DevExpress.XtraEditors.Controls.LookUpColumnInfo[] {
+            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("quatang", "Quà tặng")});
+            this.cboQuaTang.Name = "cboQuaTang";
+            this.cboQuaTang.NullText = "";
+            // 
             // FrmDanhMuc
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
@@ -1517,6 +1544,7 @@
             this.tab_layout.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgv_Layout)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.winExplorerView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cboQuaTang)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1633,5 +1661,7 @@
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem9;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem10;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem11;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn13;
+        private DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit cboQuaTang;
     }
 }

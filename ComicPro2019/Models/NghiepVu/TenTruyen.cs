@@ -28,6 +28,7 @@ namespace ComicPro2019
         public int? tap { get; set; }
 
         public decimal? giabia { get; set; }
+        public string maquatang { get; set; }
 
         public DateTime? ngayxuatban { get; set; }
         [Write(false)]

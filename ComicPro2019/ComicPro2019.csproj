@@ -409,6 +409,7 @@
     <Compile Include="Models\DanhMuc\LoaiTruyen.cs" />
     <Compile Include="Models\DanhMuc\NhomDonVi.cs" />
     <Compile Include="Models\DanhMuc\NXB.cs" />
+    <Compile Include="Models\DanhMuc\QuaTang.cs" />
     <Compile Include="Models\DanhMuc\QuocGia.cs" />
     <Compile Include="Models\DanhMuc\TacGia.cs" />
     <Compile Include="Models\HeThong\ThongTin.cs" />

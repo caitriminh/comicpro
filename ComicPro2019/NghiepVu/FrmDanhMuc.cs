@@ -1,4 +1,5 @@
-﻿using DevExpress.XtraBars;
+﻿using ComicPro2019.Models.DanhMuc;
+using DevExpress.XtraBars;
 using DevExpress.XtraEditors;
 using DevExpress.XtraGrid.Views.Grid;
 using DevExpress.XtraGrid.Views.WinExplorer;
@@ -89,7 +90,7 @@ namespace ComicPro2019.NghiepVu
                 var tentruyen = gridView1.GetRow(item) as TenTruyen;
                 if (tentruyen != null)
                 {
-                    ExecSQL.ExecProcedureNonData("pro_update_tentruyen", new { tentruyen.matruyen, tentruyen.tentruyen, tentruyen.maloaibia, tentruyen.madvt, tentruyen.tap, tentruyen.giabia, tentruyen.ngayxuatban, tentruyen.ghichu, tentruyen.nguoitd2, tentruyen.sotrang });
+                    ExecSQL.ExecProcedureNonData("pro_update_tentruyen", new { tentruyen.matruyen, tentruyen.tentruyen, tentruyen.maloaibia, tentruyen.madvt, tentruyen.tap, tentruyen.giabia, tentruyen.ngayxuatban, tentruyen.ghichu, tentruyen.nguoitd2, tentruyen.sotrang, tentruyen.maquatang });
                     dem += 1;
                 }
             }
@@ -132,6 +133,14 @@ namespace ComicPro2019.NghiepVu
             cbo_loaibia.ValueMember = "id";
         }
 
+        public async void GetQuaTang()
+        {
+            var lstQuaTang = await ExecSQL.ExecQueryDataAsync<QuaTang>("SELECT maquatang, quatang FROM dbo.tbl_quatang ORDER BY quatang");
+            cboQuaTang.DataSource = lstQuaTang;
+            cboQuaTang.DisplayMember = "quatang";
+            cboQuaTang.ValueMember = "maquatang";
+        }
+
         public async void GetDonViTinh()
         {
             var listDonViTinh = await ExecSQL.ExecQueryDataAsync<DonViTinh>("SELECT id, donvitinh FROM dbo.tbl_donvitinh");
@@ -156,6 +165,7 @@ namespace ComicPro2019.NghiepVu
             modifined = new List<int>();
             GetLoaiBia();
             GetDonViTinh();
+            GetQuaTang();
             GetDanhMuc();
             GetTuaTruyen2();
             //////////////////////////
