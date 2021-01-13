@@ -10,6 +10,7 @@ namespace ComicPro2019.NghiepVu
             InitializeComponent();
         }
 
+
         public void BindData()
         {
             xrSubreport1.ReportSource = new RptDetail();
