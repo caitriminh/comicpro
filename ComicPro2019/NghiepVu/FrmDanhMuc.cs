@@ -229,12 +229,11 @@ namespace ComicPro2019.NghiepVu
             {
                 //byteImg.CopyTo(stream);
                 //byteImg.Dispose();
-                Image image = System.Drawing.Image.FromStream(stream);
+                Image image = Image.FromStream(stream);
                 stream.Dispose();
                 return image;
             }
         }
-
 
         private static string ApplicationName = "Comic Pro 2020";
         private void gridView1_RowCellClick(object sender, RowCellClickEventArgs e)
@@ -279,6 +278,7 @@ namespace ComicPro2019.NghiepVu
                     ExecSQL.ExecQueryNonData($"UPDATE dbo.tbl_tentruyen SET filehinh='{xtraOpenFileDialog1.FileName}' WHERE matruyen='{gridView1.GetRowCellValue(i, "matua")}'");
                 }
             }
+
             else if (e.Column == col_pdf)
             {
                 ComicPro.StrDuongDanPdf = Application.StartupPath + "\\pdf\\" + gridView1.GetRowCellValue(i, "matua") + "\\" + gridView1.GetRowCellValue(i, "matruyen") + ".pdf";
@@ -318,6 +318,7 @@ namespace ComicPro2019.NghiepVu
                     }
                 }
             }
+
             else if (e.Column == col_upload)
             {
                 if (gridView1.GetRowCellValue(i, "uploadfile").ToString() == "Not upload")
@@ -337,6 +338,7 @@ namespace ComicPro2019.NghiepVu
                 lbl_upload.Text = @"Đang upload file lên google drive...";
                 UploadFilePdf(gridView1.GetRowCellValue(i, "tuatruyen").ToString(), e.RowHandle);
             }
+
             else if (e.Column == col_copy)
             {
                 ExecSQL.ExecProcedureNonData("pro_copy_tentruyen", new { matruyencu = gridView1.GetRowCellValue(i, "matruyen"), nguoitd = ComicPro.StrTenDangNhap.ToUpper() });
@@ -385,7 +387,7 @@ namespace ComicPro2019.NghiepVu
             await UploadImage(ComicPro.StrDuongDanPdf, service, folderid, rowHandle);
         }
 
-        private System.Threading.Tasks.Task UploadImage(string path, DriveService service, string folderUpload, int rowHandle)
+        private Task UploadImage(string path, DriveService service, string folderUpload, int rowHandle)
         {
             var fileMetadata = new Google.Apis.Drive.v3.Data.File();
             fileMetadata.Name = Path.GetFileName(path);
@@ -449,29 +451,6 @@ namespace ComicPro2019.NghiepVu
         }
 
         private string _matruyen;
-        //private void UploadPdf(string path, DriveService service, string folderUpload)
-        //{
-        //    var fileMetadata = new Google.Apis.Drive.v3.Data.File();
-        //    fileMetadata.Name = Path.GetFileName(path);
-        //    fileMetadata.MimeType = "application/pdf";
-        //    fileMetadata.Parents = new List<string>
-        //    {
-        //        folderUpload
-        //    };
-
-        //    FilesResource.CreateMediaUpload request;
-        //    using (var stream = new FileStream(path, FileMode.Open))
-        //    {
-        //        request = service.Files.Create(fileMetadata, stream, "application/pdf");
-        //        request.Fields = "id";
-        //        request.Upload();
-        //    }
-        //    var file = request.ResponseBody;
-        //    //Update file ID;
-        //    _busDanhMuc.UpdateFileid(_matruyen, file.Id);
-        //    //textBox1.Text += ("File ID: " + file.Id);
-        //}
-
         private static string[] Scopes = { DriveService.Scope.Drive };
         private UserCredential GetCredentials()
         {
@@ -514,7 +493,6 @@ namespace ComicPro2019.NghiepVu
             {
                 pictureEdit1.Image = Image.FromFile(Application.StartupPath + "\\img\\origin\\default.jpg");
             }
-
         }
 
         private void pictureEdit1_DoubleClick(object sender, EventArgs e)

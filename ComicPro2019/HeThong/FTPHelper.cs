@@ -1,10 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.IO;
-using System.Linq;
 using System.Net;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace ComicPro2019
 {
@@ -168,7 +164,7 @@ namespace ComicPro2019
                 FtpWebResponse response = (FtpWebResponse)ftpRequest.GetResponse();
                 return true;
             }
-            catch (WebException ex)
+            catch (WebException)
             {
                 return false;
             }

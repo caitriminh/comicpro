@@ -25,8 +25,7 @@ namespace ComicPro2019.DanhMuc
                 Form1.Default.ShowMessageWarning("Bạn phải nhập vào tên loại bìa.");
                 txt_loaibia.Focus(); return;
             }
-            var loaibia = new LoaiBia { loaibia = txt_loaibia.Text, nguoitd = ComicPro.StrTenDangNhap.ToUpper() };
-            ExecSQL.Insert(loaibia);
+            ExecSQL.ExecProcedureNonData("pro_insert_loaibia", new { loaibia = txt_loaibia.Text, nguoitd = ComicPro.StrTenDangNhap.ToUpper() });
             txt_loaibia.Text = "";
             txt_loaibia.Focus();
             //Gửi dữ liệu
