@@ -78,6 +78,8 @@
             this.btn_connectgoogle = new DevExpress.XtraBars.BarButtonItem();
             this.skinRibbonGalleryBarItem1 = new DevExpress.XtraBars.SkinRibbonGalleryBarItem();
             this.barButtonItem7 = new DevExpress.XtraBars.BarButtonItem();
+            this.btnQuaTang = new DevExpress.XtraBars.BarButtonItem();
+            this.btnLichPhatHanh = new DevExpress.XtraBars.BarButtonItem();
             this.imageCollection1 = new DevExpress.Utils.ImageCollection(this.components);
             this.menu_hethong = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPageGroup3 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
@@ -158,12 +160,16 @@
             this.barButtonItem8,
             this.btn_connectgoogle,
             this.skinRibbonGalleryBarItem1,
-            this.barButtonItem7});
+            this.barButtonItem7,
+            this.btnQuaTang,
+            this.btnLichPhatHanh});
             this.ribbonControl1.LargeImages = this.imageCollection1;
             this.ribbonControl1.Location = new System.Drawing.Point(0, 0);
-            this.ribbonControl1.MaxItemId = 48;
+            this.ribbonControl1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.ribbonControl1.MaxItemId = 50;
             this.ribbonControl1.MdiMergeStyle = DevExpress.XtraBars.Ribbon.RibbonMdiMergeStyle.Always;
             this.ribbonControl1.Name = "ribbonControl1";
+            this.ribbonControl1.OptionsMenuMinWidth = 283;
             this.ribbonControl1.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
             this.menu_hethong,
             this.menu_danhmuc,
@@ -172,7 +178,7 @@
             this.ribbonControl1.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.repositoryItemLineSpacing1});
             this.ribbonControl1.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonControlStyle.Office2013;
-            this.ribbonControl1.Size = new System.Drawing.Size(1293, 193);
+            this.ribbonControl1.Size = new System.Drawing.Size(1108, 158);
             this.ribbonControl1.StatusBar = this.ribbonStatusBar1;
             this.ribbonControl1.Merge += new DevExpress.XtraBars.Ribbon.RibbonMergeEventHandler(this.ribbonControl1_Merge);
             this.ribbonControl1.UnMerge += new DevExpress.XtraBars.Ribbon.RibbonMergeEventHandler(this.ribbonControl1_UnMerge);
@@ -522,6 +528,23 @@
             this.barButtonItem7.Id = 47;
             this.barButtonItem7.Name = "barButtonItem7";
             // 
+            // btnQuaTang
+            // 
+            this.btnQuaTang.Caption = "Quà tặng";
+            this.btnQuaTang.Id = 48;
+            this.btnQuaTang.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnQuaTang.ImageOptions.Image")));
+            this.btnQuaTang.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("btnQuaTang.ImageOptions.LargeImage")));
+            this.btnQuaTang.Name = "btnQuaTang";
+            this.btnQuaTang.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnQuaTang_ItemClick);
+            // 
+            // btnLichPhatHanh
+            // 
+            this.btnLichPhatHanh.Caption = "Lịch phát hành";
+            this.btnLichPhatHanh.Id = 49;
+            this.btnLichPhatHanh.ImageOptions.LargeImageIndex = 33;
+            this.btnLichPhatHanh.Name = "btnLichPhatHanh";
+            this.btnLichPhatHanh.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnLichPhatHanh_ItemClick);
+            // 
             // imageCollection1
             // 
             this.imageCollection1.ImageSize = new System.Drawing.Size(32, 32);
@@ -559,6 +582,7 @@
             this.imageCollection1.Images.SetKeyName(30, "combobox_32x32.png");
             this.imageCollection1.Images.SetKeyName(31, "exporttopdf_32x32.png");
             this.imageCollection1.Images.SetKeyName(32, "iconfinder_Google_Drive_381398.png");
+            this.imageCollection1.Images.SetKeyName(33, "shortdate_32x32.png");
             // 
             // menu_hethong
             // 
@@ -602,6 +626,7 @@
             this.ribbonPageGroup2.ItemLinks.Add(this.btn_tacgia);
             this.ribbonPageGroup2.ItemLinks.Add(this.btn_nxb);
             this.ribbonPageGroup2.ItemLinks.Add(this.btn_donvi);
+            this.ribbonPageGroup2.ItemLinks.Add(this.btnQuaTang);
             this.ribbonPageGroup2.Name = "ribbonPageGroup2";
             this.ribbonPageGroup2.Text = "Danh mục";
             // 
@@ -618,7 +643,7 @@
             this.ribbonPageGroup4.ItemLinks.Add(this.btnBanLamViec);
             this.ribbonPageGroup4.ItemLinks.Add(this.btn_tuatruyen);
             this.ribbonPageGroup4.ItemLinks.Add(this.btn_danhmuc);
-            this.ribbonPageGroup4.ItemLinks.Add(this.btn_doctruyen);
+            this.ribbonPageGroup4.ItemLinks.Add(this.btnLichPhatHanh);
             this.ribbonPageGroup4.Name = "ribbonPageGroup4";
             this.ribbonPageGroup4.Text = "Nghiệp vụ";
             // 
@@ -666,10 +691,11 @@
             this.ribbonStatusBar1.ItemLinks.Add(this.bar_gio, true);
             this.ribbonStatusBar1.ItemLinks.Add(this.lbl_thoigian, true);
             this.ribbonStatusBar1.ItemLinks.Add(this.lbl_nguoidung, true);
-            this.ribbonStatusBar1.Location = new System.Drawing.Point(0, 593);
+            this.ribbonStatusBar1.Location = new System.Drawing.Point(0, 482);
+            this.ribbonStatusBar1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.ribbonStatusBar1.Name = "ribbonStatusBar1";
             this.ribbonStatusBar1.Ribbon = this.ribbonControl1;
-            this.ribbonStatusBar1.Size = new System.Drawing.Size(1293, 30);
+            this.ribbonStatusBar1.Size = new System.Drawing.Size(1108, 24);
             // 
             // xtraTabbedMdiManager1
             // 
@@ -679,9 +705,10 @@
             // label1a
             // 
             this.label1a.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
-            this.label1a.Location = new System.Drawing.Point(470, 322);
+            this.label1a.Location = new System.Drawing.Point(403, 262);
+            this.label1a.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.label1a.Name = "label1a";
-            this.label1a.Size = new System.Drawing.Size(66, 0);
+            this.label1a.Size = new System.Drawing.Size(57, 0);
             this.label1a.TabIndex = 2;
             this.label1a.TextChanged += new System.EventHandler(this.label1a_TextChanged);
             // 
@@ -693,10 +720,12 @@
             // flyoutPanel_internet
             // 
             this.flyoutPanel_internet.Controls.Add(this.lbl_message_internet);
-            this.flyoutPanel_internet.Location = new System.Drawing.Point(0, 516);
+            this.flyoutPanel_internet.Location = new System.Drawing.Point(0, 419);
+            this.flyoutPanel_internet.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.flyoutPanel_internet.Name = "flyoutPanel_internet";
+            this.flyoutPanel_internet.OptionsButtonPanel.ButtonPanelHeight = 24;
             this.flyoutPanel_internet.OwnerControl = this.ribbonControl1;
-            this.flyoutPanel_internet.Size = new System.Drawing.Size(451, 71);
+            this.flyoutPanel_internet.Size = new System.Drawing.Size(387, 58);
             this.flyoutPanel_internet.TabIndex = 4;
             // 
             // lbl_message_internet
@@ -713,8 +742,9 @@
             this.lbl_message_internet.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
             this.lbl_message_internet.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lbl_message_internet.Location = new System.Drawing.Point(0, 0);
+            this.lbl_message_internet.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.lbl_message_internet.Name = "lbl_message_internet";
-            this.lbl_message_internet.Size = new System.Drawing.Size(451, 71);
+            this.lbl_message_internet.Size = new System.Drawing.Size(387, 58);
             this.lbl_message_internet.TabIndex = 0;
             this.lbl_message_internet.Text = "labelControl1";
             // 
@@ -727,14 +757,15 @@
             // 
             // Form1
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1293, 623);
+            this.ClientSize = new System.Drawing.Size(1108, 506);
             this.Controls.Add(this.flyoutPanel_internet);
             this.Controls.Add(this.ribbonStatusBar1);
             this.Controls.Add(this.label1a);
             this.Controls.Add(this.ribbonControl1);
             this.IsMdiContainer = true;
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "Form1";
             this.Ribbon = this.ribbonControl1;
             this.StatusBar = this.ribbonStatusBar1;
@@ -823,5 +854,7 @@
         public DevExpress.Utils.ImageCollection imageCollectionSmall;
         public DevExpress.XtraBars.Ribbon.RibbonControl ribbonControl1;
         private DevExpress.XtraBars.BarButtonItem barButtonItem7;
+        private DevExpress.XtraBars.BarButtonItem btnQuaTang;
+        private DevExpress.XtraBars.BarButtonItem btnLichPhatHanh;
     }
 }

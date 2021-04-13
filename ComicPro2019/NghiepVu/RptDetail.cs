@@ -23,7 +23,7 @@ namespace ComicPro2019.NghiepVu
             XrPictureBox1.DataBindings.Add(new XRBinding("ImageUrl", DataSource, "hinhanh"));
         }
 
-        private int _stt;
+       
         private void GroupHeader1_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e)
         {
             //_stt++;

@@ -63,7 +63,7 @@ namespace ComicPro2019.TroGiup
                     Settings.Default.Save();
 
                     Hide();
-                    var frm = new FrmDangnhap();
+                    var frm = new FrmHT_DangNhap();
                     frm.ShowDialog();
                 }
                 else

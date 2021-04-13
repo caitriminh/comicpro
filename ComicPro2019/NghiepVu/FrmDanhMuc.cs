@@ -1,4 +1,5 @@
-﻿using ComicPro2019.Models.DanhMuc;
+﻿using ComicPro2019.Extensions;
+using ComicPro2019.Models.DanhMuc;
 using DevExpress.XtraBars;
 using DevExpress.XtraEditors;
 using DevExpress.XtraGrid.Views.Grid;
@@ -32,24 +33,20 @@ namespace ComicPro2019.NghiepVu
         {
             InitializeComponent();
             fTPHelper = new FTPHelper("ftp://triminh.xyz/", "gv1mpaj216", "Ue77uPjhH3");
-            // Đánh số thứ tự
-            gridView1.CustomDrawRowIndicator += (s, e) => { GridviewHelper.GridView_CustomDrawRowIndicator(s, e, dgv_danhmuc, gridView1); };
-            // thêm menu vào gridview
-            gridView1.PopupMenuShowing += (s, e) => { GridviewHelper.AddFontAndColortoPopupMenuShowing(s, e, dgv_danhmuc, this.Name); };
-            this.Shown += (s, e) =>
-            {
-                GridviewHelper.SaveAndRestoreLayout(dgv_danhmuc, this.Name);
-            };
+
+            grvViewDanhMuc.CustomDrawRowIndicator += (ss, ee) => { GridViewHelper.GridView_CustomDrawRowIndicator(ss, ee, grcDanhMuc, grvViewDanhMuc); };
+            grvViewDanhMuc.PopupMenuShowing += (s, e) => { GridViewHelper.AddFontAndColortoPopupMenuShowing(s, e, grcDanhMuc, Name); };
+            GridViewHelper.SaveAndRestoreLayout(grcDanhMuc, Name);
         }
 
         public FTPHelper fTPHelper;
-        public async void GetDanhMuc()
+        public void GetDanhMuc()
         {
-            var x = gridView1.FocusedRowHandle;
-            var y = gridView1.TopRowIndex;
-            var listTentruyen = await ExecSQL.ExecProcedureDataAsync<TenTruyen>("pro_get_tentruyen", new { option = 1 });
+            var x = grvViewDanhMuc.FocusedRowHandle;
+            var y = grvViewDanhMuc.TopRowIndex;
+            var listTentruyen = ExecSQL.ExecProcedureData<TenTruyen>("pro_get_tentruyen", new { option = 1 });
 
-            dgv_danhmuc.DataSource = listTentruyen;
+            grcDanhMuc.DataSource = listTentruyen;
             lbl_matua.DataBindings.Clear();
             lbl_matruyen.DataBindings.Clear();
             cbo_tua.DataBindings.Clear();
@@ -57,8 +54,8 @@ namespace ComicPro2019.NghiepVu
             lbl_matua.DataBindings.Add("text", listTentruyen, "matua");
             lbl_matruyen.DataBindings.Add("text", listTentruyen, "matruyen");
             cbo_tua.DataBindings.Add("editvalue", listTentruyen, "matua");
-            gridView1.FocusedRowHandle = x;
-            gridView1.TopRowIndex = y;
+            grvViewDanhMuc.FocusedRowHandle = x;
+            grvViewDanhMuc.TopRowIndex = y;
 
         }
 
@@ -76,7 +73,7 @@ namespace ComicPro2019.NghiepVu
 
         private void btn_luu_ItemClick(object sender, ItemClickEventArgs e)
         {
-            gridView1.PostEditor();
+            grvViewDanhMuc.PostEditor();
             if (modifined.Count == 0)
             {
                 Form1.Default.ShowMessageDefault("Không có dòng dữ liệu nào thay đổi.");
@@ -87,7 +84,7 @@ namespace ComicPro2019.NghiepVu
             int dem = 0;
             foreach (var item in modifined)
             {
-                var tentruyen = gridView1.GetRow(item) as TenTruyen;
+                var tentruyen = grvViewDanhMuc.GetRow(item) as TenTruyen;
                 if (tentruyen != null)
                 {
                     ExecSQL.ExecProcedureNonData("pro_update_tentruyen", new { tentruyen.matruyen, tentruyen.tentruyen, tentruyen.maloaibia, tentruyen.madvt, tentruyen.tap, tentruyen.giabia, tentruyen.ngayxuatban, tentruyen.ghichu, tentruyen.nguoitd2, tentruyen.sotrang, tentruyen.maquatang });
@@ -101,19 +98,19 @@ namespace ComicPro2019.NghiepVu
 
         private void btn_xoa_ItemClick(object sender, ItemClickEventArgs e)
         {
-            var i = gridView1.FocusedRowHandle;
-            var x = Convert.ToInt32(ExecSQL.ExecQuerySacalar($"SELECT COUNT(*) FROM dbo.tbl_ct_phieunhapxuat WHERE matruyen='{gridView1.GetRowCellValue(i, "matruyen")}'"));
-            var y = Convert.ToInt32(ExecSQL.ExecQuerySacalar($"SELECT COUNT(*) FROM dbo.tbl_tonkho WHERE matruyen='{gridView1.GetRowCellValue(i, "matruyen")}'"));
+            var i = grvViewDanhMuc.FocusedRowHandle;
+            var x = Convert.ToInt32(ExecSQL.ExecQuerySacalar($"SELECT COUNT(*) FROM dbo.tbl_ct_phieunhapxuat WHERE matruyen='{grvViewDanhMuc.GetRowCellValue(i, "matruyen")}'"));
+            var y = Convert.ToInt32(ExecSQL.ExecQuerySacalar($"SELECT COUNT(*) FROM dbo.tbl_tonkho WHERE matruyen='{grvViewDanhMuc.GetRowCellValue(i, "matruyen")}'"));
             if (x > 0 || y > 0)
             {
-                Form1.Default.ShowMessageError($"Mã tựa truyện ({gridView1.GetRowCellValue(i, "matruyen")} - {gridView1.GetRowCellValue(i, "tentruyen")}) đã được sử dụng.");
+                Form1.Default.ShowMessageError($"Mã tựa truyện ({grvViewDanhMuc.GetRowCellValue(i, "matruyen")} - {grvViewDanhMuc.GetRowCellValue(i, "tentruyen")}) đã được sử dụng.");
                 return;
             }
-            var dgr = HelperMessage.Instance.ShowMessageYesNo($"Bạn có muốn xóa tên truyện ({gridView1.GetRowCellValue(i, "tentruyen")}) này không?", "Xác Nhận", SystemIcons.Question.ToBitmap());
+            var dgr = HelperMessage.Instance.ShowMessageYesNo($"Bạn có muốn xóa tên truyện ({grvViewDanhMuc.GetRowCellValue(i, "tentruyen")}) này không?", "Xác Nhận", SystemIcons.Question.ToBitmap());
             if (dgr != DialogResult.Yes) { return; }
-            ExecSQL.ExecQueryNonData($"DELETE FROM dbo.tbl_tentruyen WHERE matruyen='{gridView1.GetRowCellValue(i, "matruyen")}'");
-            Form1.Default.ShowMessageSuccess($"Đã xóa tên truyện ({gridView1.GetRowCellValue(i, "tentruyen")}) thành công.");
-            gridView1.DeleteRow(i);
+            ExecSQL.ExecQueryNonData($"DELETE FROM dbo.tbl_tentruyen WHERE matruyen='{grvViewDanhMuc.GetRowCellValue(i, "matruyen")}'");
+            Form1.Default.ShowMessageSuccess($"Đã xóa tên truyện ({grvViewDanhMuc.GetRowCellValue(i, "tentruyen")}) thành công.");
+            grvViewDanhMuc.DeleteRow(i);
 
         }
 
@@ -168,14 +165,7 @@ namespace ComicPro2019.NghiepVu
             GetQuaTang();
             GetDanhMuc();
             GetTuaTruyen2();
-            //////////////////////////
-            col_googledrive.Visible = false;
-            col_upload.Visible = false;
-            col_progress.Visible = false;
-            ////////////////////
-            groupControl1.Hide();
-            splitterControl1.Hide();
-            gridView1.CellValueChanged += GridView1_CellValueChanged;
+            grvViewDanhMuc.CellValueChanged += GridView1_CellValueChanged;
         }
 
         private void GridView1_CellValueChanged(object sender, DevExpress.XtraGrid.Views.Base.CellValueChangedEventArgs e)
@@ -189,11 +179,11 @@ namespace ComicPro2019.NghiepVu
             xtraSaveFileDialog1.FileName = "DanhMucTenTruyen_" + DateTime.Now.ToString("dd-MM-yyyy hh-mm-ss");
             if (xtraSaveFileDialog1.ShowDialog() == DialogResult.OK)
             {
-                var selectedRow = gridView1.GetSelectedRows();
+                var selectedRow = grvViewDanhMuc.GetSelectedRows();
                 var joinMaTruyen = string.Join(",",
                     from r in selectedRow
-                    where gridView1.IsDataRow(Convert.ToInt32(r))
-                    select gridView1.GetRowCellValue(Convert.ToInt32(r), "matruyen"));
+                    where grvViewDanhMuc.IsDataRow(Convert.ToInt32(r))
+                    select grvViewDanhMuc.GetRowCellValue(Convert.ToInt32(r), "matruyen"));
 
                 var dt = ExecSQL.ExecProcedureDataAsDataTable("pro_get_tentruyen", new { option = 3, matruyen = joinMaTruyen });
                 ComicPro.ExportExcelFromDataTable(dt, xtraSaveFileDialog1.FileName);
@@ -238,23 +228,23 @@ namespace ComicPro2019.NghiepVu
         private static string ApplicationName = "Comic Pro 2020";
         private void gridView1_RowCellClick(object sender, RowCellClickEventArgs e)
         {
-            var i = gridView1.FocusedRowHandle;
+            var i = grvViewDanhMuc.FocusedRowHandle;
             if (e.Column == col_themhinh)
             {
                 xtraOpenFileDialog1.Filter = @"Image files (*.jpg)|*.jpg|Image files(*.png)|*.png|All files (*.*)|*.*";
                 xtraOpenFileDialog1.FileName = "Chọn file cần import";
                 if (xtraOpenFileDialog1.ShowDialog() == DialogResult.OK)
                 {
-                    string strNewDirPathOrigin = Application.StartupPath + "\\img\\origin\\" + gridView1.GetRowCellValue(i, "matua");
+                    string strNewDirPathOrigin = Application.StartupPath + "\\img\\origin\\" + grvViewDanhMuc.GetRowCellValue(i, "matua");
                     //Tạo đường dẫn mới
                     if (!Directory.Exists(strNewDirPathOrigin))
                     {
                         Directory.CreateDirectory(strNewDirPathOrigin);
                     }
 
-                    File.Copy(xtraOpenFileDialog1.FileName, strNewDirPathOrigin + "\\" + gridView1.GetRowCellValue(i, "matruyen") + ".jpg", true);
+                    File.Copy(xtraOpenFileDialog1.FileName, strNewDirPathOrigin + "\\" + grvViewDanhMuc.GetRowCellValue(i, "matruyen") + ".jpg", true);
 
-                    string strNewDirPathThumb = Application.StartupPath + "\\img\\thumb\\" + gridView1.GetRowCellValue(i, "matua");
+                    string strNewDirPathThumb = Application.StartupPath + "\\img\\thumb\\" + grvViewDanhMuc.GetRowCellValue(i, "matua");
                     if (!Directory.Exists(strNewDirPathThumb))
                     {
                         Directory.CreateDirectory(strNewDirPathThumb);
@@ -266,82 +256,82 @@ namespace ComicPro2019.NghiepVu
                     EncoderParameter myEncoderParameter = new EncoderParameter(myEncoder, 80L);
                     EncoderParameters myEncoderParameters = new EncoderParameters(1);
                     myEncoderParameters.Param[0] = myEncoderParameter;
-                    img.Save(strNewDirPathThumb + "\\" + gridView1.GetRowCellValue(i, "matruyen") + ".jpg", jpgEncoder, myEncoderParameters);
+                    img.Save(strNewDirPathThumb + "\\" + grvViewDanhMuc.GetRowCellValue(i, "matruyen") + ".jpg", jpgEncoder, myEncoderParameters);
                     //Tao folder
                     var folder = "httpdocs/img/thumb/" + lbl_matua.Text;
                     fTPHelper.createDirectory(folder);
                     //UploadFileToFTP(lbl_matua.Text, lbl_matruyen.Text, Application.StartupPath + "\\img\\thumb\\" + gridView1.GetRowCellValue(i, "matua") + "\\" + lbl_matruyen.Text + ".jpg");
                     var remotefile = "httpdocs/img/thumb/" + lbl_matua.Text + "/" + lbl_matruyen.Text + ".jpg";
-                    var localfile = strNewDirPathThumb + "\\" + gridView1.GetRowCellValue(i, "matruyen") + ".jpg";
+                    var localfile = strNewDirPathThumb + "\\" + grvViewDanhMuc.GetRowCellValue(i, "matruyen") + ".jpg";
                     fTPHelper.upload(remotefile, localfile);
-                    pictureEdit1.Image = ReadImageToStream(strNewDirPathOrigin + "\\" + gridView1.GetRowCellValue(i, "matruyen") + ".jpg");
-                    ExecSQL.ExecQueryNonData($"UPDATE dbo.tbl_tentruyen SET filehinh='{xtraOpenFileDialog1.FileName}' WHERE matruyen='{gridView1.GetRowCellValue(i, "matua")}'");
+                    pictureEdit1.Image = ReadImageToStream(strNewDirPathOrigin + "\\" + grvViewDanhMuc.GetRowCellValue(i, "matruyen") + ".jpg");
+                    ExecSQL.ExecQueryNonData($"UPDATE dbo.tbl_tentruyen SET filehinh='{xtraOpenFileDialog1.FileName}' WHERE matruyen='{grvViewDanhMuc.GetRowCellValue(i, "matua")}'");
                 }
             }
 
-            else if (e.Column == col_pdf)
-            {
-                ComicPro.StrDuongDanPdf = Application.StartupPath + "\\pdf\\" + gridView1.GetRowCellValue(i, "matua") + "\\" + gridView1.GetRowCellValue(i, "matruyen") + ".pdf";
-                if (File.Exists(ComicPro.StrDuongDanPdf))
-                {
-                    ComicPro.StrCaption = gridView1.GetRowCellValue(i, "tentruyen").ToString();
-                    var f = new FrmReadComic();
-                    f.Show();
-                }
-                else
-                {
-                    //Thêm file mới
-                    xtraOpenFileDialog1.Filter = @"PDF files |*.pdf";
-                    xtraOpenFileDialog1.FileName = "Chọn file cần import";
-                    if (xtraOpenFileDialog1.ShowDialog() == DialogResult.OK)
-                    {
-                        string strNewDirPath = Application.StartupPath + "\\pdf\\" + gridView1.GetRowCellValue(i, "matua");
-                        //Tạo đường dẫn mới
-                        if (!Directory.Exists(strNewDirPath))
-                        {
-                            Directory.CreateDirectory(strNewDirPath);
-                        }
-                        try
-                        {
-                            File.Copy(xtraOpenFileDialog1.FileName, strNewDirPath + "\\" + gridView1.GetRowCellValue(i, "matruyen") + ".pdf", true);
-                            ExecSQL.ExecQueryNonData($"UPDATE dbo.tbl_tentruyen SET filetruyen=1 WHERE matruyen='{gridView1.GetRowCellValue(i, "matruyen").ToString()}'");
-                            ComicPro.StrDuongDanPdf = Application.StartupPath + "\\pdf\\" + gridView1.GetRowCellValue(i, "matua") + "\\" + gridView1.GetRowCellValue(i, "matruyen") + ".pdf";
-                            GetDanhMuc();
-                            var f = new FrmReadComic();
-                            f.Show();
-                        }
-                        catch (Exception exception)
-                        {
-                            XtraMessageBox.Show(exception.Message, "Cảnh Báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            //else if (e.Column == col_pdf)
+            //{
+            //    ComicPro.StrDuongDanPdf = Application.StartupPath + "\\pdf\\" + gridView1.GetRowCellValue(i, "matua") + "\\" + gridView1.GetRowCellValue(i, "matruyen") + ".pdf";
+            //    if (File.Exists(ComicPro.StrDuongDanPdf))
+            //    {
+            //        ComicPro.StrCaption = gridView1.GetRowCellValue(i, "tentruyen").ToString();
+            //        var f = new FrmReadComic();
+            //        f.Show();
+            //    }
+            //    else
+            //    {
+            //        //Thêm file mới
+            //        xtraOpenFileDialog1.Filter = @"PDF files |*.pdf";
+            //        xtraOpenFileDialog1.FileName = "Chọn file cần import";
+            //        if (xtraOpenFileDialog1.ShowDialog() == DialogResult.OK)
+            //        {
+            //            string strNewDirPath = Application.StartupPath + "\\pdf\\" + gridView1.GetRowCellValue(i, "matua");
+            //            //Tạo đường dẫn mới
+            //            if (!Directory.Exists(strNewDirPath))
+            //            {
+            //                Directory.CreateDirectory(strNewDirPath);
+            //            }
+            //            try
+            //            {
+            //                File.Copy(xtraOpenFileDialog1.FileName, strNewDirPath + "\\" + gridView1.GetRowCellValue(i, "matruyen") + ".pdf", true);
+            //                ExecSQL.ExecQueryNonData($"UPDATE dbo.tbl_tentruyen SET filetruyen=1 WHERE matruyen='{gridView1.GetRowCellValue(i, "matruyen").ToString()}'");
+            //                ComicPro.StrDuongDanPdf = Application.StartupPath + "\\pdf\\" + gridView1.GetRowCellValue(i, "matua") + "\\" + gridView1.GetRowCellValue(i, "matruyen") + ".pdf";
+            //                GetDanhMuc();
+            //                var f = new FrmReadComic();
+            //                f.Show();
+            //            }
+            //            catch (Exception exception)
+            //            {
+            //                XtraMessageBox.Show(exception.Message, "Cảnh Báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
 
-                        }
-                    }
-                }
-            }
+            //            }
+            //        }
+            //    }
+            //}
 
-            else if (e.Column == col_upload)
-            {
-                if (gridView1.GetRowCellValue(i, "uploadfile").ToString() == "Not upload")
-                {
-                    Form1.Default.ShowMessageWarning($"File {gridView1.GetRowCellValue(i, "tentruyen")} không tồn tại.");
-                    return;
-                }
+            //else if (e.Column == col_upload)
+            //{
+            //    if (gridView1.GetRowCellValue(i, "uploadfile").ToString() == "Not upload")
+            //    {
+            //        Form1.Default.ShowMessageWarning($"File {gridView1.GetRowCellValue(i, "tentruyen")} không tồn tại.");
+            //        return;
+            //    }
 
-                if (gridView1.GetRowCellValue(i, "uploadfile").ToString() == "Đã upload")
-                {
-                    Form1.Default.ShowMessageWarning($"File {gridView1.GetRowCellValue(i, "tentruyen")} đã được upload lên google drive.");
-                    return;
-                }
-                ComicPro.StrDuongDanPdf = Application.StartupPath + "\\pdf\\" + gridView1.GetRowCellValue(i, "matua") + "\\" + gridView1.GetRowCellValue(i, "matruyen") + ".pdf";
-                progressBarControl3.Visible = true;
-                lbl_upload.Visible = true;
-                lbl_upload.Text = @"Đang upload file lên google drive...";
-                UploadFilePdf(gridView1.GetRowCellValue(i, "tuatruyen").ToString(), e.RowHandle);
-            }
+            //    if (gridView1.GetRowCellValue(i, "uploadfile").ToString() == "Đã upload")
+            //    {
+            //        Form1.Default.ShowMessageWarning($"File {gridView1.GetRowCellValue(i, "tentruyen")} đã được upload lên google drive.");
+            //        return;
+            //    }
+            //    ComicPro.StrDuongDanPdf = Application.StartupPath + "\\pdf\\" + gridView1.GetRowCellValue(i, "matua") + "\\" + gridView1.GetRowCellValue(i, "matruyen") + ".pdf";
+            //    progressBarControl3.Visible = true;
+            //    lbl_upload.Visible = true;
+            //    lbl_upload.Text = @"Đang upload file lên google drive...";
+            //    UploadFilePdf(gridView1.GetRowCellValue(i, "tuatruyen").ToString(), e.RowHandle);
+            //}
 
             else if (e.Column == col_copy)
             {
-                ExecSQL.ExecProcedureNonData("pro_copy_tentruyen", new { matruyencu = gridView1.GetRowCellValue(i, "matruyen"), nguoitd = ComicPro.StrTenDangNhap.ToUpper() });
+                ExecSQL.ExecProcedureNonData("pro_copy_tentruyen", new { matruyencu = grvViewDanhMuc.GetRowCellValue(i, "matruyen"), nguoitd = ComicPro.StrTenDangNhap.ToUpper() });
                 GetDanhMuc();
             }
         }
@@ -350,7 +340,7 @@ namespace ComicPro2019.NghiepVu
         {
             dgv_Layout.BeginInvoke((Action)(() =>
             {
-                gridView1.SetRowCellValue(rowHandle, column, message);
+                grvViewDanhMuc.SetRowCellValue(rowHandle, column, message);
             }));
         }
 
@@ -423,7 +413,7 @@ namespace ComicPro2019.NghiepVu
                     {
                         UpdateProgressByRowHandle(rowHanle, "progress", "100");
                         UpdateProgressByRowHandle(rowHanle, "uploadfile", "Đã upload");
-                        _matruyen = gridView1.GetRowCellValue(rowHanle, "matruyen").ToString();
+                        _matruyen = grvViewDanhMuc.GetRowCellValue(rowHanle, "matruyen").ToString();
                         ExecSQL.ExecQueryNonData($"UPDATE dbo.tbl_tentruyen SET fileid=N'Đã hoàn tất' WHERE matruyen='{_matruyen}'");
                         progressBarControl3.EditValue = progressBarControl3.Properties.Maximum;
                         progressBarControl3.Visible = false;
@@ -500,8 +490,8 @@ namespace ComicPro2019.NghiepVu
             ComicPro.StrDuongDanPdf = Application.StartupPath + "\\pdf\\" + lbl_matua.Text + "\\" + lbl_matruyen.Text + ".pdf";
             if (File.Exists(ComicPro.StrDuongDanPdf))
             {
-                var i = gridView1.FocusedRowHandle;
-                ComicPro.StrCaption = gridView1.GetRowCellValue(i, "tentruyen").ToString();
+                var i = grvViewDanhMuc.FocusedRowHandle;
+                ComicPro.StrCaption = grvViewDanhMuc.GetRowCellValue(i, "tentruyen").ToString();
                 var f = new FrmReadComic();
                 f.Show();
             }
@@ -510,14 +500,14 @@ namespace ComicPro2019.NghiepVu
 
         private void btn_in_ItemClick(object sender, ItemClickEventArgs e)
         {
-            if (gridView1.SelectedRowsCount == 0)
+            if (grvViewDanhMuc.SelectedRowsCount == 0)
             {
                 Form1.Default.ShowMessageWarning("Bạn vui lòng chọn các mã truyện để thực hiện.");
                 return;
             }
             string strDuongDan = Application.StartupPath + "\\img\\thumb\\";
-            var selectedRow = gridView1.GetSelectedRows();
-            var strMatruyen = string.Join(",", from r in selectedRow where gridView1.IsDataRow(Convert.ToInt32(r)) select gridView1.GetRowCellValue(Convert.ToInt32(r), "matruyen"));
+            var selectedRow = grvViewDanhMuc.GetSelectedRows();
+            var strMatruyen = string.Join(",", from r in selectedRow where grvViewDanhMuc.IsDataRow(Convert.ToInt32(r)) select grvViewDanhMuc.GetRowCellValue(Convert.ToInt32(r), "matruyen"));
             ComicPro.DtReport = ExecSQL.ExecProcedureDataAsDataTable("pro_get_tentruyen", new { option = 2, matruyen = strMatruyen, duongdanfilehinh = strDuongDan });
             ComicPro.Report = 6;
             FrmReport f = new FrmReport();
@@ -527,13 +517,13 @@ namespace ComicPro2019.NghiepVu
 
         private void btn_danhsach_ItemClick(object sender, ItemClickEventArgs e)
         {
-            if (gridView1.SelectedRowsCount == 0)
+            if (grvViewDanhMuc.SelectedRowsCount == 0)
             {
                 Form1.Default.ShowMessageWarning("Bạn vui lòng chọn các mã truyện để thực hiện.");
                 return;
             }
-            var selectedRow = gridView1.GetSelectedRows();
-            var strMatruyen = string.Join(",", from r in selectedRow where gridView1.IsDataRow(Convert.ToInt32(r)) select gridView1.GetRowCellValue(Convert.ToInt32(r), "matruyen"));
+            var selectedRow = grvViewDanhMuc.GetSelectedRows();
+            var strMatruyen = string.Join(",", from r in selectedRow where grvViewDanhMuc.IsDataRow(Convert.ToInt32(r)) select grvViewDanhMuc.GetRowCellValue(Convert.ToInt32(r), "matruyen"));
             ComicPro.DtReport = ExecSQL.ExecProcedureDataAsDataTable("pro_get_tentruyen", new { option = 2, matruyen = strMatruyen, duongdanfilehinh = "" });
             ComicPro.Report = 2;
             FrmReport f = new FrmReport();
@@ -590,15 +580,9 @@ namespace ComicPro2019.NghiepVu
         {
             if (xtraTabControl1.SelectedTabPage == tab_layout)
             {
-                groupControl1.Visible = false;
-                splitterControl1.Visible = false;
                 GetLayout(lbl_matua.Text);
             }
-            else
-            {
-                groupControl1.Visible = true;
-                splitterControl1.Visible = true;
-            }
+
         }
 
         public class PictureObject : INotifyPropertyChanged
@@ -668,36 +652,8 @@ namespace ComicPro2019.NghiepVu
             }
         }
 
-        private void chk_upload_CheckedChanged(object sender, ItemClickEventArgs e)
-        {
-            if (chk_upload.Checked)
-            {
-                credential = GetCredentials();
-                col_googledrive.Visible = true;
-                col_upload.Visible = true;
-                col_progress.Visible = true;
-            }
-            else
-            {
-                col_googledrive.Visible = false;
-                col_upload.Visible = false;
-                col_progress.Visible = false;
-            }
-        }
 
-        private void chk_thongtin_CheckedChanged(object sender, ItemClickEventArgs e)
-        {
-            if (chk_thongtin.Checked)
-            {
-                groupControl1.Show();
-                splitterControl1.Show();
-            }
-            else
-            {
-                groupControl1.Hide();
-                splitterControl1.Hide();
-            }
-        }
+
 
         private void FrmDanhMuc_FormClosed(object sender, FormClosedEventArgs e)
         {

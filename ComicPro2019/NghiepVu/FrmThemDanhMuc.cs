@@ -67,7 +67,7 @@ namespace ComicPro2019.NghiepVu
             cbo_loaibia.Properties.DataSource = listLoaiBia;
             cbo_loaibia.Properties.DisplayMember = "loaibia";
             cbo_loaibia.Properties.ValueMember = "id";
-            cbo_loaibia.EditValue = ComicPro.StrLoaiBia;
+
         }
 
         public async void GetDonViTinh()

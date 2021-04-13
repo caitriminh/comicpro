@@ -1,4 +1,5 @@
-﻿using DevExpress.XtraEditors;
+﻿using ComicPro2019.Extensions;
+using DevExpress.XtraEditors;
 using SimpleBroker;
 using System;
 using System.Collections.Generic;
@@ -12,18 +13,22 @@ namespace ComicPro2019.NghiepVu
         public FrmTuaTruyen()
         {
             InitializeComponent();
+
+            grvViewTuaTruyen.CustomDrawRowIndicator += (ss, ee) => { GridViewHelper.GridView_CustomDrawRowIndicator(ss, ee, grcTuaTruyen, grvViewTuaTruyen); };
+            grvViewTuaTruyen.PopupMenuShowing += (s, e) => { GridViewHelper.AddFontAndColortoPopupMenuShowing(s, e, grcTuaTruyen, Name); };
+            GridViewHelper.SaveAndRestoreLayout(grcTuaTruyen, Name);
         }
 
         public async void GetTuatruyen()
         {
-            var x = gridView5.FocusedRowHandle;
-            var y = gridView5.TopRowIndex;
+            var x = grvViewTuaTruyen.FocusedRowHandle;
+            var y = grvViewTuaTruyen.TopRowIndex;
             var dt = await ExecSQL.ExecProcedureDataAsync<TuaTruyen>("pro_get_tuatruyen", new { option = 1 });
-            dgv_tuatruyen2.BeginInvoke(new Action(() =>
+            grcTuaTruyen.BeginInvoke(new Action(() =>
             {
-                dgv_tuatruyen2.DataSource = dt;
-                gridView5.FocusedRowHandle = x;
-                gridView5.TopRowIndex = y;
+                grcTuaTruyen.DataSource = dt;
+                grvViewTuaTruyen.FocusedRowHandle = x;
+                grvViewTuaTruyen.TopRowIndex = y;
             }));
         }
 
@@ -39,7 +44,7 @@ namespace ComicPro2019.NghiepVu
 
         private void btn_luu_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            gridView5.PostEditor();
+            grvViewTuaTruyen.PostEditor();
             if (modifined.Count == 0)
             {
                 Form1.Default.ShowMessageDefault("Không có dòng dữ liệu nào được thay đổi.");
@@ -50,7 +55,7 @@ namespace ComicPro2019.NghiepVu
             int dem = 0;
             foreach (var item in modifined)
             {
-                var tuatruyen = gridView5.GetRow(item) as TuaTruyen;
+                var tuatruyen = grvViewTuaTruyen.GetRow(item) as TuaTruyen;
                 if (tuatruyen != null)
                 {
                     tuatruyen.nguoitd2 = ComicPro.StrTenDangNhap.ToUpper();
@@ -66,15 +71,15 @@ namespace ComicPro2019.NghiepVu
 
         private void btn_xoa_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            var i = gridView5.FocusedRowHandle;
-            var dgr = HelperMessage.Instance.ShowMessageYesNo($"Bạn có muốn xóa tên tựa truyện ({gridView5.GetRowCellValue(i, "tuatruyen")}) này không?", "Xác Nhận", SystemIcons.Question.ToBitmap());
+            var i = grvViewTuaTruyen.FocusedRowHandle;
+            var dgr = HelperMessage.Instance.ShowMessageYesNo($"Bạn có muốn xóa tên tựa truyện ({grvViewTuaTruyen.GetRowCellValue(i, "tuatruyen")}) này không?", "Xác Nhận", SystemIcons.Question.ToBitmap());
             if (dgr != DialogResult.Yes) { return; }
-            var tuatruyen = gridView5.GetRow(i) as TuaTruyen;
+            var tuatruyen = grvViewTuaTruyen.GetRow(i) as TuaTruyen;
             var affected = ExecSQL.Delete(tuatruyen);
             if (affected)
             {
-                Form1.Default.ShowMessageSuccess($"Đã xóa tựa truyện ({gridView5.GetRowCellValue(i, "tuatruyen")}) thành công.");
-                gridView5.DeleteRow(i);
+                Form1.Default.ShowMessageSuccess($"Đã xóa tựa truyện ({grvViewTuaTruyen.GetRowCellValue(i, "tuatruyen")}) thành công.");
+                grvViewTuaTruyen.DeleteRow(i);
             }
         }
 
@@ -96,7 +101,7 @@ namespace ComicPro2019.NghiepVu
             GetTacGia();
             GetNhaXuatBan();
             GetTuatruyen();
-            gridView5.CellValueChanged += GridView5_CellValueChanged;
+            grvViewTuaTruyen.CellValueChanged += GridView5_CellValueChanged;
         }
 
         private void GridView5_CellValueChanged(object sender, DevExpress.XtraGrid.Views.Base.CellValueChangedEventArgs e)

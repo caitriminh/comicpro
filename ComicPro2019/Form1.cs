@@ -160,7 +160,7 @@ namespace ComicPro2019
                 Text = @"COMIC PRO " + DateTime.Now.Year + @" (LICENSED)";
                 if (Settings.Default.server.Length > 0) //Chưa cấu hình database
                 {
-                    using (FrmDangnhap frm = new FrmDangnhap())
+                    using (FrmHT_DangNhap frm = new FrmHT_DangNhap())
                     {
                         if (MaskedDialog.ShowDialog(this, frm) == DialogResult.OK)
                         {
@@ -267,7 +267,7 @@ namespace ComicPro2019
 
         private void btn_khoa_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            FrmDangnhap frm = new FrmDangnhap();
+            FrmHT_DangNhap frm = new FrmHT_DangNhap();
             MaskedDialog.ShowDialog(this, frm);
         }
 
@@ -310,7 +310,7 @@ namespace ComicPro2019
             MaskedDialog.ShowDialog(this, frm);
         }
 
-        private RibbonPage pageSelected;
+        private readonly RibbonPage pageSelected;
         private RibbonPage pageParentSelected;
         private void ribbonControl1_Merge(object sender, RibbonMergeEventArgs e)
         {
@@ -378,6 +378,16 @@ namespace ComicPro2019
         {
             var frm1 = new FrmThietLapHeThong();
             MaskedDialog.ShowDialog(this, frm1);
+        }
+
+        private void btnQuaTang_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            OpenForm(typeof(FrmQuaTang));
+        }
+
+        private void btnLichPhatHanh_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            OpenForm(typeof(FrmLichPhatHanh));
         }
     }
 }

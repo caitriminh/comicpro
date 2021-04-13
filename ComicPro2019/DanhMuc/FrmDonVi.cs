@@ -28,6 +28,8 @@ namespace ComicPro2019.DanhMuc
 
         }
 
+
+
         private void btn_them_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
             FrmThemDonVi frm = new FrmThemDonVi();
