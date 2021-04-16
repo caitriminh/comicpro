@@ -81,7 +81,7 @@ namespace ComicPro2019.NghiepVu
 
         public async void GetTuaTruyen()
         {
-            var listTuaTruyen = await ExecSQL.ExecQueryDataAsync<TuaTruyen>("SELECT matua, tuatruyen FROM dbo.tbl_tuatruyen ORDER BY tuatruyen");
+            var listTuaTruyen = await ExecSQL.ExecQueryDataAsync<TuaTruyen>("SELECT matua, tuatruyen FROM dbo.tbl_tuatruyen WHERE theodoi=1 ORDER BY tuatruyen");
             cbo_tuatruyen.Properties.DataSource = listTuaTruyen;
             cbo_tuatruyen.Properties.DisplayMember = "tuatruyen";
             cbo_tuatruyen.Properties.ValueMember = "matua";
@@ -114,15 +114,15 @@ namespace ComicPro2019.NghiepVu
 
         private void FrmThemDanhMuc_KeyDown(object sender, KeyEventArgs e)
         {
-            switch (e.KeyCode)
-            {
-                case Keys.Enter:
-                    btn_Luu_Click(sender, e);
-                    break;
-                case Keys.Escape:
-                    Application.Exit();
-                    break;
-            }
+            //switch (e.KeyCode)
+            //{
+            //    case Keys.Enter:
+            //        btn_Luu_Click(sender, e);
+            //        break;
+            //    case Keys.Escape:
+            //        Application.Exit();
+            //        break;
+            //}
         }
 
         private void txt_tentruyen_Leave(object sender, EventArgs e)

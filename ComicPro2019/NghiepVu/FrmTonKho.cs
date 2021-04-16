@@ -1,4 +1,5 @@
-﻿using DevExpress.XtraEditors;
+﻿using ComicPro2019.Extensions;
+using DevExpress.XtraEditors;
 using SimpleBroker;
 using System;
 using System.ComponentModel;
@@ -15,41 +16,50 @@ namespace ComicPro2019.NghiepVu
         public FrmTonKho()
         {
             InitializeComponent();
+
+            grvViewTonKho.CustomDrawRowIndicator += (ss, ee) => { GridViewHelper.GridView_CustomDrawRowIndicator(ss, ee, grcTonKho, grvViewTonKho); };
+            grvViewTonKho.PopupMenuShowing += (s, e) => { GridViewHelper.AddFontAndColortoPopupMenuShowing(s, e, grcTonKho, Name); };
+            GridViewHelper.SaveAndRestoreLayout(grcTonKho, Name);
+
+            grvViewCTPhieuNhap.CustomDrawRowIndicator += (ss, ee) => { GridViewHelper.GridView_CustomDrawRowIndicator(ss, ee, grcCTPhieuNhap, grvViewCTPhieuNhap); };
+            grvViewCTPhieuNhap.PopupMenuShowing += (s, e) => { GridViewHelper.AddFontAndColortoPopupMenuShowing(s, e, grcCTPhieuNhap, Name); };
+            GridViewHelper.SaveAndRestoreLayout(grcCTPhieuNhap, Name);
+
+            grvViewCTPhieuXuat.CustomDrawRowIndicator += (ss, ee) => { GridViewHelper.GridView_CustomDrawRowIndicator(ss, ee, grcCTPhieuXuat, grvViewCTPhieuXuat); };
+            grvViewCTPhieuXuat.PopupMenuShowing += (s, e) => { GridViewHelper.AddFontAndColortoPopupMenuShowing(s, e, grcCTPhieuXuat, Name); };
+            GridViewHelper.SaveAndRestoreLayout(grcCTPhieuXuat, Name);
         }
 
         public async void GetTonKho()
         {
-            var x = gridView1.FocusedRowHandle;
-            var y = gridView1.TopRowIndex;
+            var x = grvViewCTPhieuNhap.FocusedRowHandle;
+            var y = grvViewCTPhieuNhap.TopRowIndex;
             var dt = await ExecSQL.ExecProcedureDataAsyncAsDataTable("pro_get_tonkho", new { option = 1, thang = Convert.ToDateTime(txt_tungay.EditValue).Month, nam = Convert.ToDateTime(txt_tungay.EditValue).Year });
-            dgv_tonkho.BeginInvoke(new Action(() =>
-            {
-                dgv_tonkho.DataSource = dt;
-                lbl_matruyen.DataBindings.Clear();
-                lbl_matua.DataBindings.Clear();
+            grcTonKho.DataSource = dt;
+            lbl_matruyen.DataBindings.Clear();
+            lbl_matua.DataBindings.Clear();
 
-                lbl_matruyen.DataBindings.Add("text", dt, "matruyen");
-                lbl_matua.DataBindings.Add("text", dt, "matua");
-            }));
-            gridView1.FocusedRowHandle = x;
-            gridView1.TopRowIndex = y;
+            lbl_matruyen.DataBindings.Add("text", dt, "matruyen");
+            lbl_matua.DataBindings.Add("text", dt, "matua");
+            grvViewCTPhieuNhap.FocusedRowHandle = x;
+            grvViewCTPhieuNhap.TopRowIndex = y;
         }
 
         public async void GetCtPhieuNhap(string matruyen)
         {
             var dt = await ExecSQL.ExecProcedureDataAsyncAsDataTable("pro_ct_phieunhapxuat", new { option = 2, matruyen, thang = Convert.ToDateTime(txt_tungay.EditValue).Month, nam = Convert.ToDateTime(txt_tungay.EditValue).Year });
-            dgv_ct_phieunhap.BeginInvoke(new Action(() =>
+            grcCTPhieuNhap.BeginInvoke(new Action(() =>
             {
-                dgv_ct_phieunhap.DataSource = dt;
+                grcCTPhieuNhap.DataSource = dt;
             }));
         }
 
         public async void GetCtPhieuXuat(string matruyen)
         {
             var dt = await ExecSQL.ExecProcedureDataAsyncAsDataTable("pro_ct_phieunhapxuat", new { option = 3, matruyen, thang = Convert.ToDateTime(txt_tungay.EditValue).Month, nam = Convert.ToDateTime(txt_tungay.EditValue).Year });
-            dgv_ct_phieunhap.BeginInvoke(new Action(() =>
+            grcCTPhieuNhap.BeginInvoke(new Action(() =>
             {
-                dgv_ct_phieuxuat.DataSource = dt;
+                grcCTPhieuXuat.DataSource = dt;
             }));
         }
 
@@ -66,21 +76,7 @@ namespace ComicPro2019.NghiepVu
             GetTonKho();
         }
 
-        private void chk_chitiet_CheckedChanged(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
-        {
-            if (chk_chitiet.Checked)
-            {
-                dgv_tonkho.Dock = DockStyle.Top;
-                splitterControl1.Visible = true;
-                xtraTabControl1.Visible = true;
-            }
-            else
-            {
-                dgv_tonkho.Dock = DockStyle.Fill;
-                splitterControl1.Visible = false;
-                xtraTabControl1.Visible = false;
-            }
-        }
+
 
         public void GetKy()
         {
@@ -88,15 +84,6 @@ namespace ComicPro2019.NghiepVu
             cbo_Ky2.DisplayMember = "name";
             cbo_Ky2.ValueMember = "id";
             cbo_Ky.EditValue = 4;
-        }
-
-        public async void GetTuaTruyen()
-        {
-            var listTuaTruyen = await ExecSQL.ExecQueryDataAsync<TuaTruyen>("SELECT matua, tuatruyen FROM dbo.tbl_tuatruyen ORDER BY tuatruyen");
-            cbo_tuatuyen2.DataSource = listTuaTruyen;
-            cbo_tuatuyen2.DisplayMember = "tuatruyen";
-            cbo_tuatuyen2.ValueMember = "matua";
-            cbo_tuatruyen.EditValue = lbl_matua.Text;
         }
 
         private void OnNext(MessageBroker value)
@@ -114,20 +101,15 @@ namespace ComicPro2019.NghiepVu
             txt_tungay.EditValue = DateTime.Now.ToString("01/MM/yyyy");
             txt_denngay.EditValue = DateTime.Now.Date;
             GetTonKho();
-            GetTuaTruyen();
-            ///////////////////
-            dgv_tonkho.Dock = DockStyle.Fill;
-            splitterControl1.Visible = false; xtraTabControl1.Visible = false;
-            gridView4.FocusedRowChanged += GridView4_FocusedRowChanged;
+            grvViewTonKho.FocusedRowChanged += GridView4_FocusedRowChanged;
         }
 
         private void GridView4_FocusedRowChanged(object sender, DevExpress.XtraGrid.Views.Base.FocusedRowChangedEventArgs e)
         {
-            if (chk_chitiet.Checked == false) { return; }
-            var i = gridView4.FocusedRowHandle;
+            var i = grvViewTonKho.FocusedRowHandle;
             if (i < 0) { return; }
-            GetCtPhieuNhap(gridView4.GetRowCellValue(i, "matruyen").ToString());
-            GetCtPhieuXuat(gridView4.GetRowCellValue(i, "matruyen").ToString());
+            GetCtPhieuNhap(grvViewTonKho.GetRowCellValue(i, "matruyen").ToString());
+            GetCtPhieuXuat(grvViewTonKho.GetRowCellValue(i, "matruyen").ToString());
         }
 
         private void btn_tim_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
@@ -262,36 +244,9 @@ namespace ComicPro2019.NghiepVu
             return newBitmap;
         }
 
-        private void xtraTabControl2_SelectedPageChanged(object sender, DevExpress.XtraTab.TabPageChangedEventArgs e)
+        private void lbl_matua_TextChanged(object sender, EventArgs e)
         {
-            if (xtraTabControl2.SelectedTabPage == tab_layout)
-            {
-                cbo_tuatruyen.Enabled = true;
-                cbo_Ky.Enabled = false;
-                txt_tungay.Enabled = false;
-                txt_denngay.Enabled = false;
-                btn_tim.Enabled = false;
-                cbo_tuatruyen.EditValue = lbl_matua.Text;
-                GetLayout(cbo_tuatruyen.EditValue.ToString().Replace(" ", ""));
-            }
-            else if (xtraTabControl2.SelectedTabPage == tab_tonkho)
-            {
-                cbo_tuatruyen.Enabled = false;
-                cbo_Ky.Enabled = true;
-                txt_tungay.Enabled = true;
-                txt_denngay.Enabled = true;
-                btn_tim.Enabled = true;
-            }
-        }
-
-        private void cbo_tuatruyen_EditValueChanged(object sender, EventArgs e)
-        {
-            GetLayout(cbo_tuatruyen.EditValue.ToString().Replace(" ", ""));
-        }
-
-        private void barButtonItem1_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
-        {
-
+            GetLayout(lbl_matua.Text);
         }
     }
 }

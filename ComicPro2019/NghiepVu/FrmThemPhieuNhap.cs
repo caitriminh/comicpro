@@ -206,7 +206,7 @@ namespace ComicPro2019.NghiepVu
                         break;
                 }
             }
-            //ExecSQL.ExecProcedureNonData("pro_update_phieunhapxuat", new { option = 2, madonvi = cbo_donvi.EditValue.ToString(), ngaynhap = Convert.ToDateTime(txt_ngaynhap.EditValue), diengiai = txt_diengiai.Text, maphieu = txt_maphieu.Text, makho = cbo_kho.EditValue.ToString() });
+
             GetCtPhieuNhap();
             Form1.Default.ShowMessageSuccess($"Đã cập nhật thành công phiếu nhập ({txt_maphieu.Text})");
             //Gửi dữ liệu

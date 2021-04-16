@@ -164,9 +164,11 @@ namespace ComicPro2019.NghiepVu
             GetDonViTinh();
             GetQuaTang();
             GetDanhMuc();
-            GetTuaTruyen2();
+
             grvViewDanhMuc.CellValueChanged += GridView1_CellValueChanged;
+
         }
+
 
         private void GridView1_CellValueChanged(object sender, DevExpress.XtraGrid.Views.Base.CellValueChangedEventArgs e)
         {
@@ -497,7 +499,6 @@ namespace ComicPro2019.NghiepVu
             }
         }
 
-
         private void btn_in_ItemClick(object sender, ItemClickEventArgs e)
         {
             if (grvViewDanhMuc.SelectedRowsCount == 0)
@@ -576,14 +577,6 @@ namespace ComicPro2019.NghiepVu
             dgv_Layout.DataSource = list;
 
         }
-        private void xtraTabControl1_SelectedPageChanged(object sender, TabPageChangedEventArgs e)
-        {
-            if (xtraTabControl1.SelectedTabPage == tab_layout)
-            {
-                GetLayout(lbl_matua.Text);
-            }
-
-        }
 
         public class PictureObject : INotifyPropertyChanged
         {
@@ -604,14 +597,6 @@ namespace ComicPro2019.NghiepVu
             }
         }
 
-        private void cbo_tua_EditValueChanged(object sender, EventArgs e)
-        {
-            if (xtraTabControl1.SelectedTabPage != tab_layout) { return; }
-            if (cbo_tua.EditValue != null)
-            {
-                GetLayout(cbo_tua.EditValue.ToString().Replace(" ", ""));
-            }
-        }
         public Bitmap MakeGrayscale(Bitmap original)
         {
             Bitmap newBitmap = new Bitmap(original.Width, original.Height);
@@ -653,8 +638,6 @@ namespace ComicPro2019.NghiepVu
         }
 
 
-
-
         private void FrmDanhMuc_FormClosed(object sender, FormClosedEventArgs e)
         {
             this.Unsubscribe<MessageBroker>();
@@ -666,7 +649,6 @@ namespace ComicPro2019.NghiepVu
             {
                 UploadFileToFTP(lbl_matua.Text, lbl_matruyen.Text, xtraOpenFileDialog1.FileName);
             }
-
         }
 
         private void UploadFileToFTP(string matua, string matruyen, string source)
@@ -696,6 +678,11 @@ namespace ComicPro2019.NghiepVu
             //{
             //    throw ex;
             //}
+        }
+
+        private void lbl_matua_TextChanged(object sender, EventArgs e)
+        {
+            GetLayout(lbl_matua.Text);
         }
     }
 }

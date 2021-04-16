@@ -100,15 +100,15 @@ namespace ComicPro2019.NghiepVu
 
         private void FrmThemTuaTruyen_KeyDown(object sender, KeyEventArgs e)
         {
-            switch (e.KeyCode)
-            {
-                case Keys.Enter:
-                    btn_Luu_Click(sender, e);
-                    break;
-                case Keys.Escape:
-                    Application.Exit();
-                    break;
-            }
+            //switch (e.KeyCode)
+            //{
+            //    case Keys.Enter:
+            //        btn_Luu_Click(sender, e);
+            //        break;
+            //    case Keys.Escape:
+            //        Application.Exit();
+            //        break;
+            //}
         }
 
         private void OnNext(MessageBroker value)

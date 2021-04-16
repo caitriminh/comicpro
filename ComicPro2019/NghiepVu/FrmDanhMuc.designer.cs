@@ -63,12 +63,12 @@
             this.btn_danhsach = new DevExpress.XtraBars.BarButtonItem();
             this.btn_in = new DevExpress.XtraBars.BarButtonItem();
             this.btn_excel = new DevExpress.XtraBars.BarButtonItem();
-            this.cbo_tua = new DevExpress.XtraBars.BarEditItem();
-            this.cbo_tua2 = new DevExpress.XtraEditors.Repository.RepositoryItemCheckedComboBoxEdit();
             this.barDockControlTop = new DevExpress.XtraBars.BarDockControl();
             this.barDockControlBottom = new DevExpress.XtraBars.BarDockControl();
             this.barDockControlLeft = new DevExpress.XtraBars.BarDockControl();
             this.barDockControlRight = new DevExpress.XtraBars.BarDockControl();
+            this.cbo_tua = new DevExpress.XtraBars.BarEditItem();
+            this.cbo_tua2 = new DevExpress.XtraEditors.Repository.RepositoryItemCheckedComboBoxEdit();
             this.chk_upload = new DevExpress.XtraBars.BarCheckItem();
             this.chk_thongtin = new DevExpress.XtraBars.BarCheckItem();
             this.repositoryItemProgressBar1 = new DevExpress.XtraEditors.Repository.RepositoryItemProgressBar();
@@ -106,8 +106,6 @@
             this.lbl_upload = new DevExpress.XtraEditors.LabelControl();
             this.lbl_matruyen = new DevExpress.XtraEditors.LabelControl();
             this.lbl_matua = new DevExpress.XtraEditors.LabelControl();
-            this.xtraTabControl1 = new DevExpress.XtraTab.XtraTabControl();
-            this.tab_danhmuc = new DevExpress.XtraTab.XtraTabPage();
             this.grcDanhMuc = new DevExpress.XtraGrid.GridControl();
             this.grvViewDanhMuc = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.col_copy = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -148,7 +146,6 @@
             this.repositoryItemButtonEdit3 = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
             this.ProgressBar1 = new DevExpress.XtraEditors.Repository.RepositoryItemProgressBar();
             this.proBar3 = new DevExpress.XtraEditors.Repository.RepositoryItemProgressBar();
-            this.tab_layout = new DevExpress.XtraTab.XtraTabPage();
             this.dgv_Layout = new DevExpress.XtraGrid.GridControl();
             this.winExplorerView1 = new DevExpress.XtraGrid.Views.WinExplorer.WinExplorerView();
             this.col_hinhanh = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -157,6 +154,7 @@
             this.col_matruyen = new DevExpress.XtraGrid.Columns.GridColumn();
             this.col_matua = new DevExpress.XtraGrid.Columns.GridColumn();
             this.splitContainerControl1 = new DevExpress.XtraEditors.SplitContainerControl();
+            this.splitContainerControl2 = new DevExpress.XtraEditors.SplitContainerControl();
             ((System.ComponentModel.ISupportInitialize)(this.barManager1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cbo_tua2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemProgressBar1)).BeginInit();
@@ -188,9 +186,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem9)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem10)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem11)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.xtraTabControl1)).BeginInit();
-            this.xtraTabControl1.SuspendLayout();
-            this.tab_danhmuc.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.grcDanhMuc)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.grvViewDanhMuc)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemButtonEdit4)).BeginInit();
@@ -206,11 +201,12 @@
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemButtonEdit3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ProgressBar1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.proBar3)).BeginInit();
-            this.tab_layout.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_Layout)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.winExplorerView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerControl1)).BeginInit();
             this.splitContainerControl1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainerControl2)).BeginInit();
+            this.splitContainerControl2.SuspendLayout();
             this.SuspendLayout();
             // 
             // col_tinhtrang
@@ -265,8 +261,7 @@
             new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, this.btn_xoa, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph),
             new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, this.btn_naplai, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph),
             new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, this.barSubItem1, "", true, true, true, 0, null, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph),
-            new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, this.btn_excel, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph),
-            new DevExpress.XtraBars.LinkPersistInfo(((DevExpress.XtraBars.BarLinkUserDefines)((DevExpress.XtraBars.BarLinkUserDefines.PaintStyle | DevExpress.XtraBars.BarLinkUserDefines.Width))), this.cbo_tua, "", true, true, true, 282, null, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph)});
+            new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, this.btn_excel, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph)});
             this.bar2.OptionsBar.MultiLine = true;
             this.bar2.OptionsBar.UseWholeRow = true;
             this.bar2.Text = "Main menu";
@@ -340,21 +335,6 @@
             this.btn_excel.Name = "btn_excel";
             this.btn_excel.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btn_excel_ItemClick);
             // 
-            // cbo_tua
-            // 
-            this.cbo_tua.Caption = "Tựa:";
-            this.cbo_tua.Edit = this.cbo_tua2;
-            this.cbo_tua.Id = 10;
-            this.cbo_tua.Name = "cbo_tua";
-            this.cbo_tua.EditValueChanged += new System.EventHandler(this.cbo_tua_EditValueChanged);
-            // 
-            // cbo_tua2
-            // 
-            this.cbo_tua2.AutoHeight = false;
-            this.cbo_tua2.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.cbo_tua2.Name = "cbo_tua2";
-            // 
             // barDockControlTop
             // 
             this.barDockControlTop.CausesValidation = false;
@@ -362,7 +342,7 @@
             this.barDockControlTop.Location = new System.Drawing.Point(0, 0);
             this.barDockControlTop.Manager = this.barManager1;
             this.barDockControlTop.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.barDockControlTop.Size = new System.Drawing.Size(1136, 24);
+            this.barDockControlTop.Size = new System.Drawing.Size(1599, 24);
             // 
             // barDockControlBottom
             // 
@@ -371,7 +351,7 @@
             this.barDockControlBottom.Location = new System.Drawing.Point(0, 751);
             this.barDockControlBottom.Manager = this.barManager1;
             this.barDockControlBottom.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.barDockControlBottom.Size = new System.Drawing.Size(1136, 0);
+            this.barDockControlBottom.Size = new System.Drawing.Size(1599, 0);
             // 
             // barDockControlLeft
             // 
@@ -386,10 +366,24 @@
             // 
             this.barDockControlRight.CausesValidation = false;
             this.barDockControlRight.Dock = System.Windows.Forms.DockStyle.Right;
-            this.barDockControlRight.Location = new System.Drawing.Point(1136, 24);
+            this.barDockControlRight.Location = new System.Drawing.Point(1599, 24);
             this.barDockControlRight.Manager = this.barManager1;
             this.barDockControlRight.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.barDockControlRight.Size = new System.Drawing.Size(0, 727);
+            // 
+            // cbo_tua
+            // 
+            this.cbo_tua.Caption = "Tựa:";
+            this.cbo_tua.Edit = this.cbo_tua2;
+            this.cbo_tua.Id = 10;
+            this.cbo_tua.Name = "cbo_tua";
+            // 
+            // cbo_tua2
+            // 
+            this.cbo_tua2.AutoHeight = false;
+            this.cbo_tua2.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.cbo_tua2.Name = "cbo_tua2";
             // 
             // chk_upload
             // 
@@ -770,28 +764,7 @@
             this.lbl_matua.Name = "lbl_matua";
             this.lbl_matua.Size = new System.Drawing.Size(50, 0);
             this.lbl_matua.TabIndex = 22;
-            // 
-            // xtraTabControl1
-            // 
-            this.xtraTabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.xtraTabControl1.Location = new System.Drawing.Point(0, 0);
-            this.xtraTabControl1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.xtraTabControl1.Name = "xtraTabControl1";
-            this.xtraTabControl1.SelectedTabPage = this.tab_danhmuc;
-            this.xtraTabControl1.Size = new System.Drawing.Size(1126, 727);
-            this.xtraTabControl1.TabIndex = 27;
-            this.xtraTabControl1.TabPages.AddRange(new DevExpress.XtraTab.XtraTabPage[] {
-            this.tab_danhmuc,
-            this.tab_layout});
-            this.xtraTabControl1.SelectedPageChanged += new DevExpress.XtraTab.TabPageChangedEventHandler(this.xtraTabControl1_SelectedPageChanged);
-            // 
-            // tab_danhmuc
-            // 
-            this.tab_danhmuc.Controls.Add(this.grcDanhMuc);
-            this.tab_danhmuc.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.tab_danhmuc.Name = "tab_danhmuc";
-            this.tab_danhmuc.Size = new System.Drawing.Size(1124, 702);
-            this.tab_danhmuc.Text = "Danh mục";
+            this.lbl_matua.TextChanged += new System.EventHandler(this.lbl_matua_TextChanged);
             // 
             // grcDanhMuc
             // 
@@ -813,7 +786,7 @@
             this.proBar3,
             this.repositoryItemButtonEdit4,
             this.cboQuaTang});
-            this.grcDanhMuc.Size = new System.Drawing.Size(1124, 702);
+            this.grcDanhMuc.Size = new System.Drawing.Size(943, 727);
             this.grcDanhMuc.TabIndex = 18;
             this.grcDanhMuc.UseEmbeddedNavigator = true;
             this.grcDanhMuc.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
@@ -1312,21 +1285,13 @@
             this.proBar3.ShowTitle = true;
             this.proBar3.Step = 1;
             // 
-            // tab_layout
-            // 
-            this.tab_layout.Controls.Add(this.dgv_Layout);
-            this.tab_layout.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.tab_layout.Name = "tab_layout";
-            this.tab_layout.Size = new System.Drawing.Size(1124, 702);
-            this.tab_layout.Text = "Layout";
-            // 
             // dgv_Layout
             // 
             this.dgv_Layout.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgv_Layout.Location = new System.Drawing.Point(0, 0);
             this.dgv_Layout.MainView = this.winExplorerView1;
             this.dgv_Layout.Name = "dgv_Layout";
-            this.dgv_Layout.Size = new System.Drawing.Size(1124, 702);
+            this.dgv_Layout.Size = new System.Drawing.Size(636, 727);
             this.dgv_Layout.TabIndex = 1;
             this.dgv_Layout.UseEmbeddedNavigator = true;
             this.dgv_Layout.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
@@ -1418,17 +1383,32 @@
             this.splitContainerControl1.Name = "splitContainerControl1";
             this.splitContainerControl1.Panel1.Controls.Add(this.groupControl1);
             this.splitContainerControl1.Panel1.Text = "Panel1";
-            this.splitContainerControl1.Panel2.Controls.Add(this.xtraTabControl1);
+            this.splitContainerControl1.Panel2.Controls.Add(this.splitContainerControl2);
             this.splitContainerControl1.Panel2.Text = "Panel2";
-            this.splitContainerControl1.Size = new System.Drawing.Size(1136, 727);
+            this.splitContainerControl1.Size = new System.Drawing.Size(1599, 727);
             this.splitContainerControl1.SplitterPosition = 272;
             this.splitContainerControl1.TabIndex = 32;
+            // 
+            // splitContainerControl2
+            // 
+            this.splitContainerControl2.CollapsePanel = DevExpress.XtraEditors.SplitCollapsePanel.Panel2;
+            this.splitContainerControl2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.splitContainerControl2.FixedPanel = DevExpress.XtraEditors.SplitFixedPanel.Panel2;
+            this.splitContainerControl2.Location = new System.Drawing.Point(0, 0);
+            this.splitContainerControl2.Name = "splitContainerControl2";
+            this.splitContainerControl2.Panel1.Controls.Add(this.grcDanhMuc);
+            this.splitContainerControl2.Panel1.Text = "Panel1";
+            this.splitContainerControl2.Panel2.Controls.Add(this.dgv_Layout);
+            this.splitContainerControl2.Panel2.Text = "Panel2";
+            this.splitContainerControl2.Size = new System.Drawing.Size(1589, 727);
+            this.splitContainerControl2.SplitterPosition = 636;
+            this.splitContainerControl2.TabIndex = 19;
             // 
             // FrmDanhMuc
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1136, 751);
+            this.ClientSize = new System.Drawing.Size(1599, 751);
             this.Controls.Add(this.splitContainerControl1);
             this.Controls.Add(this.lbl_matua);
             this.Controls.Add(this.lbl_matruyen);
@@ -1476,9 +1456,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem9)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem10)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem11)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.xtraTabControl1)).EndInit();
-            this.xtraTabControl1.ResumeLayout(false);
-            this.tab_danhmuc.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.grcDanhMuc)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.grvViewDanhMuc)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemButtonEdit4)).EndInit();
@@ -1494,11 +1471,12 @@
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemButtonEdit3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ProgressBar1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.proBar3)).EndInit();
-            this.tab_layout.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgv_Layout)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.winExplorerView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerControl1)).EndInit();
             this.splitContainerControl1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainerControl2)).EndInit();
+            this.splitContainerControl2.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1528,9 +1506,6 @@
         private DevExpress.XtraBars.BarButtonItem btn_in;
         private DevExpress.XtraBars.BarSubItem barSubItem1;
         private DevExpress.XtraBars.BarButtonItem btn_danhsach;
-        private DevExpress.XtraTab.XtraTabControl xtraTabControl1;
-        private DevExpress.XtraTab.XtraTabPage tab_layout;
-        private DevExpress.XtraTab.XtraTabPage tab_danhmuc;
         private DevExpress.XtraGrid.GridControl grcDanhMuc;
         private DevExpress.XtraGrid.Views.Grid.GridView grvViewDanhMuc;
         private DevExpress.XtraGrid.Columns.GridColumn col_tinhtrang;
@@ -1612,5 +1587,6 @@
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn13;
         private DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit cboQuaTang;
         private DevExpress.XtraEditors.SplitContainerControl splitContainerControl1;
+        private DevExpress.XtraEditors.SplitContainerControl splitContainerControl2;
     }
 }
