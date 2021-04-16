@@ -244,7 +244,7 @@ namespace ComicPro2019.NghiepVu
                         Directory.CreateDirectory(strNewDirPathOrigin);
                     }
 
-                    //File.Copy(xtraOpenFileDialog1.FileName, strNewDirPathOrigin + "\\" + grvViewDanhMuc.GetRowCellValue(i, "matruyen") + ".jpg", true);
+                    File.Copy(xtraOpenFileDialog1.FileName, strNewDirPathOrigin + "\\" + grvViewDanhMuc.GetRowCellValue(i, "matruyen") + ".jpg", true);
 
                     string strNewDirPathThumb = Application.StartupPath + "\\img\\thumb\\" + grvViewDanhMuc.GetRowCellValue(i, "matua");
                     if (!Directory.Exists(strNewDirPathThumb))
@@ -267,7 +267,7 @@ namespace ComicPro2019.NghiepVu
                     var localfile = strNewDirPathThumb + "\\" + grvViewDanhMuc.GetRowCellValue(i, "matruyen") + ".jpg";
                     fTPHelper.upload(remotefile, localfile);
                     pictureEdit1.Image = ReadImageToStream(strNewDirPathOrigin + "\\" + grvViewDanhMuc.GetRowCellValue(i, "matruyen") + ".jpg");
-                    File.Copy(xtraOpenFileDialog1.FileName, strNewDirPathOrigin + "\\" + grvViewDanhMuc.GetRowCellValue(i, "matruyen") + ".jpg", true);
+                   
                     ExecSQL.ExecQueryNonData($"UPDATE dbo.tbl_tentruyen SET filehinh='{xtraOpenFileDialog1.FileName}' WHERE matruyen='{grvViewDanhMuc.GetRowCellValue(i, "matua")}'");
                 }
             }
