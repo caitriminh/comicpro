@@ -267,7 +267,7 @@ namespace ComicPro2019.NghiepVu
                     var localfile = strNewDirPathThumb + "\\" + grvViewDanhMuc.GetRowCellValue(i, "matruyen") + ".jpg";
                     fTPHelper.upload(remotefile, localfile);
                     pictureEdit1.Image = ReadImageToStream(strNewDirPathOrigin + "\\" + grvViewDanhMuc.GetRowCellValue(i, "matruyen") + ".jpg");
-                   
+
                     ExecSQL.ExecQueryNonData($"UPDATE dbo.tbl_tentruyen SET filehinh='{xtraOpenFileDialog1.FileName}' WHERE matruyen='{grvViewDanhMuc.GetRowCellValue(i, "matua")}'");
                 }
             }
