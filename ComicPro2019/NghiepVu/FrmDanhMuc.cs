@@ -92,7 +92,7 @@ namespace ComicPro2019.NghiepVu
                 }
             }
             modifined.Clear();
-            GetDanhMuc();
+            //GetDanhMuc();
             Form1.Default.ShowMessageSuccess($"Đã cập nhật thành công {dem} dòng.");
         }
 
